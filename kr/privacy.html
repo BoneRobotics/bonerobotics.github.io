@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Privacy Policy · Bone Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0b0d;--bg2:#101216;--bg3:#06070a;--border:rgba(255,255,255,0.12);--border2:rgba(255,255,255,0.22);--text:#e8e6e0;--muted:#9a9890;--accent:#c9a227;--amber:#c9a227;--white:#ffffff;--cyan:#00A8E8;}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 64px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,11,0.55);-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);border-bottom:0.5px solid var(--border)}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;padding:0 20px;height:64px;display:flex;align-items:center;border-right:0.5px solid var(--border)}
+.nav-links a:first-child{border-left:0.5px solid var(--border)}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.03)}
+.nav-cta{background:var(--white)!important;color:#060606!important;border-right:none!important}
+.phead{position:relative;padding:160px 64px 60px;border-bottom:0.5px solid var(--border);overflow:hidden}
+.phead .eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.phead .eyebrow::before{content:'';width:34px;height:1px;background:var(--cyan)}
+.phead h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,9vw,120px);line-height:0.9;color:#fff;letter-spacing:0.01em}
+.phead .meta{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:20px}
+.motif{position:absolute;pointer-events:none}.motif path{fill:none;stroke:var(--cyan)}.motif .node{fill:var(--cyan);stroke:none}
+.legal{max-width:860px;padding:72px 64px 110px;margin:0 auto}
+.lead{font-size:16px;line-height:1.85;color:#9a978f;font-weight:300;margin-bottom:8px}
+.legal h2{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--cyan);margin:52px 0 18px;display:flex;align-items:center;gap:12px}
+.legal h2 .n{color:var(--muted)}
+.legal p{font-size:14px;line-height:1.9;color:#86837b;font-weight:300;margin-bottom:14px}
+.legal strong{color:var(--text);font-weight:500}
+.legal ul{list-style:none;margin:6px 0 14px}
+.legal li{font-size:14px;line-height:1.8;color:#86837b;font-weight:300;padding-left:20px;position:relative;margin-bottom:8px}
+.legal li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:1px;background:var(--cyan)}
+.legal a{color:var(--accent);text-decoration:none;border-bottom:0.5px solid rgba(168,162,152,0.4)}.legal a:hover{color:var(--cyan);border-color:var(--cyan)}
+.callout{border:0.5px solid var(--border2);background:rgba(0,168,232,0.05);box-shadow:inset 0 0 0 1px rgba(0,168,232,0.12);padding:26px 30px;margin:28px 0}
+.callout .k{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.callout p{margin:0;color:#9a978f}
+footer{padding:28px 64px;display:flex;align-items:center;justify-content:space-between;border-top:0.5px solid var(--border);background:var(--bg2)}
+.f-copy{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--muted)}
+.priv{border-top:0.5px solid var(--border);padding:10px 64px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.06em;color:#2e2c28;background:var(--bg2)}
+.priv a{color:#6a6760;text-decoration:none}.priv a:hover{color:var(--cyan)}
+@media(max-width:960px){nav{padding:0 24px}.nav-links a{padding:0 12px;font-size:9px}.phead{padding:130px 24px 48px}.legal{padding:56px 24px 80px}footer,.priv{padding-left:24px;padding-right:24px}.motif{display:none}}
+@media(max-width:680px){.nav-links{display:none}}
+
+.lang-toggle{display:flex;align-items:center;gap:0;margin-right:8px;border:1px solid var(--border2);border-radius:2px;overflow:hidden}
+.lang-toggle a{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:6px 11px;text-decoration:none;color:var(--muted);transition:color 0.2s,background 0.2s;height:auto!important;border:none!important}
+.lang-toggle a.on{color:#0a0b0d;background:var(--white)}
+.lang-toggle a:not(.on):hover{color:var(--white);background:rgba(255,255,255,0.06)}
+
+html{scroll-padding-top:72px}
+.sec,.page-hero,.prod-section,.prod-nav{scroll-margin-top:72px}
+
+/*MOBILE-STACK*/
+@media(max-width:680px){
+[style*="grid-template-columns"]{grid-template-columns:1fr !important}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div><a href="index.html"><img src="../assets/img_001_2cd59baf6c82.png" alt="Bone Robotics" style="height:26px;display:block"></a></div>
+  <div class="nav-links"><a href="what-we-do.html">Capabilities</a><a href="products.html">Platform</a><a href="mission.html">Company</a><a href="press.html">Press</a><div class="lang-toggle"><a href="../privacy.html">EN</a><a href="privacy.html" class="on">KO</a></div>
+    <a href="contact.html" class="nav-cta">Contact</a></div>
+</nav>
+
+<div class="phead">
+  <svg class="motif" viewBox="0 0 700 700" style="top:-150px;right:-120px;width:560px;height:560px;opacity:0.18">
+    <path d="M40,690 A 660,660 0 0 1 690,40" stroke-width="1.2"/>
+    <path d="M205,700 A 520,520 0 0 1 700,205" stroke-width="1.2"/>
+    <circle class="node" cx="452" cy="250" r="5.5"/>
+  </svg>
+  <div class="eyebrow">Legal</div>
+  <h1>PRIVACY<br>POLICY</h1>
+  <div class="meta">시행일: 2025년 1월 · Bone Robotics Inc.</div>
+</div>
+
+<div class="legal">
+  <p class="lead">Bone Robotics는 프라이버시를 최우선으로 설계되었습니다. 당사 웹사이트는 쿠키를 설정하지 않고, 제3자 애널리틱스를 운영하지 않으며, 광고나 행동 추적기를 삽입하지 않습니다. 본 방침은 당사가 다루는 제한적인 데이터와 이용자의 선택권을 설명합니다.</p>
+
+  <div class="callout">
+    <div class="k">한눈에 보기</div>
+    <p>쿠키 없음. 트래커 없음. 애널리틱스 없음. 당사는 이용자가 보내기로 선택한 정보 — 예를 들어 문의 시 — 만을 처리하며, 오직 답변을 위해서만 사용합니다.</p>
+  </div>
+
+  <h2><span class="n">01</span> 당사 소개</h2>
+  <p>Bone Robotics Inc.(이하 &ldquo;Bone Robotics&rdquo;, &ldquo;당사&rdquo;)는 대한민국 서울에 본사를 둔 Physical AI 및 자율 시스템 기업입니다. 당사는 본 방침에 기술된 개인정보에 대한 책임을 지는 개인정보처리자입니다. 개인정보 관련 문의는 다음으로 연락해 주십시오: <a href="mailto:info@bone.ai">info@bone.ai</a>.</p>
+
+  <h2><span class="n">02</span> 수집하는 정보</h2>
+  <p>당사는 수집을 최소한으로 유지합니다.</p>
+  <ul>
+    <li><strong>이용자가 제공하는 정보.</strong> 문의 채널을 통해 연락하실 때, 당사는 이용자가 공유하기로 선택한 정보 — 일반적으로 이름, 이메일 주소, 소속, 메시지 내용 — 를 받습니다.</li>
+    <li><strong>기본 서버 로그.</strong> 대부분의 웹사이트와 마찬가지로, 당사 호스팅 인프라는 보안과 안정성을 위해 기술적 요청 데이터(IP 주소, 타임스탬프, 요청 페이지 등)를 일시적으로 기록할 수 있습니다. 이 로그는 이용자를 프로파일링하거나 추적하는 데 사용되지 않습니다.</li>
+    <li><strong>쿠키·애널리틱스 없음.</strong> 당사는 본 사이트에 쿠키를 설치하거나 애널리틱스 도구, 핑거프린팅, 광고 기술을 사용하지 않습니다.</li>
+  </ul>
+
+  <h2><span class="n">03</span> 제3자 서비스</h2>
+  <p>본 사이트는 다음에서 글꼴을 불러옵니다: <strong>Google Fonts</strong>. 글꼴이 로드될 때 이용자의 브라우저는 Google 서버에 요청을 보내며, 이 과정에서 IP 주소가 Google에 전달됩니다. 당사는 Google과 그 외 어떠한 정보도 공유하지 않으며, 다른 제3자 스크립트를 사용하지 않습니다. 이용자가 문의를 제출하면, 메시지는 당사의 이메일 제공업체를 통해 처리될 수 있습니다.</p>
+
+  <h2><span class="n">04</span> 정보의 이용 방식</h2>
+  <ul>
+    <li>To respond to your inquiries and communicate with you.</li>
+    <li>To evaluate and progress partnership, procurement, or recruitment discussions you initiate.</li>
+    <li>To maintain the security, integrity, and availability of our site.</li>
+  </ul>
+  <p>당사는 개인정보를 판매하지 않으며, 광고나 자동화된 프로파일링에 사용하지 않습니다.</p>
+
+  <h2><span class="n">05</span> 법적 근거</h2>
+  <p>관련 법률이 법적 근거를 요구하는 경우, 당사는 이용자의 <strong>동의</strong>(문의 시), 사이트 운영·보안 및 정당한 비즈니스 문의 응대에 관한 당사의 <strong>정당한 이익</strong>, 그리고 <strong>법적 의무의 준수</strong>에 근거합니다.</p>
+
+  <h2><span class="n">06</span> 공유 및 공개</h2>
+  <p>당사는 운영을 돕는 소수의 서비스 제공업체(예: 호스팅, 이메일)와만 적절한 기밀 유지 의무 하에 개인정보를 공유합니다. 또한 법률이 요구하거나 공공기관의 적법한 요청에 응하기 위해, 그리고 합병·인수 등 기업 거래와 관련하여 정보를 공개할 수 있습니다.</p>
+
+  <h2><span class="n">07</span> 보유 기간</h2>
+  <p>당사는 문의 관련 정보를 요청 처리에 필요한 기간과 그 이후 기록 보관을 위한 합리적 기간 동안만 보유하며, 이후 삭제하거나 익명화합니다. Server logs are kept for a short period and rotated.</p>
+
+  <h2><span class="n">08</span> 이용자의 권리</h2>
+  <p>이용자의 관할권에 따라(대한민국 개인정보보호법(PIPA) 및 EU/영국 GDPR 포함), 이용자는 개인정보에 대한 열람·정정·삭제·처리 제한, 처리 반대, 데이터 이동성에 대한 권리를 가질 수 있습니다. 이러한 권리를 행사하려면 다음으로 이메일 email <a href="mailto:info@bone.ai">info@bone.ai</a>. You also have the right to lodge a complaint with your local data protection authority.</p>
+
+  <h2><span class="n">09</span> 보안</h2>
+  <p>당사는 보유한 제한적 정보를 보호하기 위해 합리적인 기술적·관리적 조치를 적용합니다. 어떤 전송이나 저장 방식도 완전히 안전하지는 않지만, 당사는 데이터를 보호하고 애초에 수집하는 정보를 최소화하기 위해 노력합니다.</p>
+
+  <h2><span class="n">10</span> 국외 이전</h2>
+  <p>당사는 대한민국에 기반을 두고 있습니다. 다른 국가에서 연락하시는 경우, 이용자의 정보는 한국에서 처리되며, 당사 서비스 제공업체가 운영되는 지역에서도 처리될 수 있습니다. 당사는 이러한 이전이 적절한 보호 조치를 따르도록 조치합니다.</p>
+
+  <h2><span class="n">11</span> 아동</h2>
+  <p>당사의 사이트와 서비스는 기업 및 정부 기관을 대상으로 하며, 아동을 대상으로 하지 않습니다. 당사는 아동의 개인정보를 고의로 수집하지 않습니다.</p>
+
+  <h2><span class="n">12</span> 본 방침의 변경</h2>
+  <p>당사는 본 방침을 수시로 업데이트할 수 있습니다. 중요한 변경 사항은 위 시행일 갱신과, 필요한 경우 추가 고지를 통해 반영됩니다.</p>
+
+  <h2><span class="n">13</span> 연락처</h2>
+  <p>본 방침이나 개인정보에 대한 문의가 있으신가요? 이메일 <a href="mailto:info@bone.ai">info@bone.ai</a>  또는 다음을 통해 연락해 주십시오:  <a href="contact.html">문의 페이지</a>.</p>
+</div>
+
+<footer>
+  <div><img src="../assets/img_001_2cd59baf6c82.png" alt="Bone Robotics" style="height:20px;opacity:0.35"></div>
+  <div class="f-copy">&copy; 2025 Bone Robotics Inc.</div>
+</footer>
+<div class="priv">No cookies &middot; No trackers &middot; No analytics &middot; <a href="privacy.html">개인정보 처리방침</a></div>
+</body>
+</html>

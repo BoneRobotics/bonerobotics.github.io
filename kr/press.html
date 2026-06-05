@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Press & References · Bone Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b0d;--bg2:#101216;--bg3:#06070a;
+  --border:rgba(255,255,255,0.12);--border2:rgba(255,255,255,0.22);
+  --text:#e8e6e0;--muted:#9a9890;--dim:#6e6c66;
+  --accent:#c9a227;--amber:#c9a227;--accent2:#f5f3ee;--white:#ffffff;--steel:#5b7a99;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,11,0.55);-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 1px 0 rgba(255,255,255,0.03) inset}
+.nav-logo img{height:26px;width:auto;display:block}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s,background 0.2s;padding:0 22px;height:72px;display:flex;align-items:center}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.04)}
+.nav-cta{background:var(--white)!important;color:#0a0b0d!important;font-weight:600}
+.nav-cta:hover{background:var(--amber)!important;color:#0a0b0d!important}
+.btn-p{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:var(--white);color:#0a0b0d;padding:16px 34px;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;font-weight:500}
+.btn-p:hover{background:var(--amber);transform:translateY(-2px)}
+.btn-g{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);border:1px solid var(--border2);padding:16px 34px;text-decoration:none;display:inline-block;transition:all 0.2s}
+.btn-g:hover{border-color:var(--white);background:rgba(255,255,255,0.06)}
+.page-hero{position:relative;width:100%;min-height:100vh;overflow:hidden;display:flex;align-items:flex-end;justify-content:flex-start}
+.page-hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.page-hero .grid-overlay{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent 40%,black 100%)}
+.page-hero .grad{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,11,13,0.97) 0%,rgba(10,11,13,0.72) 45%,rgba(10,11,13,0.55) 80%,rgba(10,11,13,0.5) 100%),linear-gradient(to right,rgba(10,11,13,0.88) 0%,rgba(10,11,13,0.4) 55%,rgba(10,11,13,0.15) 100%)}
+.page-hero .content{position:relative;z-index:2;padding:0 48px 80px;width:100%;max-width:1400px}
+.page-hero .eyebrow{font-family:'DM Mono',monospace;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:26px;display:flex;align-items:center;gap:16px;font-weight:500}
+.page-hero .eyebrow::before{content:'';width:36px;height:2px;background:var(--accent)}
+.page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,11vw,160px);line-height:0.86;color:#fff;margin-bottom:30px;letter-spacing:0.005em;max-width:100%;overflow-wrap:break-word}
+.page-hero h1 em{color:var(--muted);font-style:normal}
+.page-hero p{font-size:clamp(18px,1.8vw,22px);color:var(--text);line-height:1.6;max-width:640px;font-weight:400;margin-bottom:40px}
+.page-hero .btns{display:flex;gap:18px;flex-wrap:wrap}
+.sec{padding:120px 48px;border-bottom:1px solid var(--border);max-width:1400px;margin:0 auto}
+.sec.full{max-width:none}
+.sec.alt{background:var(--bg2)}
+.sec.dk{background:var(--bg3)}
+.eyebrow-sec{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:48px;display:flex;align-items:center;gap:18px;font-weight:500}
+.eyebrow-sec::after{content:'';flex:1;height:1px;background:var(--border)}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:0.9;color:var(--white);letter-spacing:0.01em}
+h2 em{color:var(--muted);font-style:normal}
+.lead-p{font-size:18px;color:var(--text);line-height:1.7;font-weight:400}
+footer{padding:36px 48px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);background:var(--bg3)}
+.f-copy{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;color:var(--muted)}
+.priv{border-top:1px solid var(--border);padding:14px 48px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--dim);background:var(--bg3);text-align:center}
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+.a1{animation:fadeUp 0.9s 0.15s ease both}.a2{animation:fadeUp 0.9s 0.35s ease both}.a3{animation:fadeUp 0.9s 0.55s ease both}.a4{animation:fadeUp 0.9s 0.75s ease both}
+.rev{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.rev.on{opacity:1;transform:translateY(0)}
+@media(max-width:980px){nav{padding:0 20px}.nav-links a{padding:0 13px;font-size:11px}.page-hero .content{padding:0 20px 60px}.sec{padding:80px 20px}footer,.priv{padding-left:20px;padding-right:20px}}
+@media(max-width:680px){.nav-links{display:none}}
+
+.split-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:56px;align-items:end}
+.lead-p{font-size:18px;color:var(--text);line-height:1.7;font-weight:400}
+.press-list{border:1px solid var(--border)}
+.press-item{display:grid;grid-template-columns:150px 1fr 56px;align-items:center;gap:40px;padding:36px 40px;border-bottom:1px solid var(--border);text-decoration:none;transition:background 0.2s}
+.press-item:last-child{border-bottom:none}
+.press-item:hover{background:var(--bg2)}
+.press-item:hover .p-arr{transform:translate(5px,-5px);color:var(--amber)}
+.p-out{font-family:'DM Mono',monospace;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.p-hl{font-size:18px;color:var(--white);line-height:1.4;font-weight:500}
+.p-dt{font-family:'DM Mono',monospace;font-size:13px;color:var(--muted);margin-top:6px}
+.p-arr{font-size:22px;color:var(--muted);transition:transform 0.2s,color 0.2s;text-align:center}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:1px}
+.metric{background:var(--bg);padding:52px 44px;position:relative;overflow:hidden}
+.metric::after{content:'';position:absolute;right:-24px;bottom:-24px;width:90px;height:90px;border:1px solid var(--border);border-radius:50%;opacity:0.4}
+.m-num{font-family:'Bebas Neue',sans-serif;font-size:68px;color:var(--white);line-height:1;margin-bottom:8px}
+.m-num em{color:var(--muted);font-style:normal}
+.m-lbl{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.cat-lbl{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);padding:24px 0;border-bottom:1px solid var(--border);margin-top:56px;margin-bottom:1px;font-weight:500}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.ref-cell{background:var(--bg2);padding:44px 38px;transition:background 0.3s}
+.ref-cell:hover{background:var(--bg3)}
+.ref-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border:1px solid;display:inline-block;margin-bottom:22px;font-weight:500}
+.ref-tag.gov{color:var(--steel);border-color:var(--steel)}
+.ref-tag.def{color:var(--text);border-color:var(--border2)}
+.ref-hl{font-size:20px;font-weight:600;color:var(--white);margin-bottom:12px;line-height:1.3}
+.ref-sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.ref-facts{display:flex;flex-direction:column;border-top:1px solid var(--border);padding-top:18px}
+.ref-fact{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;gap:16px}
+.ref-fact:last-child{border-bottom:none}
+.ref-fact-k{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ref-fact-v{color:var(--text);text-align:right}
+.media-kit{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.mk-cell{background:var(--bg2);padding:44px 38px;transition:background 0.3s}
+.mk-cell:hover{background:var(--bg3)}
+.mk-icon{font-size:28px;margin-bottom:20px;color:var(--accent)}
+.mk-title{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:12px;font-weight:500}
+.mk-desc{font-size:15px;color:var(--muted);line-height:1.7}
+@media(max-width:980px){.split-head{grid-template-columns:1fr;gap:32px}.metrics,.ref-grid,.media-kit{grid-template-columns:1fr}.press-item{grid-template-columns:100px 1fr 36px;gap:20px;padding:24px}}
+
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.res-cell{position:relative;background:var(--bg);padding:48px 40px 44px;overflow:hidden;transition:background 0.3s;min-height:260px;display:flex;flex-direction:column}
+.res-cell:hover{background:var(--bg2)}
+.res-cell::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.res-cell:hover::before{transform:scaleX(1)}
+.res-icon{font-size:26px;color:var(--muted);margin-bottom:auto}
+.res-fmt{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+.res-title{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--white);letter-spacing:0.02em;line-height:0.95;margin-bottom:14px}
+.res-desc{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.res-soon{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);border:1px solid var(--border);padding:6px 14px;display:inline-block;align-self:flex-start}
+@media(max-width:980px){.res-grid{grid-template-columns:1fr}}
+
+.lang-toggle{display:flex;align-items:center;gap:0;margin-right:8px;border:1px solid var(--border2);border-radius:2px;overflow:hidden}
+.lang-toggle a{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:6px 11px;text-decoration:none;color:var(--muted);transition:color 0.2s,background 0.2s;height:auto!important;border:none!important}
+.lang-toggle a.on{color:#0a0b0d;background:var(--white)}
+.lang-toggle a:not(.on):hover{color:var(--white);background:rgba(255,255,255,0.06)}
+
+html{scroll-padding-top:72px}
+.sec,.page-hero,.prod-section,.prod-nav{scroll-margin-top:72px}
+
+.hero-term{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.04em;color:var(--amber);margin-bottom:18px;min-height:16px;opacity:0.85}
+.hero-term .tcur{display:inline-block;width:7px;height:13px;background:var(--amber);margin-left:3px;vertical-align:middle;animation:tblink 1s steps(1) infinite}
+@keyframes tblink{50%{opacity:0}}
+.page-hero img.bg,.page-hero video.bg{will-change:transform}
+
+/*MOBILE-STACK*/
+@media(max-width:680px){
+.media-kit,.metrics,.press-item,.ref-grid,.res-grid,.split-head,[style*="grid-template-columns"]{grid-template-columns:1fr !important}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo"><a href="index.html"><img src="../assets/img_001_2cd59baf6c82.png" alt="Bone Robotics"></a></div>
+  <div class="nav-links">
+    <a href="what-we-do.html">Capabilities</a>
+    <a href="products.html">Platform</a>
+    <a href="mission.html">Company</a>
+    <a href="press.html" class="active">Press</a>
+    <div class="lang-toggle"><a href="../press.html">EN</a><a href="press.html" class="on">KO</a></div>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <img class="bg" src="../assets/img_023_614aeee10bed.png" alt="Press" style="filter:brightness(0.38) contrast(1.05) grayscale(0.25)">
+  <div class="grid-overlay"></div>
+  <div class="grad"></div>
+  <div class="content">
+    <div class="hero-term" id="heroTerm"></div>
+    <div class="eyebrow a1">Newsroom</div>
+    <h1 class="a2">AHEAD OF<br><em>THE CURVE.</em></h1>
+    <p class="a3">보도, 현장 기록, 그리고 한국의 Physical AI 프론티어를 만들어가는 아이디어 — 카테고리를 정의하는 팀이 직접 전합니다.</p>
+    <div class="btns a4">
+      <a href="#references" class="btn-p">현장 레퍼런스</a>
+      <a href="#resources" class="btn-g">Resources →</a>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="coverage">
+  <div class="eyebrow-sec rev">Media Coverage</div>
+  <div class="press-list rev">
+    <a class="press-item" href="https://techcrunch.com/2025/11/17/bone-ai-raises-funding-to-challenge-asias-defense-giants-with-next-gen-ai-powered-robotics/" target="_blank" rel="noopener noreferrer">
+      <div class="p-out">TechCrunch</div>
+      <div>
+        <div class="p-hl">Bone AI raises $12M to challenge Asia's defense giants with AI-powered robotics</div>
+        <div class="p-dt">2025년 11월</div>
+      </div>
+      <div class="p-arr">↗</div>
+    </a>
+  </div>
+</div>
+
+<div class="sec full alt" style="padding-left:0;padding-right:0" id="references">
+ <div style="max-width:1400px;margin:0 auto;padding:120px 48px">
+  <div class="eyebrow-sec rev">Field References</div>
+  <div class="split-head rev">
+    <h2>PROVEN<br><em>IN THE FIELD.</em></h2>
+    <p class="lead-p">실험실 결과가 아닙니다. 공공안전과 국방 양 영역에서 국민과 국가 인프라를 보호하는 주요 프로젝트입니다.</p>
+  </div>
+
+  <div class="cat-lbl rev">Public Safety</div>
+  <div class="ref-grid rev">
+    <div class="ref-cell">
+      <div class="ref-tag gov">Disaster Response · B2G</div>
+      <div class="ref-hl">상주시 산불·재난 감시</div>
+      <p class="ref-sub">AI CCTV, 자율 드론, 드론 스테이션, 통합 GCS를 단일 C2 시스템으로 통합 — 화선(火線)의 불확실성을 통제합니다.</p>
+      <div class="ref-facts">
+        <div class="ref-fact"><span class="ref-fact-k">발주처</span><span class="ref-fact-v">상주시</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">계약 규모</span><span class="ref-fact-v">₩1.3B</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">운용 기간</span><span class="ref-fact-v">2025.12 – 2027.05</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">구성</span><span class="ref-fact-v">CCTV ×4 · Drone ×4 · Station ×4 · GCS</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">목표 성능</span><span class="ref-fact-v">88%+ detection · 90%+ autonomy</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">현황</span><span class="ref-fact-v">구축 진행 중</span></div>
+      </div>
+    </div>
+    <div class="ref-cell">
+      <div class="ref-tag gov">Autonomous Logistics · B2G</div>
+      <div class="ref-hl">하이브리드 자율 배송</div>
+      <p class="ref-sub">드론(미들마일)과 자율주행 로버(라스트마일)를 결합한 하이브리드 물류 시스템 — 세계 최초 수준으로 실증했습니다.</p>
+      <div class="ref-facts">
+        <div class="ref-fact"><span class="ref-fact-k">사업</span><span class="ref-fact-v">국토부 배송 실증도시</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">계약 규모</span><span class="ref-fact-v">₩800M</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">배송 건수</span><span class="ref-fact-v">260 completed (113% of goal)</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">성공률</span><span class="ref-fact-v">99% (target 90%)</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">연계 성공률</span><span class="ref-fact-v">100% (target 85%)</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">안전</span><span class="ref-fact-v">무사고 0건</span></div>
+      </div>
+    </div>
+    <div class="ref-cell">
+      <div class="ref-tag gov">Public Safety · B2G</div>
+      <div class="ref-hl">기타 공공 레퍼런스</div>
+      <p class="ref-sub">경북 상주시와 10년 이상의 협력 기반. 확장 경로: 상주시 → 경상북도 → 산림청·소방청.</p>
+      <div class="ref-facts">
+        <div class="ref-fact"><span class="ref-fact-k">경북 농업기술원</span><span class="ref-fact-v">방제 드론</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">스마트농업</span><span class="ref-fact-v">플랫폼 개발</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">경북테크노파크</span><span class="ref-fact-v">협력</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">한국지질자원연구원</span><span class="ref-fact-v">협력</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">미래항공교통</span><span class="ref-fact-v">R&D 참여</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cat-lbl rev">Defense</div>
+  <div class="ref-grid rev">
+    <div class="ref-cell">
+      <div class="ref-tag def">Defense · Counter-UAS · B2G</div>
+      <div class="ref-hl">드론 공방전 시연</div>
+      <p class="ref-sub">국방부장관·대통령 참석 행사에서 경쟁 참가사가 아닌 시연 기업으로 선정. 군이 기술을 검증하는 무대입니다.</p>
+      <div class="ref-facts">
+        <div class="ref-fact"><span class="ref-fact-k">6월 예선</span><span class="ref-fact-v">국방부장관 참석 · Bone 단독 시연</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">9월 본선</span><span class="ref-fact-v">대통령 참석 · Bone 단독 시연</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">참가 형태</span><span class="ref-fact-v">경쟁 참가 아닌 시연 기업</span></div>
+      </div>
+    </div>
+    <div class="ref-cell">
+      <div class="ref-tag def">Defense · Training · B2D</div>
+      <div class="ref-hl">육군정보학교 납품</div>
+      <p class="ref-sub">Swallow — 조립·분해·정비 실습을 위해 설계된 교육용 드론 플랫폼. 드론 운용·정비 역량 양성을 위한 것입니다.</p>
+      <div class="ref-facts">
+        <div class="ref-fact"><span class="ref-fact-k">발주처</span><span class="ref-fact-v">육군정보학교</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">납품</span><span class="ref-fact-v">Swallow ×12 · Nov 2025</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">설계</span><span class="ref-fact-v">조립·정비 반복 실습</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">현황</span><span class="ref-fact-v">교육 운용 중</span></div>
+      </div>
+    </div>
+    <div class="ref-cell">
+      <div class="ref-tag def">Defense · ISR · B2D</div>
+      <div class="ref-hl">제7군단 감시정찰 납품</div>
+      <p class="ref-sub">감시정찰용 TOV와 교육용 드론을 함께 납품. 야간 운용, 확성기, KCMVP 보안 통신 적용.</p>
+      <div class="ref-facts">
+        <div class="ref-fact"><span class="ref-fact-k">발주처</span><span class="ref-fact-v">제7군단</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">납품 완료</span><span class="ref-fact-v">2024년 12월</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">품목 1</span><span class="ref-fact-v">Surveillance TOV ×1 (KCMVP)</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">품목 2</span><span class="ref-fact-v">450-class trainer ×8 + cases</span></div>
+        <div class="ref-fact"><span class="ref-fact-k">현황</span><span class="ref-fact-v">부대 운용·교육 중</span></div>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<div class="sec" id="resources">
+  <div class="eyebrow-sec rev">Resources</div>
+  <div class="split-head rev">
+    <h2>FROM THE<br><em>FRONT LINE.</em></h2>
+    <p class="lead-p">자율성, 동맹국 제조, 그리고 Physical AI 시대의 인프라에 대한 관점 — 직접 구축하는 팀이 전합니다. 곧 시작합니다.</p>
+  </div>
+  <div class="res-grid rev">
+    <div class="res-cell">
+      <div class="res-icon">▶</div>
+      <div class="res-fmt">Podcast</div>
+      <div class="res-title">Backbone</div>
+      <p class="res-desc">자율성, 억지력, 그 뒤를 받치는 산업 기반에 대해 오퍼레이터·창업자·정책입안자와 나누는 대화.</p>
+      <span class="res-soon">Coming Soon</span>
+    </div>
+    <div class="res-cell">
+      <div class="res-icon">◉</div>
+      <div class="res-fmt">Webinar</div>
+      <div class="res-title">Field Briefings</div>
+      <p class="res-desc">C2 자율, 대드론, 재난 대응에 대한 라이브 기술 세션 — 직접 배치하는 엔지니어와 함께.</p>
+      <span class="res-soon">Coming Soon</span>
+    </div>
+    <div class="res-cell">
+      <div class="res-icon">▤</div>
+      <div class="res-fmt">White Paper</div>
+      <div class="res-title">Doctrine</div>
+      <p class="res-desc">Physical AI 시대의 Autonomy in Residence와 동맹국 제조 주권에 대한 심층 글.</p>
+      <span class="res-soon">Coming Soon</span>
+    </div>
+  </div>
+  <div class="rev" style="margin-top:40px">
+    <a href="contact.html" class="btn-g">출시 알림 받기 →</a>
+  </div>
+</div>
+
+<div class="sec" id="mediakit">
+  <div class="eyebrow-sec rev">Media Kit</div>
+  <div class="split-head rev">
+    <h2>ASSETS &<br><em>INQUIRIES.</em></h2>
+    <p class="lead-p">언론·미디어용. 모든 자료는 요청 시 제공됩니다 — press@bone.ai로 문의하세요.</p>
+  </div>
+  <div class="media-kit rev">
+    <div class="mk-cell"><div class="mk-icon">◈</div><div class="mk-title">Logo Package</div><p class="mk-desc">SVG·PNG 버전 — 라이트, 다크, 심볼 단독 — 인쇄·디지털용.</p></div>
+    <div class="mk-cell"><div class="mk-icon">◉</div><div class="mk-title">Product Images</div><p class="mk-desc">Saerier·Saena·SOMA 시스템의 고해상도 렌더링 및 사진.</p></div>
+    <div class="mk-cell"><div class="mk-icon">◎</div><div class="mk-title">Company Boilerplate</div><p class="mk-desc">공식 회사 소개, 핵심 정보, 경영진 약력 — 편집용.</p></div>
+  </div>
+  <div style="margin-top:48px" class="rev"><a href="contact.html" class="btn-p">언론팀에 문의 →</a></div>
+</div>
+
+<footer>
+  <div><img src="../assets/img_001_2cd59baf6c82.png" alt="Bone Robotics" style="height:22px;opacity:0.5"></div>
+  <div class="f-copy">© 2025 Bone Robotics Inc.</div>
+</footer>
+<div class="priv">쿠키 없음 · 제3자 트래커 없음 · 애널리틱스 없음 · <a href="privacy.html" style="color:var(--accent);text-decoration:none">개인정보 처리방침</a></div>
+
+<script>
+document.querySelectorAll('.rev').forEach(el => {
+  new IntersectionObserver((e) => {
+    e.forEach((entry, i) => { if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('on'), i * 70); });
+  }, {threshold: 0.08}).observe(el);
+});
+</script>
+<script>
+(function(){
+  const el=document.getElementById('heroTerm'); if(!el) return;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const lines=['ESTABLISHING UPLINK','NEWSROOM // FIELD RECORD','CHANNEL OPEN ... OK'];
+  if(reduce){ el.textContent='READY'; return; }
+  let li=0,ci=0;
+  function type(){
+    if(li>=lines.length){ el.innerHTML='<span style="color:var(--amber)">READY</span><span class="tcur"></span>'; return; }
+    const cur=lines[li]; el.innerHTML=cur.slice(0,ci)+'<span class="tcur"></span>'; ci++;
+    if(ci>cur.length){ li++; ci=0; setTimeout(type, li>=lines.length?0:340); }
+    else setTimeout(type, 22+Math.random()*28);
+  }
+  setTimeout(type, 450);
+})();</script>
+<script>
+(function(){
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches; if(reduce) return;
+  const hero=document.querySelector('.page-hero'); if(!hero) return;
+  const bg=hero.querySelector('.bg'); const content=hero.querySelector('.content');
+  let ticking=false;
+  function onScroll(){
+    if(ticking) return; ticking=true;
+    requestAnimationFrame(()=>{
+      const y=window.scrollY;
+      if(y<window.innerHeight){
+        if(bg) bg.style.transform='translateY('+(y*0.35)+'px) scale(1.08)';
+        if(content){ content.style.transform='translateY('+(y*0.12)+'px)'; content.style.opacity=String(Math.max(0,1-y/(window.innerHeight*0.7))); }
+      }
+      ticking=false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();</script>
+</body>
+</html>

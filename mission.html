@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Company · Bone Robotics</title>
+<meta name="description" content="Bone Robotics builds and industrializes the infrastructure of the Physical AI era — autonomous systems for defense and public safety, owned from software to manufacturing, made in Korea.">
+<meta property="og:title" content="Bone Robotics · Industrializing the Physical AI Infrastructure.">
+<meta property="og:description" content="Bone Robotics builds and industrializes the infrastructure of the Physical AI era — autonomous systems for defense and public safety, owned from software to manufacturing, made in Korea.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bone Robotics · Industrializing the Physical AI Infrastructure.">
+<meta name="twitter:description" content="Bone Robotics builds and industrializes the infrastructure of the Physical AI era — autonomous systems for defense and public safety, owned from software to manufacturing, made in Korea.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b0d;--bg2:#101216;--bg3:#06070a;
+  --border:rgba(255,255,255,0.12);--border2:rgba(255,255,255,0.22);
+  --text:#e8e6e0;--muted:#9a9890;--dim:#6e6c66;
+  --accent:#c9a227;--amber:#c9a227;--accent2:#f5f3ee;--white:#ffffff;--steel:#5b7a99;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,11,0.55);-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 1px 0 rgba(255,255,255,0.03) inset}
+.nav-logo img{height:26px;width:auto;display:block}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s,background 0.2s;padding:0 22px;height:72px;display:flex;align-items:center}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.04)}
+.nav-cta{background:var(--white)!important;color:#0a0b0d!important;font-weight:600}
+.nav-cta:hover{background:var(--amber)!important;color:#0a0b0d!important}
+.btn-p{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:var(--white);color:#0a0b0d;padding:16px 34px;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;font-weight:500}
+.btn-p:hover{background:var(--amber);transform:translateY(-2px)}
+.btn-g{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);border:1px solid var(--border2);padding:16px 34px;text-decoration:none;display:inline-block;transition:all 0.2s}
+.btn-g:hover{border-color:var(--white);background:rgba(255,255,255,0.06)}
+.page-hero{position:relative;width:100%;min-height:100vh;overflow:hidden;display:flex;align-items:flex-end;justify-content:flex-start}
+.page-hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.page-hero .grid-overlay{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent 40%,black 100%)}
+.page-hero .grad{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,11,13,0.97) 0%,rgba(10,11,13,0.55) 40%,rgba(10,11,13,0.2) 75%,transparent 100%),linear-gradient(to right,rgba(10,11,13,0.7) 0%,rgba(10,11,13,0.1) 60%)}
+.page-hero .content{position:relative;z-index:2;padding:0 48px 80px;width:100%;max-width:1400px}
+.page-hero .eyebrow{font-family:'DM Mono',monospace;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:26px;display:flex;align-items:center;gap:16px;font-weight:500}
+.page-hero .eyebrow::before{content:'';width:36px;height:2px;background:var(--accent)}
+.page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,11vw,160px);line-height:0.86;color:#fff;margin-bottom:30px;letter-spacing:0.005em;max-width:100%;overflow-wrap:break-word}
+.page-hero h1 em{color:var(--muted);font-style:normal}
+.page-hero p{font-size:clamp(18px,1.8vw,22px);color:var(--text);line-height:1.6;max-width:640px;font-weight:400;margin-bottom:40px}
+.page-hero .btns{display:flex;gap:18px;flex-wrap:wrap}
+.sec{padding:120px 48px;border-bottom:1px solid var(--border);max-width:1400px;margin:0 auto}
+.sec.full{max-width:none}
+.sec.alt{background:var(--bg2)}
+.sec.dk{background:var(--bg3)}
+.eyebrow-sec{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:48px;display:flex;align-items:center;gap:18px;font-weight:500}
+.eyebrow-sec::after{content:'';flex:1;height:1px;background:var(--border)}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:0.9;color:var(--white);letter-spacing:0.01em}
+h2 em{color:var(--muted);font-style:normal}
+.lead-p{font-size:18px;color:var(--text);line-height:1.7;font-weight:400}
+footer{padding:36px 48px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);background:var(--bg3)}
+.f-copy{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;color:var(--muted)}
+.priv{border-top:1px solid var(--border);padding:14px 48px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--dim);background:var(--bg3);text-align:center}
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+.a1{animation:fadeUp 0.9s 0.15s ease both}.a2{animation:fadeUp 0.9s 0.35s ease both}.a3{animation:fadeUp 0.9s 0.55s ease both}.a4{animation:fadeUp 0.9s 0.75s ease both}
+.rev{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.rev.on{opacity:1;transform:translateY(0)}
+@media(max-width:980px){nav{padding:0 20px}.nav-links a{padding:0 13px;font-size:11px}.page-hero .content{padding:0 20px 60px}.sec{padding:80px 20px}footer,.priv{padding-left:20px;padding-right:20px}}
+@media(max-width:680px){.nav-links{display:none}}
+
+.split-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:56px;align-items:start}
+.mission-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5.5vw,84px);line-height:0.95;color:var(--white);letter-spacing:0.01em}
+.mission-big em{color:var(--muted);font-style:normal}
+.mbody p{font-size:18px;color:var(--text);line-height:1.75;margin-bottom:20px;font-weight:400}
+.mbody p.hi{color:var(--text);font-weight:500}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:56px}
+.pillar{position:relative;background:var(--bg2);padding:48px 44px;overflow:hidden;transition:background 0.3s}
+.pillar:hover{background:var(--bg3)}
+.pillar::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--amber);transform:scaleY(0);transform-origin:top;transition:transform 0.4s}
+.pillar:hover::before{transform:scaleY(1)}
+.pillar-n{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.1em;color:var(--muted);margin-bottom:16px;font-weight:500}
+.pillar-lbl{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.02em;color:var(--white);margin-bottom:14px;line-height:1}
+.pillar-txt{font-size:16px;color:var(--muted);line-height:1.7}
+.company-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px}
+.block-lbl{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;font-weight:500}
+.list-box{display:flex;flex-direction:column;border:1px solid var(--border)}
+.list-row{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;transition:background 0.2s}
+.list-row:last-child{border-bottom:none}
+.list-row:hover{background:var(--bg2)}
+.list-name{font-size:16px;font-weight:600;color:var(--white)}
+.list-type{font-family:'DM Mono',monospace;font-size:12px;text-transform:uppercase;color:var(--muted);letter-spacing:0.05em}
+.tl-box{display:flex;flex-direction:column;border:1px solid var(--border)}
+.tl-row{display:grid;grid-template-columns:130px 1fr;padding:20px 24px;border-bottom:1px solid var(--border);gap:20px}
+.tl-row:last-child{border-bottom:none}
+.tl-date{font-family:'DM Mono',monospace;font-size:13px;text-transform:uppercase;color:var(--muted);letter-spacing:0.05em;font-weight:500}
+.tl-event{font-size:15px;color:var(--text);line-height:1.5}
+.founder{display:grid;grid-template-columns:380px 1fr;gap:0;border:1px solid var(--border);background:var(--border);gap:1px}
+.founder-photo{position:relative;background:var(--bg3);overflow:hidden;min-height:480px}
+.founder-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(15%)}
+.founder-info{background:var(--bg2);padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
+.f-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,68px);color:var(--white);line-height:0.92;letter-spacing:0.02em;margin-bottom:8px}
+.f-role{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border);font-weight:500}
+.f-info p{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.f-info strong{color:var(--text);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.tag{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);padding:8px 14px}
+.team-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:0.92;color:var(--white);max-width:900px;margin-bottom:24px}
+.team-big em{color:var(--muted);font-style:normal}
+@media(max-width:980px){.split-head,.company-grid,.pillars{grid-template-columns:1fr;gap:32px}.founder{grid-template-columns:1fr}.founder-photo{min-height:380px}}
+
+.lang-toggle{display:flex;align-items:center;gap:0;margin-right:8px;border:1px solid var(--border2);border-radius:2px;overflow:hidden}
+.lang-toggle a{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:6px 11px;text-decoration:none;color:var(--muted);transition:color 0.2s,background 0.2s;height:auto!important;border:none!important}
+.lang-toggle a.on{color:#0a0b0d;background:var(--white)}
+.lang-toggle a:not(.on):hover{color:var(--white);background:rgba(255,255,255,0.06)}
+
+html{scroll-padding-top:72px}
+.sec,.page-hero{scroll-margin-top:72px}
+.factory-band{scroll-margin-top:72px}
+
+.factory-band{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
+.factory-inner{max-width:1400px;margin:0 auto;padding:120px 48px}
+.factory-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:48px}
+.factory-cell{position:relative;aspect-ratio:4/3;background:var(--bg3);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.factory-cell img{width:100%;height:100%;object-fit:cover}
+.factory-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--dim)}
+.factory-ph-icon{font-size:34px;opacity:0.4}
+.factory-ph-txt{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim)}
+.factory-lbl{position:absolute;bottom:18px;left:20px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:rgba(10,11,13,0.72);padding:6px 12px;backdrop-filter:blur(8px);z-index:2}
+@media(max-width:860px){.factory-grid{grid-template-columns:1fr}}
+
+.careers-band{border-top:1px solid var(--border);background:var(--bg2);position:relative;overflow:hidden}
+.careers-inner{max-width:1400px;margin:0 auto;padding:128px 48px;position:relative;z-index:2}
+.careers-grid-bg{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 70% 100% at 50% 40%,black,transparent)}
+.careers-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,8vw,120px);line-height:0.88;color:var(--white);letter-spacing:0.01em;margin-bottom:24px}
+.careers-sub{font-size:18px;color:var(--text);line-height:1.7;max-width:640px;margin-bottom:40px;font-weight:400}
+.careers-roles{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px}
+.crole{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);padding:9px 16px}
+
+.hero-term{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.04em;color:var(--amber);margin-bottom:18px;min-height:16px;opacity:0.85}
+.hero-term .tcur{display:inline-block;width:7px;height:13px;background:var(--amber);margin-left:3px;vertical-align:middle;animation:tblink 1s steps(1) infinite}
+@keyframes tblink{50%{opacity:0}}
+.page-hero img.bg,.page-hero video.bg{will-change:transform}
+
+/*MOBILE-STACK*/
+@media(max-width:680px){
+.company-grid,.factory-grid,.founder,.pillars,.split-head,.tl-row,[style*="grid-template-columns"]{grid-template-columns:1fr !important}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo"><a href="index.html"><img src="assets/img_001_2cd59baf6c82.png" alt="Bone Robotics"></a></div>
+  <div class="nav-links">
+    <a href="what-we-do.html">Capabilities</a>
+    <a href="products.html">Platform</a>
+    <a href="mission.html" class="active">Company</a>
+    <a href="press.html">Press</a>
+    <div class="lang-toggle"><a href="mission.html" class="on">EN</a><a href="kr/mission.html">KO</a></div>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <img class="bg" src="assets/img_004_3dbf86876218.jpg" alt="Company" style="object-position:center 30%">
+  <div class="grid-overlay"></div>
+  <div class="grad"></div>
+  <div class="content">
+    <div class="hero-term" id="heroTerm"></div>
+    <div class="eyebrow a1">Industrializing the Physical AI Infrastructure</div>
+    <h1 class="a2">BUILT TO<br><em>LAST.</em></h1>
+    <p class="a3">We are building the industrial backbone of the Physical AI era — the kind of enduring company Korea has built before, for the technology that will define the next century.</p>
+    <div class="btns a4">
+      <a href="#mission" class="btn-p">Our Mission</a>
+      <a href="#team" class="btn-g">Meet the Team →</a>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="mission">
+  <div class="eyebrow-sec rev">The Mission</div>
+  <div class="split-head rev">
+    <div class="mission-big">Some companies write software. We build the things that <em>hold a nation up.</em></div>
+    <div class="mbody">
+      <p>The defining technologies of every era were owned by the companies that built the hard parts — the steel, the silicon, the ships. That ownership took decades and discipline, and it outlasted everyone who doubted it.</p>
+      <p>We started Bone for the same reason those companies existed: because the machines that will defend and serve the next century have to be made by someone, and that someone should be trusted.</p>
+      <p class="hi">Korea built the backbone of the modern world. We intend to build the next one.</p>
+    </div>
+  </div>
+  <div class="pillars rev">
+    <div class="pillar">
+      <div class="pillar-n">PRINCIPLE 01</div>
+      <div class="pillar-lbl">Autonomy in Residence</div>
+      <div class="pillar-txt">We don't ship and leave. Command, hardware, and AI go to the field as one system — and we stay bonded to it until the problem is solved. This is how infrastructure earns trust.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-n">PRINCIPLE 02</div>
+      <div class="pillar-lbl">Allied Manufacturing Sovereignty</div>
+      <div class="pillar-txt">Critical autonomy cannot run on fragile supply chains. We relocate production to allied ground — making Korea the trusted manufacturing hub for the Physical AI era. Not Made in China. Made in Korea.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-n">PRINCIPLE 03</div>
+      <div class="pillar-lbl">End-to-End Ownership</div>
+      <div class="pillar-txt">From component sourcing and manufacturing to software and field operations, we own every layer. Not a services company. Not an integrator. A platform company building durable infrastructure.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-n">PRINCIPLE 04</div>
+      <div class="pillar-lbl">Built to Last</div>
+      <div class="pillar-txt">We are building the kind of company Korea has produced before — Hyundai, POSCO, Samsung. Enterprises that defined an industrial era. The Physical AI era needs its own.</div>
+    </div>
+  </div>
+</div>
+
+<div class="factory-band">
+ <div class="factory-inner">
+  <div class="eyebrow-sec rev">Lab · Factory · Field</div>
+  <div class="split-head rev">
+    <h2>WE MAKE IT.<br>THEN WE <em>BREAK IT.</em></h2>
+    <p class="lead-p">Design, build, and test happen under one roof. The engineers who write the autonomy stack are steps away from the line that assembles the airframe — and the range where it flies. That loop is the company.</p>
+  </div>
+  <div class="factory-grid rev">
+    <div class="factory-cell">
+      <div class="factory-ph"><div class="factory-ph-icon">⚙</div><div class="factory-ph-txt">Photo · Production Floor</div></div>
+      <div class="factory-lbl">In-House Manufacturing</div>
+    </div>
+    <div class="factory-cell">
+      <div class="factory-ph"><div class="factory-ph-icon">◎</div><div class="factory-ph-txt">Photo · Field Testing</div></div>
+      <div class="factory-lbl">On-Range Validation</div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- ARCH BAND -->
+<div style="position:relative;width:100%;height:54vh;min-height:380px;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <img src="assets/arch_steps.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(0.62) contrast(1.05)">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,11,13,0.9),rgba(10,11,13,0.3) 55%,rgba(10,11,13,0.62))"></div>
+  <div style="position:absolute;inset:0;display:flex;align-items:flex-end">
+    <div style="max-width:1400px;margin:0 auto;width:100%;padding:0 48px 56px">
+      <div style="font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:500">Built to Last</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,4.5vw,68px);line-height:0.92;color:#fff;letter-spacing:0.01em">INFRASTRUCTURE<br><em style="color:var(--muted);font-style:normal">OUTLASTS HYPE.</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="team">
+  <div class="eyebrow-sec rev">Leadership</div>
+  <div class="rev" style="margin-bottom:56px">
+    <div class="team-big">We build for those who <em>cannot afford</em> to fail.</div>
+    <p class="lead-p" style="max-width:640px">Bone is a warrior culture. Lab, Factory, and Field under one roof — AI researchers, robotics engineers, defense specialists, and manufacturing operators working as a single unit. No hand-offs. No dependencies.</p>
+  </div>
+  <div class="founder rev">
+    <div class="founder-photo"><img src="assets/img_004_3dbf86876218.jpg" alt="DK Lee"></div>
+    <div class="founder-info">
+      <div class="f-name">DK Lee</div>
+      <div class="f-role">Founder & CEO</div>
+      <div class="f-info">
+        <p>Graduated from <strong>Cornell University</strong>. Co-founded <strong>MarqVision</strong> — an AI platform backed by Y Combinator and SoftBank Ventures — scaling it to 200+ global enterprise clients as CBO and Korea CEO.</p>
+        <p>After MarqVision, DK spent years mapping the gap between AI software and physical production infrastructure — attending IEEE ICRA, engaging the teams behind Google RT-1/RT-2, and identifying what no one was building.</p>
+        <p>He founded Bone Robotics in January 2025 and personally committed <strong>$1.5M</strong> — over 10% of the seed round.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">Cornell University</span>
+        <span class="tag">MarqVision Co-Founder</span>
+        <span class="tag">YC · SoftBank</span>
+        <span class="tag">Physical AI</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="careers-band">
+ <div class="careers-grid-bg"></div>
+ <div class="careers-inner">
+  <div class="eyebrow-sec rev">Careers</div>
+  <div class="careers-h rev">ARE YOU<br>WITH <em style="color:var(--amber);font-style:normal">US?</em></div>
+  <p class="careers-sub rev">We're building a team of engineers, operators, and builders who want to industrialize the hardest parts of the Physical AI era — and rebuild an allied industrial base while doing it. If that's the problem you want to spend years on, we want to talk.</p>
+  <div class="careers-roles rev">
+    <span class="crole">Robotics Engineering</span>
+    <span class="crole">Autonomy & AI</span>
+    <span class="crole">RF & Communications</span>
+    <span class="crole">Manufacturing</span>
+    <span class="crole">Field Operations</span>
+    <span class="crole">Business & Strategy</span>
+  </div>
+  <div class="rev"><a href="contact.html" class="btn-p">See Open Roles →</a></div>
+ </div>
+</div>
+
+<footer>
+  <div><img src="assets/img_001_2cd59baf6c82.png" alt="Bone Robotics" style="height:22px;opacity:0.5"></div>
+  <div class="f-copy">© 2025 Bone Robotics Inc.</div>
+</footer>
+<div class="priv">No cookies · No third-party trackers · No analytics · <a href="privacy.html" style="color:var(--accent);text-decoration:none">Privacy Policy</a></div>
+
+<script>
+document.querySelectorAll('.rev').forEach(el => {
+  new IntersectionObserver((e) => {
+    e.forEach((entry, i) => {
+      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('on'), i * 70);
+    });
+  }, {threshold: 0.08}).observe(el);
+});
+</script>
+
+<script>
+(function(){
+  const el=document.getElementById('heroTerm');
+  if(!el) return;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const lines=['ACCESSING COMPANY RECORD','LAB // FACTORY // FIELD','ONE ROOF ... CONFIRMED','READY'];
+  if(reduce){ el.textContent='READY'; return; }
+  let li=0,ci=0;
+  function type(){
+    if(li>=lines.length){ el.innerHTML='<span style="color:var(--amber)">READY</span><span class="tcur"></span>'; return; }
+    const cur=lines[li];
+    el.innerHTML=cur.slice(0,ci)+'<span class="tcur"></span>';
+    ci++;
+    if(ci>cur.length){ li++; ci=0; setTimeout(type, li>=lines.length?0:340); }
+    else setTimeout(type, 22+Math.random()*28);
+  }
+  setTimeout(type, 450);
+})();
+</script>
+
+<script>
+(function(){
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  const hero=document.querySelector('.page-hero');
+  if(!hero) return;
+  const bg=hero.querySelector('.bg');
+  const content=hero.querySelector('.content');
+  let ticking=false;
+  function onScroll(){
+    if(ticking) return; ticking=true;
+    requestAnimationFrame(()=>{
+      const y=window.scrollY;
+      if(y<window.innerHeight){
+        if(bg) bg.style.transform='translateY('+(y*0.35)+'px) scale(1.08)';
+        if(content){ content.style.transform='translateY('+(y*0.12)+'px)'; content.style.opacity=String(Math.max(0,1-y/(window.innerHeight*0.7))); }
+      }
+      ticking=false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();
+</script>
+</body>
+</html>
