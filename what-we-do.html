@@ -105,7 +105,10 @@ footer{padding:36px 48px;display:flex;align-items:center;justify-content:space-b
 .gcs-cell:hover img{transform:scale(1.05)}
 .gcs-lbl{position:absolute;bottom:18px;left:20px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:rgba(10,11,13,0.7);padding:6px 12px;backdrop-filter:blur(8px)}
 .road-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
-.road-cell{background:var(--bg);padding:52px 40px;position:relative}
+.road-cell{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;min-height:340px}
+.road-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.road-ov{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,11,13,0.93) 0%,rgba(10,11,13,0.66) 50%,rgba(10,11,13,0.5) 100%)}
+.road-cell > .road-phase,.road-cell > .road-title,.road-cell > .road-body{position:relative;z-index:2}
 .road-phase{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:12px;font-weight:500}
 .road-dot{width:9px;height:9px;border-radius:50%;background:var(--dim)}
 .road-dot.on{background:var(--accent);box-shadow:0 0 12px var(--accent)}
@@ -173,9 +176,7 @@ html{scroll-padding-top:72px}
 </nav>
 
 <div class="page-hero">
-  <video class="bg" autoplay muted loop playsinline poster="assets/v7_poster.jpg">
-    <source src="assets/v7.mp4" type="video/mp4">
-  </video>
+  <img class="bg" src="assets/command_center.jpg" alt="Drone operations command center" style="filter:brightness(0.6) contrast(1.05) saturate(0.95)">
   <div class="grid-overlay"></div>
   <div class="grad"></div>
   <div class="content">
@@ -270,7 +271,7 @@ html{scroll-padding-top:72px}
   </div>
   <div class="eyebrow-sec rev" style="margin-top:84px">Deployed Reality</div>
   <div class="gcs-pair rev">
-    <div class="gcs-cell"><img src="assets/p7.png" alt="Live command center with operators"><div class="gcs-lbl">Live Command Center</div></div>
+    <div class="gcs-cell"><img src="assets/monitors.jpg" alt="Live command center with operators"><div class="gcs-lbl">Live Command Center</div></div>
     <div class="gcs-cell"><img src="assets/p37.png" alt="Forward-deployed ground control station in the field"><div class="gcs-lbl">Forward-Deployed GCS · Field</div></div>
   </div>
 </div>
@@ -537,7 +538,7 @@ html{scroll-padding-top:72px}
     <div class="geo-cell">
       <div class="geo-n">02</div>
       <div class="geo-t">A Trusted Producer</div>
-      <p class="geo-d">As allied nations move critical production off contested supply chains, Korea stands as a secure, capable manufacturing base — for its own defense and for its partners. Not Made in China. Made in Korea.</p>
+      <p class="geo-d">As allied nations move critical production off contested supply chains, Korea stands as a secure, capable manufacturing base — for its own defense and for its partners.</p>
     </div>
     <div class="geo-cell">
       <div class="geo-n">03</div>
@@ -626,16 +627,22 @@ html{scroll-padding-top:72px}
   <div class="axis-lbl rev">Axis 01 · Operational Domain</div>
   <div class="road-grid rev" style="margin-bottom:1px">
     <div class="road-cell">
+      <img class="road-bg" src="assets/air.jpg" alt="Air domain — UAV platforms">
+      <div class="road-ov"></div>
       <div class="road-phase"><div class="road-dot on"></div>Now</div>
       <div class="road-title">Air</div>
       <p class="road-body">UAV platforms deployed — Saerier, Saena, SOMA. ₩2.8B first-year revenue, government contracts active.</p>
     </div>
     <div class="road-cell">
+      <img class="road-bg" src="assets/ground.jpg" alt="Ground domain — UGV platforms">
+      <div class="road-ov"></div>
       <div class="road-phase"><div class="road-dot"></div>Next</div>
       <div class="road-title">Ground</div>
       <p class="road-body">Autonomous ground vehicles for patrol, logistics, and engineering — running the same C2 OS.</p>
     </div>
     <div class="road-cell">
+      <img class="road-bg" src="assets/sea.jpg" alt="Sea domain — unmanned surface vessels">
+      <div class="road-ov"></div>
       <div class="road-phase"><div class="road-dot"></div>Future</div>
       <div class="road-title">Sea</div>
       <p class="road-body">Unmanned surface vessels for coastal defense and port security — built on Korea's shipbuilding heritage.</p>

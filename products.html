@@ -169,23 +169,20 @@ html{scroll-padding-top:72px}
 </div>
 
 <!-- PRODUCT NAV -->
-<div class="prod-nav" style="grid-template-columns:repeat(6,1fr)">
+<div class="prod-nav" style="grid-template-columns:repeat(5,1fr)">
   <a href="#gcs" class="prod-nav-item"><div><div class="prod-nav-tag">Software · C2 OS</div><div class="prod-nav-name">GCS</div></div><div class="prod-nav-arrow">↓</div></a>
   <a href="#saerier" class="prod-nav-item"><div><div class="prod-nav-tag">Defense · Intercept</div><div class="prod-nav-name">Saerier</div></div><div class="prod-nav-arrow">↓</div></a>
   <a href="#saena" class="prod-nav-item"><div><div class="prod-nav-tag">Defense · ISR & Swarm</div><div class="prod-nav-name">Saena</div></div><div class="prod-nav-arrow">↓</div></a>
   <a href="#soma" class="prod-nav-item"><div><div class="prod-nav-tag">Public Safety · DFR</div><div class="prod-nav-name">SOMA</div></div><div class="prod-nav-arrow">↓</div></a>
-  <a href="#classified" class="prod-nav-item"><div><div class="prod-nav-tag">Classified</div><div class="prod-nav-name">[ ████ ]</div></div><div class="prod-nav-arrow">↓</div></a>
   <a href="#field" class="prod-nav-item"><div><div class="prod-nav-tag">Proof · Manufacturing</div><div class="prod-nav-name">In the Field</div></div><div class="prod-nav-arrow">↓</div></a>
 </div>
 
 <!-- ─── GCS / C2 OS ─── -->
 <div class="prod-section" id="gcs">
 
-  <!-- GCS live video hero -->
-  <div class="prod-img-hero tall rev" style="padding:0;background:#000">
-    <video autoplay muted loop playsinline poster="assets/img_005_29d1bf0420b1.jpg" style="width:100%;height:100%;object-fit:cover;display:block">
-      <source src="assets/vid_002_21177ae0022a.mp4" type="video/mp4">
-    </video>
+  <!-- GCS live operating-system view -->
+  <div class="prod-img-hero tall rev">
+    <img src="assets/gcs_5.png" alt="GCS — live command & control operating system">
   </div>
 
   <!-- Name + intro -->
@@ -241,6 +238,18 @@ html{scroll-padding-top:72px}
          <div style="display:flex;justify-content:space-between;padding:11px 0"><span style="font-family:'DM Mono',monospace;font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:0.06em">Override</span><span style="font-size:13px;color:var(--text)">Live human-in-the-loop</span></div>
        </div>
      </div>
+   </div>
+
+   <!-- GCS interface — two more views -->
+   <div style="max-width:1400px;margin:24px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)">
+     <figure style="margin:0;position:relative;background:#06070a;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden">
+       <img src="assets/gcs_1.png" alt="GCS — 3D airspace ring-range and geofencing view" style="width:100%;height:100%;object-fit:contain;display:block">
+       <figcaption style="position:absolute;bottom:12px;left:14px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:rgba(10,11,13,0.72);padding:5px 10px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)">3D Airspace · Ring Range</figcaption>
+     </figure>
+     <figure style="margin:0;position:relative;background:#06070a;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden">
+       <img src="assets/gcs_2.png" alt="GCS — multi-vehicle operational picture" style="width:100%;height:100%;object-fit:contain;display:block">
+       <figcaption style="position:absolute;bottom:12px;left:14px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:rgba(10,11,13,0.72);padding:5px 10px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)">Unified Operational Picture</figcaption>
+     </figure>
    </div>
 
    <!-- runs ↓ -->
@@ -386,39 +395,6 @@ html{scroll-padding-top:72px}
     <div class="gallery-cell gallery-h-med"><img src="assets/img_020_7ae9bc5a6f5c.jpg" alt="SOMA diagonal"><div class="lbl">Diagonal</div></div>
     <div class="gallery-cell gallery-h-med"><img src="assets/img_017_6454290a3fb2.jpg" alt="SOMA deployed"><div class="lbl">Deployed config</div></div>
   </div>
-</div>
-
-<!-- ─── CLASSIFIED ─── -->
-<div class="classified-band" id="classified">
- <div class="classified-grid-bg"></div>
- <div class="classified-inner">
-  <div class="prod-hero-eye" style="margin-bottom:20px">Classified · In Development</div>
-  <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,104px);color:var(--white);line-height:0.88;letter-spacing:0.01em;margin-bottom:20px">NOT EVERYTHING<br>IS <em style="color:var(--muted);font-style:normal">PUBLIC.</em></div>
-  <p class="body-p" style="max-width:620px">The systems shown here are what we can talk about. Additional platforms are in active development with defense partners under restricted disclosure. Cleared parties may request a briefing.</p>
-  <div class="cls-row">
-    <div class="cls-cell">
-      <div class="cls-stamp">CLASSIFIED</div>
-      <div class="cls-name">[ ████████ ]</div>
-      <div class="cls-tag">Defense · ████████</div>
-      <div class="cls-redact mid"></div>
-      <div class="cls-redact"></div>
-      <div class="cls-redact short"></div>
-      <div class="cls-lock">⬡ Disclosure restricted</div>
-    </div>
-    <div class="cls-cell">
-      <div class="cls-stamp">CLASSIFIED</div>
-      <div class="cls-name">[ ██████ ]</div>
-      <div class="cls-tag">████████ · ████</div>
-      <div class="cls-redact"></div>
-      <div class="cls-redact short"></div>
-      <div class="cls-redact mid"></div>
-      <div class="cls-lock">⬡ Disclosure restricted</div>
-    </div>
-  </div>
-  <div style="margin-top:40px">
-    <a href="contact.html" class="btn-p">Request Cleared Briefing →</a>
-  </div>
- </div>
 </div>
 
 <!-- ─── IN THE FIELD (real photos) ─── -->

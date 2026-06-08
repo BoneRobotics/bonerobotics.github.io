@@ -37,8 +37,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;d
 .hero{position:relative;width:100%;min-height:100vh;overflow:hidden;display:flex;align-items:flex-end}
 .hero video,.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero .grad{position:absolute;inset:0;z-index:1;background:
-  linear-gradient(to top,rgba(10,11,13,0.97) 0%,rgba(10,11,13,0.6) 35%,rgba(10,11,13,0.2) 70%,rgba(10,11,13,0.4) 100%),
-  linear-gradient(to right,rgba(10,11,13,0.7) 0%,rgba(10,11,13,0.1) 65%)}
+  linear-gradient(to top,rgba(10,11,13,0.86) 0%,rgba(10,11,13,0.32) 26%,rgba(10,11,13,0) 55%)}
 .hero .grid-overlay{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent 40%,black 100%)}
 .hero .content{position:relative;z-index:2;padding:0 48px 88px;width:100%;max-width:1400px}
 .hero .eyebrow{font-family:'DM Mono',monospace;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;display:flex;align-items:center;gap:16px;font-weight:500}
@@ -230,6 +229,10 @@ html{scroll-padding-top:72px}
 .stats-row,/* THESIS SECTION - infrastructure positioning */
 .thesis,[style*="grid-template-columns"]{grid-template-columns:1fr !important}
 }
+@media(max-width:900px){
+  .hero h1.shimmer{background:none!important;-webkit-text-fill-color:#fff!important;color:#fff!important;animation:none!important}
+  .hero h1.shimmer em{-webkit-text-fill-color:var(--muted)!important;color:var(--muted)!important}
+}
 </style>
 </head>
 <body>
@@ -248,18 +251,13 @@ html{scroll-padding-top:72px}
 
 <!-- HERO -->
 <div class="hero" id="home">
-  <video class="bg" autoplay muted loop playsinline preload="auto" poster="../assets/v12_poster.jpg" style="filter:brightness(0.68) contrast(1.05) saturate(0.92)">
-    <source src="../assets/v12.mp4" type="video/mp4">
-  </video>
-  <div class="grid-overlay"></div>
-  <div class="hero-fx"><canvas id="heroCanvas"></canvas></div>
-  <div class="scanline"></div>
+  <img class="bg" id="heroBg" src="../assets/circle_network.jpg" alt="Physical AI 네트워크" style="filter:brightness(0.92) contrast(1.02)">
   <div class="grad"></div>
   <div class="content">
     <div class="hero-term" id="heroTerm"></div>
     <div class="eyebrow a1">Industrializing the Physical AI Infrastructure</div>
     <h1 class="a2 shimmer" id="heroShim">WE BUILD THE<br><em>BACKBONE.</em></h1>
-    <p class="lead a3">자율 시스템이 국방과 공공안전의 판도를 바꾸고 있습니다. Bone은 이 기술이 국가 단위에서 실제로 작동하도록 만드는 인프라를 만듭니다. 소프트웨어부터 하드웨어, 제조까지 전 과정을 직접 책임집니다.</p>
+    <p class="lead a3">인류의 진보를 떠받치는 인프라를 지킵니다.</p>
     <div class="btns a4">
       <a href="what-we-do.html" class="btn-p">작동 방식 보기</a>
       <a href="contact.html" class="btn-g">브리핑 요청 →</a>
@@ -289,10 +287,11 @@ html{scroll-padding-top:72px}
 
 <!-- THESIS: Infrastructure positioning -->
 <div class="sec full alt" style="padding-left:0;padding-right:0;position:relative;overflow:hidden">
- <img src="../assets/p21.png" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;z-index:0">
+ <img id="thesisBg" src="../assets/civilization.jpg" alt="" aria-hidden="true" style="position:absolute;top:-18%;left:0;width:100%;height:136%;object-fit:cover;opacity:0.55;z-index:0;will-change:transform">
  <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 130% 110% at 50% 50%,rgba(15,16,19,0.55) 0%,rgba(15,16,19,0.86) 100%)"></div>
  <div style="max-width:1400px;margin:0 auto;padding:128px 48px;position:relative;z-index:2">
   <div class="eyebrow-sec rev">The Thesis</div>
+  <p class="rev" style="font-size:clamp(20px,2.2vw,30px);color:var(--white);line-height:1.5;max-width:960px;margin-bottom:60px;font-weight:400">Bone은 현대 문명이 의존하는 시간과 자유, 안전을 지키는 Physical AI 시스템을 구축하고 배치합니다.</p>
   <div class="thesis">
     <div class="rev">
       <div class="thesis-statement">지능형 기계는 알고리즘이 부족해서 실패하는 것이 아닙니다. 그것을 떠받치는 <em>인프라</em>가 없어서 실패합니다.</div>
@@ -307,8 +306,8 @@ html{scroll-padding-top:72px}
 
 <!-- THE THREE AXES -->
 <div class="sec full" style="padding-left:0;padding-right:0;position:relative;overflow:hidden" id="why">
- <img src="../assets/p11.png" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.2;z-index:0">
- <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 130% 120% at 50% 45%,rgba(10,11,13,0.5) 0%,rgba(10,11,13,0.88) 100%)"></div>
+ <img src="../assets/grid_skyline.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.34;z-index:0">
+ <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 130% 120% at 50% 45%,rgba(10,11,13,0.34) 0%,rgba(10,11,13,0.76) 100%)"></div>
  <div style="max-width:1400px;margin:0 auto;padding:128px 48px;position:relative;z-index:2">
   <div class="eyebrow-sec rev">Why Bone</div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:64px;align-items:end">
@@ -334,7 +333,7 @@ html{scroll-padding-top:72px}
       <div class="p3-idx">03</div>
       <div class="p3-word">SOVEREIGN</div>
       <div class="p3-sub">동맹국 기반 위에 구축한다</div>
-      <p class="p3-body">핵심 자율 시스템은 경쟁국의 공급망 위에서 작동할 수 없습니다. Bone은 한국의 산업 기반 — 반도체, 조선, 배터리 — 위에 구축하여, 동맹국을 Physical AI 시대의 신뢰할 수 있는 생산 기지로 만듭니다. Not Made in China. Made in Korea.</p>
+      <p class="p3-body">핵심 자율 시스템은 경쟁국의 공급망 위에서 작동할 수 없습니다. Bone은 한국의 산업 기반 — 반도체, 조선, 배터리 — 위에 구축하여, 동맹국을 Physical AI 시대의 신뢰할 수 있는 생산 기지로 만듭니다.</p>
       <a href="what-we-do.html" class="p3-link">Why Korea →</a>
     </div>
   </div>
@@ -342,7 +341,10 @@ html{scroll-padding-top:72px}
 </div>
 
 <!-- THE STACK as infrastructure layers -->
-<div class="sec">
+<div class="sec full" style="padding-left:0;padding-right:0;position:relative;overflow:hidden">
+ <img src="../assets/layers_stack.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.3;z-index:0">
+ <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 130% 120% at 50% 45%,rgba(10,11,13,0.4) 0%,rgba(10,11,13,0.8) 100%)"></div>
+ <div style="max-width:1400px;margin:0 auto;padding:128px 48px;position:relative;z-index:2">
   <div class="eyebrow-sec rev">The Stack We Own</div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:56px;align-items:end">
     <h2 class="rev">ONE SYSTEM.<br><em>FOUR LAYERS.</em></h2>
@@ -367,50 +369,7 @@ html{scroll-padding-top:72px}
     <div class="layer rev">
       <div class="layer-n">LAYER 04 — PRODUCE</div>
       <div class="layer-t">동맹국 제조</div>
-      <div class="layer-d">D-Makers를 통한 자체 생산. Not Made in China — Made in Korea. 취약한 공급망 없이 확장을 가능하게 하는 산업 기반입니다.</div>
-    </div>
-  </div>
-</div>
-
-<!-- FIELD BAND -->
-<div style="position:relative;width:100%;height:62vh;min-height:420px;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <img src="../assets/p18.png" alt="현장에 배치된 자율 시스템" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,11,13,0.92) 0%,rgba(10,11,13,0.2) 55%,rgba(10,11,13,0.55) 100%)"></div>
-  <div style="position:absolute;inset:0;display:flex;align-items:flex-end">
-    <div style="max-width:1400px;margin:0 auto;width:100%;padding:0 48px 64px">
-      <div style="font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;font-weight:500">현장에서</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5.5vw,84px);line-height:0.9;color:#fff;letter-spacing:0.01em">FORWARD-DEPLOYED.<br><em style="color:var(--muted);font-style:normal">MULTI-DOMAIN BY DESIGN.</em></div>
-    </div>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats-row">
-  <div class="stat-cell rev"><div class="stat-n" data-count="12" data-prefix="$" data-suffix="M">$12<em>M</em></div><div class="stat-l">Backed · 시드 라운드</div></div>
-  <div class="stat-cell rev"><div class="stat-n" data-count="379" data-suffix="km">379<em>km</em></div><div class="stat-l">누적 자율비행 거리</div></div>
-  <div class="stat-cell rev"><div class="stat-n" data-count="292">292<em></em></div><div class="stat-l">누적 자율비행 횟수</div></div>
-  <div class="stat-cell rev"><div class="stat-n">2025</div><div class="stat-l">설립 · 서울</div></div>
-</div>
-
-<!-- BACKED BY -->
-<div class="sec alt full" style="padding-left:0;padding-right:0;position:relative;overflow:hidden">
- <img src="../assets/tex_wave.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.18;z-index:0;filter:grayscale(1)">
- <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,16,19,0.66),rgba(15,16,19,0.86))"></div>
- <div style="max-width:1400px;margin:0 auto;padding:128px 48px;position:relative;z-index:2">
-  <div class="eyebrow-sec rev">Backed By</div>
-  <div class="backed">
-    <div class="rev">
-      <h2 style="font-size:clamp(44px,5vw,72px)">PROVEN.<br><em>BACKED.</em></h2>
-    </div>
-    <div class="rev">
-      <div class="partner-list">
-        <div class="partner-row"><span class="partner-name">Third Prime</span><span class="partner-type">리드 · 미국 VC</span></div>
-        <div class="partner-row"><span class="partner-name">Ora Global</span><span class="partner-type">글로벌 VC · 前 Exor Ventures</span></div>
-        <div class="partner-row"><span class="partner-name">Kolon Group</span><span class="partner-type">전략적 투자 · 대한민국</span></div>
-        <div class="partner-row"><span class="partner-name">Hanwha Systems</span><span class="partner-type">국방 파트너</span></div>
-        <div class="partner-row"><span class="partner-name">ETRI</span><span class="partner-type">연구 파트너</span></div>
-      </div>
-      <p style="font-size:16px;color:var(--muted);line-height:1.7;margin-top:28px">미국 벤처캐피털이 투자한 첫 한국 디펜스테크 기업 — Bone이 구축하는 인프라에 대한 동맹국의 신뢰를 보여주는 신호입니다.</p>
+      <div class="layer-d">D-Makers를 통한 자체 생산. 취약한 공급망 없이 확장을 가능하게 하는 산업 기반입니다.</div>
     </div>
   </div>
  </div>
@@ -633,7 +592,7 @@ const fs=document.getElementById('firstShim'); if(fs) shimObs.observe(fs);
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce) return;
   const hero=document.querySelector('.hero');
-  const vid=hero?hero.querySelector('video'):null;
+  const vid=hero?hero.querySelector('video, img.bg'):null;
   const content=hero?hero.querySelector('.content'):null;
   let ticking=false;
   function onScroll(){
@@ -648,6 +607,31 @@ const fs=document.getElementById('firstShim'); if(fs) shimObs.observe(fs);
     });
   }
   window.addEventListener('scroll', onScroll, {passive:true});
+})();
+</script>
+<script>
+/* ---- Thesis background vertical parallax ---- */
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  var bg=document.getElementById('thesisBg');
+  if(!bg) return;
+  var sec=bg.parentElement;
+  var ticking=false;
+  function onScroll(){
+    if(ticking) return; ticking=true;
+    requestAnimationFrame(function(){
+      var r=sec.getBoundingClientRect();
+      var vh=window.innerHeight;
+      if(r.bottom>0 && r.top<vh){
+        var p=(r.top + r.height/2 - vh/2)/vh;
+        bg.style.transform='translateY('+(p*-70)+'px)';
+      }
+      ticking=false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 })();
 </script>
 </body>

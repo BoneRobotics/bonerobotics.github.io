@@ -97,7 +97,10 @@ footer{padding:36px 48px;display:flex;align-items:center;justify-content:space-b
 .gcs-cell:hover img{transform:scale(1.05)}
 .gcs-lbl{position:absolute;bottom:18px;left:20px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:rgba(10,11,13,0.7);padding:6px 12px;backdrop-filter:blur(8px)}
 .road-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
-.road-cell{background:var(--bg);padding:52px 40px;position:relative}
+.road-cell{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;min-height:340px}
+.road-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.road-ov{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,11,13,0.93) 0%,rgba(10,11,13,0.66) 50%,rgba(10,11,13,0.5) 100%)}
+.road-cell > .road-phase,.road-cell > .road-title,.road-cell > .road-body{position:relative;z-index:2}
 .road-phase{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:12px;font-weight:500}
 .road-dot{width:9px;height:9px;border-radius:50%;background:var(--dim)}
 .road-dot.on{background:var(--accent);box-shadow:0 0 12px var(--accent)}
@@ -155,9 +158,7 @@ html{scroll-padding-top:72px}
 </nav>
 
 <div class="page-hero">
-  <video class="bg" autoplay muted loop playsinline poster="../assets/v7_poster.jpg">
-    <source src="../assets/v7.mp4" type="video/mp4">
-  </video>
+  <img class="bg" src="../assets/command_center.jpg" alt="드론 운용 지휘 통제실" style="filter:brightness(0.6) contrast(1.05) saturate(0.95)">
   <div class="grid-overlay"></div>
   <div class="grad"></div>
   <div class="content">
@@ -252,7 +253,7 @@ html{scroll-padding-top:72px}
   </div>
   <div class="eyebrow-sec rev" style="margin-top:84px">실전 배치</div>
   <div class="gcs-pair rev">
-    <div class="gcs-cell"><img src="../assets/p7.png" alt="운용 요원이 있는 실시간 지휘소"><div class="gcs-lbl">실시간 지휘소</div></div>
+    <div class="gcs-cell"><img src="../assets/monitors.jpg" alt="운용 요원이 있는 실시간 지휘소"><div class="gcs-lbl">실시간 지휘소</div></div>
     <div class="gcs-cell"><img src="../assets/p37.png" alt="현장에 전개된 지상 통제소"><div class="gcs-lbl">전방 배치 GCS · 야전</div></div>
   </div>
 </div>
@@ -481,7 +482,7 @@ html{scroll-padding-top:72px}
     <div class="geo-cell">
       <div class="geo-n">02</div>
       <div class="geo-t">신뢰할 수 있는 생산 기지</div>
-      <p class="geo-d">동맹국들이 핵심 생산을 분쟁 공급망에서 이전하는 가운데, 한국은 안전하고 역량 있는 제조 기지로 자리합니다 — 자국 국방을 위해, 그리고 파트너를 위해. Not Made in China. Made in Korea.</p>
+      <p class="geo-d">동맹국들이 핵심 생산을 분쟁 공급망에서 이전하는 가운데, 한국은 안전하고 역량 있는 제조 기지로 자리합니다 — 자국 국방을 위해, 그리고 파트너를 위해.</p>
     </div>
     <div class="geo-cell">
       <div class="geo-n">03</div>
@@ -570,16 +571,22 @@ html{scroll-padding-top:72px}
   <div class="axis-lbl rev">Axis 01 · Operational Domain</div>
   <div class="road-grid rev" style="margin-bottom:1px">
     <div class="road-cell">
+      <img class="road-bg" src="../assets/air.jpg" alt="공중 도메인 — UAV 플랫폼">
+      <div class="road-ov"></div>
       <div class="road-phase"><div class="road-dot on"></div>Now</div>
       <div class="road-title">Air</div>
       <p class="road-body">UAV 플랫폼 배치 완료 — Saerier, Saena, SOMA. 첫해 매출 28억원, 정부 계약 진행 중.</p>
     </div>
     <div class="road-cell">
+      <img class="road-bg" src="../assets/ground.jpg" alt="지상 도메인 — UGV 플랫폼">
+      <div class="road-ov"></div>
       <div class="road-phase"><div class="road-dot"></div>Next</div>
       <div class="road-title">Ground</div>
       <p class="road-body">순찰·물류·공병용 자율 지상 차량 — 동일한 C2 OS로 구동.</p>
     </div>
     <div class="road-cell">
+      <img class="road-bg" src="../assets/sea.jpg" alt="해상 도메인 — 무인 수상정">
+      <div class="road-ov"></div>
       <div class="road-phase"><div class="road-dot"></div>Future</div>
       <div class="road-title">Sea</div>
       <p class="road-body">연안 방어·항만 보안용 무인 수상정 — 한국 조선업의 유산 위에 구축.</p>

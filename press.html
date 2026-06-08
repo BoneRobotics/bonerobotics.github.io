@@ -38,7 +38,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;d
 .page-hero{position:relative;width:100%;min-height:100vh;overflow:hidden;display:flex;align-items:flex-end;justify-content:flex-start}
 .page-hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .page-hero .grid-overlay{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent 40%,black 100%)}
-.page-hero .grad{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,11,13,0.97) 0%,rgba(10,11,13,0.72) 45%,rgba(10,11,13,0.55) 80%,rgba(10,11,13,0.5) 100%),linear-gradient(to right,rgba(10,11,13,0.88) 0%,rgba(10,11,13,0.4) 55%,rgba(10,11,13,0.15) 100%)}
+.page-hero .grad{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,11,13,0.9) 0%,rgba(10,11,13,0.45) 35%,rgba(10,11,13,0.12) 70%,rgba(10,11,13,0) 100%),linear-gradient(to right,rgba(10,11,13,0.62) 0%,rgba(10,11,13,0.12) 50%,rgba(10,11,13,0) 100%)}
 .page-hero .content{position:relative;z-index:2;padding:0 48px 80px;width:100%;max-width:1400px}
 .page-hero .eyebrow{font-family:'DM Mono',monospace;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:26px;display:flex;align-items:center;gap:16px;font-weight:500}
 .page-hero .eyebrow::before{content:'';width:36px;height:2px;background:var(--accent)}
@@ -133,6 +133,12 @@ html{scroll-padding-top:72px}
 @media(max-width:680px){
 .media-kit,.metrics,.press-item,.ref-grid,.res-grid,.split-head,[style*="grid-template-columns"]{grid-template-columns:1fr !important}
 }
+
+/* --- abstract section backgrounds (decorative, behind text) --- */
+.has-bg{position:relative;overflow:hidden}
+.sec-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;opacity:0.16;filter:grayscale(0.55) brightness(0.55) contrast(1.05)}
+.sec-bgov{position:absolute;inset:0;z-index:1;pointer-events:none}
+.has-bg > *:not(.sec-bg):not(.sec-bgov){position:relative;z-index:2}
 </style>
 </head>
 <body>
@@ -149,7 +155,7 @@ html{scroll-padding-top:72px}
 </nav>
 
 <div class="page-hero">
-  <img class="bg" src="assets/img_023_614aeee10bed.png" alt="Press" style="filter:brightness(0.38) contrast(1.05) grayscale(0.25)">
+  <img class="bg" src="assets/press_hero.jpg" alt="Press" style="filter:brightness(0.98) contrast(1.02)">
   <div class="grid-overlay"></div>
   <div class="grad"></div>
   <div class="content">
@@ -164,7 +170,9 @@ html{scroll-padding-top:72px}
   </div>
 </div>
 
-<div class="sec" id="coverage">
+<div class="sec has-bg" id="coverage">
+  <img class="sec-bg" src="assets/abs_circuit.jpg" alt="" aria-hidden="true">
+  <div class="sec-bgov" style="background:linear-gradient(180deg,rgba(10,11,13,0.88) 0%,rgba(10,11,13,0.93) 100%)"></div>
   <div class="eyebrow-sec rev">Media Coverage</div>
   <div class="press-list rev">
     <a class="press-item" href="https://techcrunch.com/2025/11/17/bone-ai-raises-funding-to-challenge-asias-defense-giants-with-next-gen-ai-powered-robotics/" target="_blank" rel="noopener noreferrer">
@@ -178,7 +186,9 @@ html{scroll-padding-top:72px}
   </div>
 </div>
 
-<div class="sec full alt" style="padding-left:0;padding-right:0" id="references">
+<div class="sec has-bg full alt" style="padding-left:0;padding-right:0" id="references">
+  <img class="sec-bg" src="assets/abs_wireframe.jpg" alt="" aria-hidden="true">
+  <div class="sec-bgov" style="background:linear-gradient(180deg,rgba(15,16,19,0.86) 0%,rgba(15,16,19,0.93) 100%)"></div>
  <div style="max-width:1400px;margin:0 auto;padding:120px 48px">
   <div class="eyebrow-sec rev">Field References</div>
   <div class="split-head rev">
@@ -267,7 +277,9 @@ html{scroll-padding-top:72px}
  </div>
 </div>
 
-<div class="sec" id="resources">
+<div class="sec has-bg" id="resources">
+  <img class="sec-bg" src="assets/abs_plexus.jpg" alt="" aria-hidden="true">
+  <div class="sec-bgov" style="background:radial-gradient(ellipse 120% 120% at 50% 40%,rgba(10,11,13,0.82),rgba(10,11,13,0.94))"></div>
   <div class="eyebrow-sec rev">Resources</div>
   <div class="split-head rev">
     <h2>FROM THE<br><em>FRONT LINE.</em></h2>
@@ -301,7 +313,9 @@ html{scroll-padding-top:72px}
   </div>
 </div>
 
-<div class="sec" id="mediakit">
+<div class="sec has-bg" id="mediakit">
+  <img class="sec-bg" src="assets/abs_fractal.jpg" alt="" aria-hidden="true">
+  <div class="sec-bgov" style="background:linear-gradient(180deg,rgba(10,11,13,0.85) 0%,rgba(10,11,13,0.93) 100%)"></div>
   <div class="eyebrow-sec rev">Media Kit</div>
   <div class="split-head rev">
     <h2>ASSETS &<br><em>INQUIRIES.</em></h2>
