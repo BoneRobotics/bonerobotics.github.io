@@ -18,7 +18,7 @@
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,11,0.55);-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);border-bottom:0.5px solid var(--border)}
-.nav-logo img{height:22px;width:auto;display:block}
+.nav-logo img{height:26px;width:auto;display:block}
 .nav-links{display:flex;gap:0;align-items:center}
 .nav-links a{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;padding:0 20px;height:72px;display:flex;align-items:center;border-right:0.5px solid var(--border)}
 .nav-links a:first-child{border-left:0.5px solid var(--border)}
@@ -149,7 +149,7 @@ html{scroll-padding-top:72px}
 </style>
 </head>
 <body>
-<nav><div><a href="index.html"><img src="assets/img_001_2cd59baf6c82.png" alt="Bone Robotics" style="height:22px"></a></div><div class="nav-links"><a href="what-we-do.html">Capabilities</a><a href="products.html" class="active">Platform</a><a href="mission.html">Company</a><a href="press.html">Press</a><div class="lang-toggle"><a href="products.html" class="on">EN</a><a href="kr/products.html">KO</a></div>
+<nav><div><a href="index.html"><img src="assets/img_001_2cd59baf6c82.png" alt="Bone Robotics" style="height:26px"></a></div><div class="nav-links"><a href="what-we-do.html">Capabilities</a><a href="products.html" class="active">Platform</a><a href="mission.html">Company</a><a href="press.html">Press</a><div class="lang-toggle"><a href="products.html" class="on">EN</a><a href="kr/products.html">KO</a></div>
     <a href="contact.html" class="nav-cta">Contact</a></div></nav>
 
 <!-- HERO -->
@@ -243,11 +243,11 @@ html{scroll-padding-top:72px}
    <!-- GCS interface — two more views -->
    <div style="max-width:1400px;margin:24px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)">
      <figure style="margin:0;position:relative;background:#06070a;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden">
-       <img src="assets/gcs_1.png" alt="GCS — 3D airspace ring-range and geofencing view" style="width:100%;height:100%;object-fit:contain;display:block">
+       <img src="assets/gcs_1.png" alt="GCS — 3D airspace ring-range and geofencing view" style="width:100%;height:100%;object-fit:cover;display:block">
        <figcaption style="position:absolute;bottom:12px;left:14px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:rgba(10,11,13,0.72);padding:5px 10px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)">3D Airspace · Ring Range</figcaption>
      </figure>
      <figure style="margin:0;position:relative;background:#06070a;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden">
-       <img src="assets/gcs_2.png" alt="GCS — multi-vehicle operational picture" style="width:100%;height:100%;object-fit:contain;display:block">
+       <img src="assets/gcs_2.png" alt="GCS — multi-vehicle operational picture" style="width:100%;height:100%;object-fit:cover;display:block">
        <figcaption style="position:absolute;bottom:12px;left:14px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:rgba(10,11,13,0.72);padding:5px 10px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)">Unified Operational Picture</figcaption>
      </figure>
    </div>
@@ -362,7 +362,7 @@ html{scroll-padding-top:72px}
 <div class="prod-section" id="soma">
 
   <!-- SOMA hero -->
-  <div class="prod-img-hero xlarge rev">
+  <div class="prod-img-hero tall rev">
     <img src="assets/img_017_6454290a3fb2.jpg" alt="SOMA">
   </div>
 
@@ -399,23 +399,15 @@ html{scroll-padding-top:72px}
 
 <!-- ─── IN THE FIELD (real photos) ─── -->
 <div class="prod-section" id="field" style="background:var(--bg2)">
-  <div style="padding:72px 64px 0">
-    <div class="prod-hero-eye" style="margin-bottom:14px">Proof · Real Operations</div>
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,96px);color:var(--white);line-height:0.9;letter-spacing:0.02em">IN THE FIELD</div>
-    <p class="body-p" style="max-width:520px;margin-top:18px">Not renders. Actual hardware — built in-house and validated in real operations. Updated as new deployments roll out.</p>
-  </div>
-  <div class="field-grid rev" style="margin-top:48px">
-    <div class="prod-img-real h560">
-      <img src="assets/img_021_4143636245c1.jpg" alt="Production floor">
-      <div class="lbl-big">BUILD</div>
-      <div class="lbl">D-Makers Production Floor · Seoul</div>
+  <div style="padding:72px 64px;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center">
+    <div>
+      <div class="prod-hero-eye" style="margin-bottom:14px">Proof · Real Operations</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,96px);color:var(--white);line-height:0.9;letter-spacing:0.02em">IN THE FIELD</div>
+      <p class="body-p" style="max-width:520px;margin-top:18px">Not renders. Actual hardware — built in-house and validated in real operations. Updated as new deployments roll out.</p>
     </div>
-    <div class="prod-img-real h560">
-      <img src="assets/img_022_f339e82b0b42.jpg" alt="Hardware assembly">
-      <div class="lbl-big">REAL</div>
-      <div class="lbl">Hardware Integration · In-house manufacturing</div>
+    <div class="prod-img-real rev" style="height:380px">
+      <img src="assets/img_022_f339e82b0b42.jpg" alt="Hardware integration — in-house manufacturing">
     </div>
-  
   </div>
 </div>
 
