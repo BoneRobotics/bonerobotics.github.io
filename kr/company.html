@@ -29,8 +29,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;d
 .nav-links{display:flex;gap:0;align-items:center}
 .nav-links a{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s,background 0.2s;padding:0 22px;height:72px;display:flex;align-items:center}
 .nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.04)}
-.nav-cta{background:var(--white)!important;color:#0a0b0d!important;font-weight:600}
-.nav-cta:hover{background:var(--amber)!important;color:#0a0b0d!important}
+.nav-cta{background:transparent!important;color:var(--muted)!important;font-weight:500;border:1px solid rgba(255,255,255,0.55);border-radius:2px;height:auto!important;padding:8px 16px!important;margin-left:8px}
+.nav-cta:hover{background:rgba(255,255,255,0.06)!important;color:var(--white)!important;border-color:#fff}
 .btn-p{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:var(--white);color:#0a0b0d;padding:16px 34px;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;font-weight:500}
 .btn-p:hover{background:var(--amber);transform:translateY(-2px)}
 .btn-g{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);border:1px solid var(--border2);padding:16px 34px;text-decoration:none;display:inline-block;transition:all 0.2s}
@@ -71,10 +71,15 @@ footer{padding:36px 48px;display:flex;align-items:center;justify-content:space-b
 .mbody p{font-size:18px;color:var(--text);line-height:1.75;margin-bottom:20px;font-weight:400}
 .mbody p.hi{color:var(--text);font-weight:500}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:56px}
-.pillar{position:relative;background:var(--bg2);padding:48px 44px;overflow:hidden;transition:background 0.3s}
+.pillar{position:relative;background:var(--bg2);overflow:hidden;transition:background 0.3s}
 .pillar:hover{background:var(--bg3)}
-.pillar::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--amber);transform:scaleY(0);transform-origin:top;transition:transform 0.4s}
+.pillar::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--amber);transform:scaleY(0);transform-origin:top;transition:transform 0.4s;z-index:3}
 .pillar:hover::before{transform:scaleY(1)}
+.pillar-img{position:relative;height:208px;overflow:hidden}
+.pillar-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.85) brightness(0.8) contrast(1.04);transition:transform 0.6s ease,filter 0.5s ease}
+.pillar:hover .pillar-img img{transform:scale(1.06);filter:grayscale(0.12) brightness(1.02) contrast(1)}
+.pillar-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,18,22,0.1) 0%,transparent 45%,var(--bg2) 100%);pointer-events:none}
+.pillar-c{padding:32px 44px 44px}
 .pillar-n{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.1em;color:var(--muted);margin-bottom:16px;font-weight:500}
 .pillar-lbl{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.02em;color:var(--white);margin-bottom:14px;line-height:1}
 .pillar-txt{font-size:16px;color:var(--muted);line-height:1.7}
@@ -201,24 +206,36 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
   </div>
   <div class="pillars rev">
     <div class="pillar">
-      <div class="pillar-n">PRINCIPLE 01</div>
-      <div class="pillar-lbl">Autonomy in Residence</div>
-      <div class="pillar-txt">우리는 납품하고 떠나지 않습니다. 지휘체계, 하드웨어, AI가 하나의 시스템으로 현장에 투입되고 — 문제가 해결될 때까지 그 곁에 머뭅니다. 인프라는 그렇게 신뢰를 얻습니다.</div>
+      <div class="pillar-img"><img src="../assets/p_field.jpg" alt="Autonomous systems operating in the field"></div>
+      <div class="pillar-c">
+        <div class="pillar-n">PRINCIPLE 01</div>
+        <div class="pillar-lbl">Autonomy in Residence</div>
+        <div class="pillar-txt">우리는 납품하고 떠나지 않습니다. 지휘체계, 하드웨어, AI가 하나의 시스템으로 현장에 투입되고 — 문제가 해결될 때까지 그 곁에 머뭅니다. 인프라는 그렇게 신뢰를 얻습니다.</div>
+      </div>
     </div>
     <div class="pillar">
-      <div class="pillar-n">PRINCIPLE 02</div>
-      <div class="pillar-lbl">Allied Manufacturing Sovereignty</div>
-      <div class="pillar-txt">핵심 자율 시스템은 취약한 공급망 위에서 운용될 수 없습니다. 우리는 생산을 동맹국 영토로 이전하여 — 한국을 Physical AI 시대의 신뢰할 수 있는 제조 허브로 만듭니다.</div>
+      <div class="pillar-img"><img src="../assets/p_manufacturing.jpg" alt="In-house manufacturing and production"></div>
+      <div class="pillar-c">
+        <div class="pillar-n">PRINCIPLE 02</div>
+        <div class="pillar-lbl">Allied Manufacturing Sovereignty</div>
+        <div class="pillar-txt">핵심 자율 시스템은 취약한 공급망 위에서 운용될 수 없습니다. 우리는 생산을 동맹국 영토로 이전하여 — 한국을 Physical AI 시대의 신뢰할 수 있는 제조 허브로 만듭니다.</div>
+      </div>
     </div>
     <div class="pillar">
-      <div class="pillar-n">PRINCIPLE 03</div>
-      <div class="pillar-lbl">End-to-End Ownership</div>
-      <div class="pillar-txt">부품 조달과 제조부터 소프트웨어와 현장 운용까지, 우리는 모든 계층을 소유합니다. 서비스 회사도, 통합업체도 아닙니다. 지속가능한 인프라를 구축하는 플랫폼 회사입니다.</div>
+      <div class="pillar-img"><img src="../assets/p_components.jpg" alt="Component-level engineering and electronics"></div>
+      <div class="pillar-c">
+        <div class="pillar-n">PRINCIPLE 03</div>
+        <div class="pillar-lbl">End-to-End Ownership</div>
+        <div class="pillar-txt">부품 조달과 제조부터 소프트웨어와 현장 운용까지, 우리는 모든 계층을 소유합니다. 서비스 회사도, 통합업체도 아닙니다. 지속가능한 인프라를 구축하는 플랫폼 회사입니다.</div>
+      </div>
     </div>
     <div class="pillar">
-      <div class="pillar-n">PRINCIPLE 04</div>
-      <div class="pillar-lbl">Built to Last</div>
-      <div class="pillar-txt">우리는 한국이 이전에 배출한 그런 회사를 만들고 있습니다 — 현대, POSCO, 삼성. 한 산업 시대를 정의한 기업들. Physical AI 시대에는 그 시대만의 기업이 필요합니다.</div>
+      <div class="pillar-img"><img src="../assets/p_industry.jpg" alt="Enduring industrial infrastructure"></div>
+      <div class="pillar-c">
+        <div class="pillar-n">PRINCIPLE 04</div>
+        <div class="pillar-lbl">Built to Last</div>
+        <div class="pillar-txt">우리는 한국이 이전에 배출한 그런 회사를 만들고 있습니다 — 현대, POSCO, 삼성. 한 산업 시대를 정의한 기업들. Physical AI 시대에는 그 시대만의 기업이 필요합니다.</div>
+      </div>
     </div>
   </div>
 </div>

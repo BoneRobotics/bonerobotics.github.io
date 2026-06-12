@@ -23,7 +23,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;d
 .nav-links a{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;padding:0 20px;height:72px;display:flex;align-items:center;border-right:0.5px solid var(--border)}
 .nav-links a:first-child{border-left:0.5px solid var(--border)}
 .nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.03)}
-.nav-cta{background:var(--white)!important;color:#0a0b0d!important;border-right:none!important;font-weight:600}
+.nav-cta{background:transparent!important;color:var(--muted)!important;font-weight:500;border:1px solid rgba(255,255,255,0.55);border-radius:2px;height:auto!important;padding:8px 16px!important;margin-left:8px}
+.nav-cta:hover{background:rgba(255,255,255,0.06)!important;color:var(--white)!important;border-color:#fff}
 .btn-p{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:var(--white);color:#0a0b0d;padding:16px 34px;text-decoration:none;display:inline-block;transition:opacity 0.2s;border:none;cursor:pointer}
 .btn-p:hover{background:var(--amber);color:#0a0b0d}
 .btn-g{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#fff;border:1px solid var(--border2);padding:16px 34px;text-decoration:none;display:inline-block;transition:all 0.2s}
@@ -85,6 +86,13 @@ footer{padding:28px 64px;display:flex;align-items:center;justify-content:space-b
 .spec-cell:nth-last-child(-n+2){border-bottom:none}
 .spec-k{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
 .spec-v{font-size:14px;color:var(--text)}
+.prod-media-cell{padding:0!important;position:relative;overflow:hidden;min-height:460px;background:#000}
+.prod-media-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
+.prod-media-cell:hover img{transform:scale(1.03)}
+.spec-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-bottom:0.5px solid var(--border)}
+.spec-strip .spec-cell{background:var(--bg);border:0!important;padding:24px 26px}
+@media(max-width:980px){.spec-strip{grid-template-columns:1fr 1fr!important}.prod-media-cell{min-height:320px}}
+@media(max-width:540px){.spec-strip{grid-template-columns:1fr!important}}
 
 .img-gallery{display:grid;gap:1px;background:var(--border)}
 .img-gallery.cols-2{grid-template-columns:1fr 1fr}
@@ -295,7 +303,7 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 
   <!-- Side view hero -->
   <div class="prod-img-hero tall rev">
-    <img src="../assets/img_007_57e9e6d7a897.png" alt="Saerier side">
+    <img src="../assets/saerier_wireframe.png" alt="Saerier wireframe">
   </div>
 
   <!-- Name + specs -->
@@ -306,18 +314,19 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
       <p class="body-p">정밀 자율 요격을 위해 설계된 고성능 모선(mothership) UAV. GPS 기반 타격, AI 짐벌 추적, 투하·전개식 서브드론 시스템 — 실시간 FSM 자율 교전으로 관리됩니다.</p>
       <p class="body-p hi">완전한 통신 거부 및 악천후 조건에서도 자율 페일세이프와 RTL로 운용됩니다.</p>
     </div>
-    <div class="prod-info-right">
-      <div class="spec-grid">
-        <div class="spec-cell"><div class="spec-k">Intercept</div><div class="spec-v">GPS-based precision strike</div></div>
-        <div class="spec-cell"><div class="spec-k">Targeting</div><div class="spec-v">AI gimbal + sensor fusion</div></div>
-        <div class="spec-cell"><div class="spec-k">Payload</div><div class="spec-v">Heavy-lift · Drop-deploy</div></div>
-        <div class="spec-cell"><div class="spec-k">Control</div><div class="spec-v">FSM autonomous</div></div>
-        <div class="spec-cell"><div class="spec-k">Radio</div><div class="spec-v">DoodleLabs · LTE · Amov</div></div>
-        <div class="spec-cell"><div class="spec-k">Safety</div><div class="spec-v">Geofencing · Auto-RTL</div></div>
-        <div class="spec-cell"><div class="spec-k">Kinematics</div><div class="spec-v">Yaw/pitch · IK engine</div></div>
-        <div class="spec-cell"><div class="spec-k">Frame</div><div class="spec-v">Carbon fiber · Coaxial</div></div>
-      </div>
+    <div class="prod-info-right prod-media-cell">
+      <img src="../assets/img_007_57e9e6d7a897.png" alt="Saerier side view">
     </div>
+  </div>
+  <div class="spec-strip rev">
+    <div class="spec-cell"><div class="spec-k">Intercept</div><div class="spec-v">GPS-based precision strike</div></div>
+    <div class="spec-cell"><div class="spec-k">Targeting</div><div class="spec-v">AI gimbal + sensor fusion</div></div>
+    <div class="spec-cell"><div class="spec-k">Payload</div><div class="spec-v">Heavy-lift · Drop-deploy</div></div>
+    <div class="spec-cell"><div class="spec-k">Control</div><div class="spec-v">FSM autonomous</div></div>
+    <div class="spec-cell"><div class="spec-k">Radio</div><div class="spec-v">DoodleLabs · LTE · Amov</div></div>
+    <div class="spec-cell"><div class="spec-k">Safety</div><div class="spec-v">Geofencing · Auto-RTL</div></div>
+    <div class="spec-cell"><div class="spec-k">Kinematics</div><div class="spec-v">Yaw/pitch · IK engine</div></div>
+    <div class="spec-cell"><div class="spec-k">Frame</div><div class="spec-v">Carbon fiber · Coaxial</div></div>
   </div>
 <!-- 4-image gallery -->
   <div class="img-gallery cols-4 rev">
@@ -342,7 +351,7 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 
   <!-- Saena hero -->
   <div class="prod-img-hero tall rev" style="background:var(--bg)">
-    <img src="../assets/img_012_a7d32e347b54.png" alt="Saena">
+    <img src="../assets/saena.png" alt="Saena wireframe">
   </div>
 
   <!-- Name + specs -->
@@ -353,16 +362,17 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
       <p class="body-p">도심 ISR과 자율 요격을 위한 소형·초고기동 드론. AI 기반 실시간 탐지·추적·식별. 휴대 가능. 군집 운용 가능. 임무 중 Saerier에서 공중 발사 가능.</p>
       <p class="body-p hi">시속 200km로, Saena는 고정익이나 더 느린 플랫폼이 도달할 수 없는 표적에 도달합니다.</p>
     </div>
-    <div class="prod-info-right" style="background:var(--bg2)">
-      <div class="spec-grid">
-        <div class="spec-cell"><div class="spec-k">Max Speed</div><div class="spec-v">200 km/h</div></div>
-        <div class="spec-cell"><div class="spec-k">Vision</div><div class="spec-v">AI detect · Track · Classify</div></div>
-        <div class="spec-cell"><div class="spec-k">Flight Modes</div><div class="spec-v">ACRO · CRUISE · THROW</div></div>
-        <div class="spec-cell"><div class="spec-k">Formation</div><div class="spec-v">Swarm-capable</div></div>
-        <div class="spec-cell"><div class="spec-k">Deploy</div><div class="spec-v">Standalone · Air-launched</div></div>
-        <div class="spec-cell"><div class="spec-k">Form Factor</div><div class="spec-v">Hand-carry portable</div></div>
-      </div>
+    <div class="prod-info-right prod-media-cell">
+      <img src="../assets/img_012_a7d32e347b54.png" alt="Saena render">
     </div>
+  </div>
+  <div class="spec-strip rev" style="grid-template-columns:repeat(3,1fr)">
+    <div class="spec-cell"><div class="spec-k">Max Speed</div><div class="spec-v">200 km/h</div></div>
+    <div class="spec-cell"><div class="spec-k">Vision</div><div class="spec-v">AI detect · Track · Classify</div></div>
+    <div class="spec-cell"><div class="spec-k">Flight Modes</div><div class="spec-v">ACRO · CRUISE · THROW</div></div>
+    <div class="spec-cell"><div class="spec-k">Formation</div><div class="spec-v">Swarm-capable</div></div>
+    <div class="spec-cell"><div class="spec-k">Deploy</div><div class="spec-v">Standalone · Air-launched</div></div>
+    <div class="spec-cell"><div class="spec-k">Form Factor</div><div class="spec-v">Hand-carry portable</div></div>
   </div>
 
   <!-- Saena gallery -->
@@ -379,7 +389,7 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 
   <!-- SOMA hero -->
   <div class="prod-img-hero tall rev">
-    <img src="../assets/img_017_6454290a3fb2.jpg" alt="SOMA">
+    <img src="../assets/soma.png" alt="SOMA wireframe">
   </div>
 
   <!-- Name + specs -->
@@ -390,18 +400,19 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
       <p class="body-p">산불 탐지, 재난 대응, 공공안전을 위한 자율 DFR. 인력 대원보다 먼저 출동합니다. 수동 개입이 전혀 필요 없습니다. EO/IR 센서 퓨전, RTK-GPS, 5G C2.</p>
       <p class="body-p hi">292회 자율 비행. 누적 379km 운용 거리. 5분 내 현장 도착.</p>
     </div>
-    <div class="prod-info-right">
-      <div class="spec-grid">
-        <div class="spec-cell"><div class="spec-k">Response</div><div class="spec-v">On-scene ≤ 5 min</div></div>
-        <div class="spec-cell"><div class="spec-k">Detection</div><div class="spec-v">AI fire 90%+ accuracy</div></div>
-        <div class="spec-cell"><div class="spec-k">Hover</div><div class="spec-v">56+ minutes</div></div>
-        <div class="spec-cell"><div class="spec-k">Ops</div><div class="spec-v">Up to 100 minutes</div></div>
-        <div class="spec-cell"><div class="spec-k">Comms</div><div class="spec-v">5G · RF · 6.5km</div></div>
-        <div class="spec-cell"><div class="spec-k">Autonomy</div><div class="spec-v">90%+ unmanned</div></div>
-        <div class="spec-cell"><div class="spec-k">Coverage</div><div class="spec-v">50km² / day</div></div>
-        <div class="spec-cell"><div class="spec-k">Validated</div><div class="spec-v">292 flights · 379km</div></div>
-      </div>
+    <div class="prod-info-right prod-media-cell">
+      <img src="../assets/img_017_6454290a3fb2.jpg" alt="SOMA deployed">
     </div>
+  </div>
+  <div class="spec-strip rev">
+    <div class="spec-cell"><div class="spec-k">Response</div><div class="spec-v">On-scene ≤ 5 min</div></div>
+    <div class="spec-cell"><div class="spec-k">Detection</div><div class="spec-v">AI fire 90%+ accuracy</div></div>
+    <div class="spec-cell"><div class="spec-k">Hover</div><div class="spec-v">56+ minutes</div></div>
+    <div class="spec-cell"><div class="spec-k">Ops</div><div class="spec-v">Up to 100 minutes</div></div>
+    <div class="spec-cell"><div class="spec-k">Comms</div><div class="spec-v">5G · RF · 6.5km</div></div>
+    <div class="spec-cell"><div class="spec-k">Autonomy</div><div class="spec-v">90%+ unmanned</div></div>
+    <div class="spec-cell"><div class="spec-k">Coverage</div><div class="spec-v">50km² / day</div></div>
+    <div class="spec-cell"><div class="spec-k">Validated</div><div class="spec-v">292 flights · 379km</div></div>
   </div>
 
   <!-- SOMA gallery -->
