@@ -1,612 +1,323 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Bone Robotics · The Infrastructure of Physical AI</title>
-<meta name="description" content="Bone Robotics builds and industrializes the infrastructure of the Physical AI era — autonomous systems for defense and public safety, owned from software to manufacturing, made in Korea.">
-<meta property="og:title" content="Bone Robotics · Industrializing the Physical AI Infrastructure.">
-<meta property="og:description" content="Bone Robotics builds and industrializes the infrastructure of the Physical AI era — autonomous systems for defense and public safety, owned from software to manufacturing, made in Korea.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Bone Robotics · Industrializing the Physical AI Infrastructure.">
-<meta name="twitter:description" content="Bone Robotics builds and industrializes the infrastructure of the Physical AI era — autonomous systems for defense and public safety, owned from software to manufacturing, made in Korea.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0a0b0d;--bg2:#101216;--bg3:#06070a;
-  --border:rgba(255,255,255,0.12);--border2:rgba(255,255,255,0.22);
-  --text:#e8e6e0;--muted:#9a9890;--dim:#6e6c66;
-  --accent:#c9a227;--amber:#c9a227;--accent2:#f5f3ee;--white:#ffffff;
-  --steel:#5b7a99;--ink:#0a0b0d;
-}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bone Robotics — We build the backbone</title><meta name="description" content="Bone Robotics builds the Physical AI infrastructure for defense and public safety — owned end to end."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+:root{
+--bg:#eceef1;--panel:#f5f6f8;--deep:#e4e7ea;
+--line:rgba(21,23,26,0.13);--line2:rgba(21,23,26,0.26);
+--ink:#16181b;--text:#262a2f;--muted:#697079;--dim:#9aa1a8;
+--steel:#5e7790;--live:#3f7d6e;
+--mono:'DM Mono',ui-monospace,monospace;--disp:'Bebas Neue',sans-serif;--body:'DM Sans',sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;
+-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-top:62px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ink);color:#fff}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,11,0.55);-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 1px 0 rgba(255,255,255,0.03) inset}
-.nav-logo img{height:26px;width:auto;display:block}
-.nav-links{display:flex;gap:0;align-items:center}
-.nav-links a{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s,background 0.2s;padding:0 22px;height:72px;display:flex;align-items:center}
-.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.04)}
-.nav-cta{background:transparent!important;color:var(--muted)!important;font-weight:500;border:1px solid rgba(255,255,255,0.55);border-radius:2px;height:auto!important;padding:8px 16px!important;margin-left:8px}
-.nav-cta:hover{background:rgba(255,255,255,0.06)!important;color:var(--white)!important;border-color:#fff}
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:stretch;
+background:rgba(236,238,241,0.82);backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);
+border-bottom:1px solid var(--line2)}
+.nav-in{max-width:1440px;margin:0 auto;width:100%;display:flex;align-items:stretch;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;padding:0 26px;border-right:1px solid var(--line)}
+.nav-logo img{height:21px;width:auto}
+.nav-links{margin-left:auto;display:flex;align-items:stretch}
+.nav-links a{display:flex;align-items:center;padding:0 22px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.13em;
+text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);transition:background .2s,color .2s}
+.nav-links a:hover{background:var(--panel);color:var(--ink)}
+.nav-links a.active{color:var(--ink);background:var(--panel)}
+.nav-links a.active::before{content:'';position:absolute;margin-top:-21px;width:5px;height:5px;background:var(--steel)}
+.nav-cta{display:flex;align-items:center;padding:0 24px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.13em;
+text-transform:uppercase;color:#eef0f2!important;background:var(--ink);border-left:1px solid var(--ink)}
+.nav-cta:hover{background:#000}
+.burger{display:none;margin-left:auto;width:62px;border-left:1px solid var(--line);background:transparent;cursor:pointer;
+flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{width:20px;height:1.5px;background:var(--ink);transition:.3s}
 
-/* BUTTONS */
-.btn-p{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:var(--white);color:#0a0b0d;padding:16px 34px;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;font-weight:500}
-.btn-p:hover{background:var(--amber);transform:translateY(-2px)}
-.btn-g{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);border:1px solid var(--border2);padding:16px 34px;text-decoration:none;display:inline-block;transition:all 0.2s}
-.btn-g:hover{border-color:var(--white);background:rgba(255,255,255,0.06)}
+/* ---------- FRAME ---------- */
+.frame{max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line);
+background:var(--bg);position:relative}
+.sec{border-top:1px solid var(--line2);position:relative}
+.in{padding:74px 46px}
+.in-tight{padding:46px}
 
-/* HERO */
-.hero{position:relative;width:100%;min-height:100vh;overflow:hidden;display:flex;align-items:flex-end}
-.hero video,.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero .grad{position:absolute;inset:0;z-index:1;background:
-  linear-gradient(to top,rgba(10,11,13,0.86) 0%,rgba(10,11,13,0.32) 26%,rgba(10,11,13,0) 55%)}
-.hero .grid-overlay{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent 40%,black 100%)}
-.hero .content{position:relative;z-index:2;padding:0 48px 88px;width:100%;max-width:1400px}
-.hero .eyebrow{font-family:'DM Mono',monospace;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;display:flex;align-items:center;gap:16px;font-weight:500}
-.hero .eyebrow::before{content:'';width:36px;height:2px;background:var(--accent)}
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9.5vw,140px);line-height:0.86;color:#fff;margin-bottom:32px;letter-spacing:0.005em;max-width:100%;overflow-wrap:break-word}
-.hero h1 em{color:var(--muted);font-style:normal}
-.hero .lead{font-size:clamp(19px,2vw,24px);color:var(--text);line-height:1.55;max-width:680px;font-weight:400;margin-bottom:44px}
-.hero .btns{display:flex;gap:18px;flex-wrap:wrap}
+/* ---------- TYPE ---------- */
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(46px,7vw,110px);line-height:0.86;letter-spacing:0.006em;
+color:var(--ink);text-transform:uppercase}
+h1 em{font-style:normal;color:var(--dim)}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(40px,5.4vw,78px);line-height:0.86;letter-spacing:0.008em;
+color:var(--ink);text-transform:uppercase}
+h2 em{font-style:normal;color:var(--dim)}
+h3{font-family:var(--disp);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:0.9;letter-spacing:0.01em;color:var(--ink);text-transform:uppercase}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.62;color:var(--text);max-width:62ch}
+p.big{font-family:var(--disp);font-weight:400;font-size:clamp(30px,3.6vw,52px);line-height:0.98;letter-spacing:0.01em;color:var(--ink);text-transform:uppercase}
+p.big em{font-style:normal;color:var(--dim)}
+.body{font-size:16px;line-height:1.7;color:var(--muted)}
+.body b,.body strong{color:var(--text);font-weight:600}
+.body + .body{margin-top:18px}
 
-/* TICKER */
-.ticker{overflow:hidden;background:var(--bg2);padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.ticker-inner{display:flex;white-space:nowrap;animation:ticker 38s linear infinite}
-.tick-i{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding:0 40px;border-right:1px solid var(--border);font-weight:400}
-.tick-i b{color:var(--text);font-weight:600}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ---------- READOUT / EYEBROW ---------- */
+.readout{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--steel);
+display:flex;align-items:center;gap:9px;margin-bottom:26px}
+.readout .dot{width:7px;height:7px;background:var(--live);border-radius:50%;box-shadow:0 0 0 0 rgba(63,125,110,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,125,110,.45)}70%{box-shadow:0 0 0 7px rgba(63,125,110,0)}100%{box-shadow:0 0 0 0 rgba(63,125,110,0)}}
+.eyebrow{display:flex;align-items:center;gap:13px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.18em;
+text-transform:uppercase;color:var(--steel)}
+.eyebrow::before{content:'';width:7px;height:7px;background:var(--steel);flex:none}
+.eyebrow .ln{flex:1;height:1px;background:var(--line2)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px}
+.sec-idx{font-family:var(--mono);font-size:11.5px;letter-spacing:0.14em;color:var(--dim);white-space:nowrap}
+.sec-idx b{color:var(--ink);font-weight:500}
 
-/* SECTIONS */
-.sec{padding:128px 48px;border-bottom:1px solid var(--border);max-width:1400px;margin:0 auto}
-.sec.full{max-width:none;margin:0}
-.sec.alt{background:var(--bg2)}
-.sec.dk{background:var(--bg3)}
-.eyebrow-sec{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:48px;display:flex;align-items:center;gap:18px;font-weight:500}
-.eyebrow-sec::after{content:'';flex:1;height:1px;background:var(--border)}
-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,6.5vw,96px);line-height:0.9;color:var(--white);letter-spacing:0.01em}
-h2 em{color:var(--muted);font-style:normal}
+/* ---------- BUTTONS ---------- */
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:15px 26px;
+border:1px solid var(--ink);transition:.22s;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn-p{background:var(--ink);color:#eef0f2}
+.btn-p:hover{background:#000}
+.btn-g{background:var(--panel);color:var(--ink);border-color:var(--line2)}
+.btn-g:hover{border-color:var(--ink)}
 
-/* THESIS SECTION - infrastructure positioning */
-.thesis{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.thesis-statement{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.5vw,68px);line-height:1.0;color:var(--white);letter-spacing:0.01em}
-.thesis-statement em{color:var(--muted);font-style:normal}
-.thesis-body p{font-size:18px;color:var(--text);line-height:1.75;margin-bottom:20px;font-weight:400}
-.thesis-body p.dim{color:var(--muted);font-size:16px}
+/* ---------- HERO ---------- */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr}
+.hero-main{padding:50px 46px;border-right:1px solid var(--line2);display:flex;flex-direction:column;justify-content:center}
+.hero-main h1{margin-bottom:24px}
+.hero-fig{position:relative;background:#0e1013;overflow:hidden;aspect-ratio:1/1}
+.hero-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-fig.bp{background:var(--panel)}
+.hero-fig.bp img{object-fit:contain;padding:34px}
+.hero-fig.contain{background:#0e1013}
+.hero-fig.contain img{object-fit:contain;padding:30px}
 
-/* LAYER STACK - the infrastructure visual */
-.layers{display:flex;flex-direction:column;gap:14px;margin-top:8px;padding-left:30px}
-.layer{position:relative;border:1px solid var(--border);padding:26px 30px;background:var(--bg2);overflow:hidden;transition:border-color 0.3s,transform 0.3s}
-.layer:hover{border-color:var(--amber);transform:translateX(6px)}
-.layer::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--amber);opacity:0;transition:opacity 0.3s}
-.layer:hover::before{opacity:1}
-.layer-n{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.12em;color:var(--muted);margin-bottom:8px;font-weight:500}
-.layer-t{font-family:'DM Sans',sans-serif;font-size:20px;font-weight:600;color:var(--white);margin-bottom:6px}
-.layer-d{font-size:15px;color:var(--muted);line-height:1.6}
+/* ---------- FIGURE ---------- */
+.figure{position:relative;background:#0e1013;overflow:hidden}
+.figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.figure.bp{background:var(--panel)}
+.figure.bp img{object-fit:contain}
+a.figure:hover img,.hoverable:hover .figure img{transform:scale(1.04)}
+.fig-cap{position:absolute;left:0;bottom:0;z-index:4;background:var(--panel);border-top:1px solid var(--line2);
+border-right:1px solid var(--line2);padding:9px 14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+text-transform:uppercase;color:var(--muted)}
+.fig-cap b{color:var(--steel);font-weight:500}
+.tk{position:absolute;width:10px;height:10px;border:0 solid var(--ink);z-index:5;pointer-events:none}
+.tk.tl{top:0;left:0;border-width:1.5px 0 0 1.5px}
+.tk.tr{top:0;right:0;border-width:1.5px 1.5px 0 0}
+.tk.bl{bottom:0;left:0;border-width:0 0 1.5px 1.5px}
+.tk.br{bottom:0;right:0;border-width:0 1.5px 1.5px 0}
 
-/* STATS */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stat-cell{padding:64px 44px;background:var(--bg);position:relative;overflow:hidden;transition:background 0.3s}
-.stat-cell::after{content:'';position:absolute;right:-20px;bottom:-20px;width:80px;height:80px;border:1px solid var(--border);border-radius:50%;opacity:0.4}
-.stat-cell:hover{background:var(--bg2)}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:76px;color:var(--white);line-height:1;letter-spacing:0.01em;margin-bottom:10px}
-.stat-n em{color:var(--muted);font-style:normal}
-.stat-l{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+/* ---------- MANIFEST BAR ---------- */
+.manifest{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line2);background:var(--panel)}
+.man-cell{padding:16px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.man-cell:last-child{border-right:none}
+.man-k{font-family:var(--mono);font-size:9.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--dim)}
+.man-v{font-family:var(--mono);font-size:12px;letter-spacing:0.02em;text-transform:uppercase;color:var(--ink)}
 
-/* BACKED BY */
-.backed{display:grid;grid-template-columns:1fr 2fr;gap:72px;align-items:start}
-.partner-list{display:flex;flex-direction:column;border:1px solid var(--border)}
-.partner-row{padding:22px 26px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;transition:background 0.2s}
-.partner-row:last-child{border-bottom:none}
-.partner-row:hover{background:var(--bg2)}
-.partner-name{font-size:17px;font-weight:600;color:var(--white)}
-.partner-type{font-family:'DM Mono',monospace;font-size:12px;text-transform:uppercase;color:var(--muted);letter-spacing:0.06em}
+/* ---------- TICKER ---------- */
+.ticker{border-top:1px solid var(--line2);background:var(--deep);overflow:hidden;white-space:nowrap}
+.ticker-in{display:inline-flex;gap:46px;padding:13px 0;animation:tick 38s linear infinite}
+.ticker-in span{font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.ticker-in span b{color:var(--ink);font-weight:500}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* NAV CARDS - with background graphics */
-.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border)}
-.nav-card{position:relative;background:var(--bg2);overflow:hidden;text-decoration:none;display:block;min-height:440px;transition:transform 0.45s cubic-bezier(.2,.7,.2,1),box-shadow 0.45s ease,background 0.3s}
-.nav-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.5s cubic-bezier(.2,.7,.2,1);z-index:4}
-.nav-card:hover{background:var(--bg3);transform:translateY(-14px);box-shadow:0 30px 64px -26px rgba(0,0,0,0.9);z-index:5}
-.nav-card:hover::after{transform:scaleX(1)}
-.nc-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.32;transition:opacity 0.6s ease,transform 0.7s cubic-bezier(.2,.7,.2,1);z-index:0}
-.nav-card:hover .nc-bg{opacity:0.66;transform:scale(1.09)}
-.nc-bg.contain{object-fit:contain;padding:50px;opacity:0.9}
-.nav-card:hover .nc-bg.contain{opacity:1;transform:scale(1.07)}
-.nc-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,var(--bg2) 8%,rgba(16,18,22,0.5) 50%,transparent 100%)}
-.nc-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:40px 40px;opacity:0.5}
-.nc-body{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:40px 36px;transition:transform 0.45s cubic-bezier(.2,.7,.2,1)}
-.nav-card:hover .nc-body{transform:translateY(-8px)}
-.nc-num{position:absolute;top:32px;left:36px;z-index:2;font-family:'DM Mono',monospace;font-size:13px;color:var(--muted);letter-spacing:0.1em;font-weight:500;transition:color 0.3s}
-.nav-card:hover .nc-num{color:var(--amber)}
-.nc-tag{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:500;transition:color 0.3s}
-.nav-card:hover .nc-tag{color:var(--amber)}
-.nc-title{font-family:'Bebas Neue',sans-serif;font-size:46px;color:var(--white);letter-spacing:0.03em;line-height:0.95;margin-bottom:14px}
-.nc-desc{font-size:16px;color:var(--text);line-height:1.6;font-weight:400;margin-bottom:20px;max-width:300px}
-.nc-arrow{font-size:24px;color:var(--muted);transition:transform 0.3s ease,color 0.3s;display:inline-block}
-.nav-card:hover .nc-arrow{transform:translate(8px,-8px);color:var(--amber)}
+/* ---------- MODULE GRIDS ---------- */
+.mods{display:grid;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.mods.c3{grid-template-columns:repeat(3,1fr)}
+.mods.c2{grid-template-columns:repeat(2,1fr)}
+.mods.c4{grid-template-columns:repeat(4,1fr)}
+.mod{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column;min-height:210px}
+.mod-idx{font-family:var(--mono);font-size:11px;letter-spacing:0.13em;color:var(--steel);margin-bottom:16px}
+.mod-t{font-family:var(--disp);font-size:30px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin:0 0 12px}
+.mod-d{font-size:14.5px;line-height:1.62;color:var(--muted)}
 
-/* CLOSING CTA */
-.closing{text-align:center;padding:140px 48px}
-.closing h2{margin-bottom:28px}
-.closing p{font-size:19px;color:var(--muted);max-width:600px;margin:0 auto 40px;line-height:1.7}
+/* ---------- STATS ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-left:1px solid var(--line)}
+.stat{border-right:1px solid var(--line);padding:34px 28px;transition:background .28s ease,color .28s ease}
+.stat:last-child{border-right:none}
+.stat:hover{background:var(--ink)}
+.stat:hover .stat-n{color:#fff}
+.stat:hover .stat-l{color:#cfd4d9}
+.stat-n{font-family:var(--disp);font-size:clamp(40px,4.6vw,64px);line-height:0.9;color:var(--ink);letter-spacing:0.01em}
+.stat-l{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* ---------- CARDS (nav) ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;background:var(--panel);transition:background .25s}
+.card:hover{background:var(--bg)}
+.card-fig{height:188px;overflow:hidden;background:#0e1013;border-bottom:1px solid var(--line2);position:relative}
+.card-fig img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.card:hover .card-fig img{transform:scale(1.05)}
+.card-body{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1}
+.card-idx{font-family:var(--mono);font-size:10.5px;letter-spacing:0.13em;color:var(--steel)}
+.card-t{font-family:var(--disp);font-size:34px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin:8px 0 10px}
+.card-d{font-size:14px;line-height:1.6;color:var(--muted);flex:1}
+.card-go{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);margin-top:20px}
+
+/* ---------- THESIS 2-col ---------- */
+.thesis{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.thesis>div{padding:54px 46px}
+.thesis>div:first-child{border-right:1px solid var(--line)}
+
+/* ---------- WHY video split ---------- */
+.whyrow{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);align-items:stretch}
+.whyvid{position:relative;background:#0e1013;overflow:hidden;min-height:440px;border-right:1px solid var(--line2)}
+.whyvid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.whytxt{padding:54px 46px;display:flex;flex-direction:column;justify-content:center}
+
+/* ---------- LAYER ROWS ---------- */
+.lrow{display:grid;grid-template-columns:64px 0.82fr 1.5fr;border-top:1px solid var(--line);align-items:stretch}
+.lrow:last-child{border-bottom:1px solid var(--line)}
+.l-idx{border-right:1px solid var(--line);padding:30px 0 0 24px;font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:0.08em}
+.l-txt{padding:34px 36px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.l-stage{font-family:var(--mono);font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+.l-t{font-family:var(--disp);font-size:30px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin-bottom:11px}
+.l-d{font-size:14.5px;line-height:1.62;color:var(--muted);max-width:62ch}
+.l-media{background:var(--panel);display:flex;align-items:center;justify-content:center;padding:30px 34px}
+.l-media img{width:100%;height:auto;max-height:430px;object-fit:contain}
+
+/* ---------- FEATURE split ---------- */
+.feat{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);align-items:stretch}
+.feat.rev2{direction:rtl}.feat.rev2>*{direction:ltr}
+.feat-txt{padding:54px 46px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+.feat-fig{position:relative;min-height:420px;background:#0e1013;overflow:hidden}
+.feat-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feat-fig.bp{background:var(--panel)}
+.feat-fig.bp img{object-fit:contain;padding:30px}
+.feat-fig.r43{aspect-ratio:4/3;min-height:0;align-self:start}
+/* product four-panel showcase */
+.showcase{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-left:1px solid var(--line)}
+.sc-cell{position:relative;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#0a0b0d;aspect-ratio:4/3;overflow:hidden}
+.sc-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.sc-cell:hover img{transform:scale(1.05)}
+.sc-veil{position:absolute;inset:0;background:#ffffff;opacity:0.82;pointer-events:none;z-index:1;transition:opacity .45s ease}
+.sc-cell:hover .sc-veil{opacity:0}
+.sc-lbl{position:absolute;bottom:12px;left:14px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);transition:color .45s ease}
+.sc-cell:hover .sc-lbl{color:rgba(255,255,255,0.85)}
+
+/* ---------- PRODUCT modules ---------- */
+.prod{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line2);align-items:stretch}
+.prod-fig{position:relative;min-height:440px;background:#0e1013;overflow:hidden}
+.prod-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prod-fig.bp{background:var(--panel)}
+.prod-fig.bp img{object-fit:contain;padding:36px}
+.prod-txt{padding:50px 46px;border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.prod.rev .prod-txt{border-left:none;border-right:1px solid var(--line);order:-1}
+.prod-code{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+.prod-name{font-family:var(--disp);font-size:clamp(40px,4.4vw,60px);line-height:0.9;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.prod-tag{font-family:var(--mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.prod-d{font-size:15px;line-height:1.65;color:var(--muted);margin-bottom:26px;max-width:54ch}
+
+/* ---------- SPEC strip ---------- */
+.spec{border-top:1px solid var(--line)}
+.spec-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--line)}
+.spec-k{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);padding:12px 0}
+.spec-v{font-family:var(--mono);font-size:12.5px;letter-spacing:0.02em;color:var(--ink);padding:12px 0;border-left:1px solid var(--line);padding-left:20px}
+
+/* parts-list lineup */
+.lineup{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.lu{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 24px;display:flex;flex-direction:column;gap:7px;transition:background .2s}
+.lu:hover{background:var(--panel)}
+.lu-code{font-family:var(--mono);font-size:10px;letter-spacing:0.13em;color:var(--steel)}
+.lu-name{font-family:var(--disp);font-size:26px;text-transform:uppercase;color:var(--ink);letter-spacing:0.01em}
+.lu-d{font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.gal .figure{border-right:1px solid var(--line);border-bottom:1px solid var(--line);height:200px}
+.gal .figure img{width:100%;height:100%;object-fit:cover}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;
+align-items:center;gap:20px;font-family:var(--body);font-size:18px;font-weight:600;color:var(--ink)}
+.faq-q .pm{font-family:var(--mono);font-size:20px;color:var(--steel);transition:.3s}
+.faq-item.open .pm{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a p{padding:0 0 24px;color:var(--muted);font-size:15px;line-height:1.65;max-width:80ch}
+
+/* downloads rows */
+.dl{border-top:1px solid var(--line)}
+.dl-row{display:grid;grid-template-columns:60px 1fr 130px 90px;align-items:center;border-bottom:1px solid var(--line);padding:22px 0}
+.dl-fmt{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--steel)}
+.dl-t{font-weight:600;color:var(--ink);font-size:16px}
+.dl-t span{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:3px;font-family:var(--body)}
+.dl-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim)}
+.dl-go{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);text-align:right}
+
+/* empty state */
+.empty{border:1px solid var(--line);background:var(--panel);padding:54px;text-align:center}
+.empty p{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+
+/* form */
+.form{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.field{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 24px;display:flex;flex-direction:column;gap:9px}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim)}
+.field input,.field textarea,.field select{background:transparent;border:none;border-bottom:1px solid var(--line2);
+font-family:var(--body);font-size:15px;color:var(--ink);padding:6px 0;outline:none;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--steel)}
+
+/* CTA */
+.cta{position:relative;background:var(--panel);padding:88px 46px;text-align:center}
+.cta h2{margin-bottom:20px}
+.cta .lead{margin:0 auto 38px}
+.cta .btns{justify-content:center}
+
+/* policy */
+.policy{max-width:880px}
+.pol-item{display:grid;grid-template-columns:54px 1fr;border-top:1px solid var(--line);padding:26px 0}
+.pol-n{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.06em}
+.pol-h{font-weight:700;color:var(--ink);font-size:17px;margin-bottom:9px}
+.pol-b{color:var(--muted);font-size:15px;line-height:1.65}
+.pol-b ul{margin:8px 0 0 18px}
 
 /* FOOTER */
-footer{padding:36px 48px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);background:var(--bg3)}
-.f-copy{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;color:var(--muted)}
-.priv{border-top:1px solid var(--border);padding:14px 48px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--dim);background:var(--bg3);text-align:center}
+.footer{border-top:1px solid var(--line2);background:var(--panel);max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.footer-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 46px;flex-wrap:wrap}
+.footer-logo img{height:18px;opacity:.5}
+.f-nav{display:flex;gap:22px;flex-wrap:wrap}
+.f-nav a{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.f-nav a:hover{color:var(--ink)}
+.f-copy{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--dim)}
+.priv{max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line);
+border-top:1px solid var(--line);padding:13px 46px;background:var(--panel);
+font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);text-align:center}
 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
-.a1{animation:fadeUp 0.9s 0.15s ease both}
-.a2{animation:fadeUp 0.9s 0.35s ease both}
-.a3{animation:fadeUp 0.9s 0.55s ease both}
-.a4{animation:fadeUp 0.9s 0.75s ease both}
-.rev{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
-.rev.on{opacity:1;transform:translateY(0)}
+/* reveal */
+.rev{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rev.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}.ticker-in,.readout .dot{animation:none}}
 
+/* responsive */
 @media(max-width:980px){
-  nav{padding:0 20px}
-  .nav-links a{padding:0 13px;font-size:11px}
-  .hero .content{padding:0 20px 60px}
-  .sec{padding:80px 20px}
-  .thesis,.backed{grid-template-columns:1fr;gap:44px}
-  .stats-row{grid-template-columns:1fr 1fr}
-  .nav-cards{grid-template-columns:1fr}
-  .nav-card{min-height:380px}
-  footer,.priv{padding-left:20px;padding-right:20px}
+.in{padding:54px 26px}.thesis>div,.feat-txt,.prod-txt{padding:40px 26px}
+.hero-grid,.thesis,.feat,.prod,.whyrow{grid-template-columns:1fr}
+.whyvid{min-height:280px;border-right:none;border-bottom:1px solid var(--line2)}.whytxt{padding:40px 26px}
+.hero-main{border-right:none;border-bottom:1px solid var(--line2);padding:48px 26px}
+.hero-fig{aspect-ratio:1/1}.feat-fig,.prod-fig{min-height:330px}
+.feat.rev2{direction:ltr}.feat-txt{border-right:none;border-bottom:1px solid var(--line)}
+.prod.rev .prod-txt{order:0;border-right:none}.prod-txt{border-left:none;border-top:1px solid var(--line)}
+.thesis>div:first-child{border-right:none;border-bottom:1px solid var(--line)}
+.cards,.mods.c3,.stats,.lineup,.gal,.mods.c4,.showcase{grid-template-columns:1fr 1fr}
+.manifest{grid-template-columns:1fr 1fr}.man-cell:nth-child(2n){border-right:none}
+.lrow{grid-template-columns:1fr}.l-idx{border-right:none;border-bottom:1px solid var(--line);padding:18px 24px}
+.l-txt{border-right:none;border-bottom:1px solid var(--line)}.l-media{min-height:220px}
+.nav-links{display:none}.burger{display:flex}
+.nav-links.show{display:flex;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line2)}
+.nav-links.show a{border-left:none;border-bottom:1px solid var(--line);height:50px}
+.form{grid-template-columns:1fr}.field{border-right:none}
 }
-@media(max-width:680px){
-  
-  .stats-row{grid-template-columns:1fr 1fr}
-  .stat-n{font-size:58px}
+@media(max-width:560px){
+.cards,.mods.c3,.stats,.lineup,.gal,.mods.c4,.manifest{grid-template-columns:1fr}
+.man-cell{border-right:none}.stat,.lu{border-right:none}
+.sec-head{flex-direction:column;align-items:flex-start;gap:14px}
+.dl-row{grid-template-columns:50px 1fr;row-gap:6px}.dl-meta,.dl-go{grid-column:2;text-align:left}
 }
-
-.pillars3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:8px}
-.pillar3{position:relative;background:var(--bg);padding:56px 44px 48px;overflow:hidden;transition:background 0.35s}
-.pillar3:hover{background:var(--bg2)}
-.pillar3::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.45s}
-.pillar3:hover::before{transform:scaleX(1)}
-.p3-idx{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.18em;color:var(--muted);margin-bottom:40px}
-.p3-word{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.2vw,60px);line-height:0.9;color:var(--white);letter-spacing:0.02em;margin-bottom:8px}
-.p3-sub{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:24px}
-.p3-body{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:28px}
-.p3-link{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:4px;transition:color 0.2s,border-color 0.2s}
-.p3-link:hover{color:var(--amber);border-color:var(--amber)}
-@media(max-width:980px){.pillars3{grid-template-columns:1fr}}
-
-.firstbar{background:var(--bg3);border-bottom:1px solid var(--border);padding:96px 48px;position:relative;overflow:hidden}
-.firstbar-inner{max-width:1400px;margin:0 auto;position:relative;z-index:2}
-.firstbar .grid-bg{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 70% 100% at 50% 50%,black,transparent)}
-.firstbar-eye{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);margin-bottom:24px;display:flex;align-items:center;gap:14px;font-weight:500;justify-content:center}
-.firstbar-eye::before,.firstbar-eye::after{content:'';width:40px;height:1px;background:var(--amber);opacity:0.5}
-.firstbar-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9vw,128px);line-height:0.86;color:var(--white);letter-spacing:0.01em;text-align:center;margin-bottom:28px}
-.firstbar-sub{font-size:clamp(17px,1.7vw,21px);color:var(--text);line-height:1.6;max-width:760px;margin:0 auto;text-align:center;font-weight:400}
-.firstbar-sub b{color:var(--white);font-weight:600}
-.firstbar-stats{display:flex;justify-content:center;gap:0;margin-top:48px;border:1px solid var(--border);max-width:840px;margin-left:auto;margin-right:auto}
-.fb-stat{flex:1;padding:24px 28px;border-right:1px solid var(--border);text-align:center}
-.fb-stat:last-child{border-right:none}
-.fb-stat-n{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--white);line-height:1;margin-bottom:6px}
-.fb-stat-l{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
-@media(max-width:680px){.firstbar-stats{flex-direction:column}.fb-stat{border-right:none;border-bottom:1px solid var(--border)}.fb-stat:last-child{border-bottom:none}}
-
-/* ERA ROW - new industrial category */
-.era-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
-.era-cell{background:var(--bg);padding:44px 24px}
-.era-cell.now{background:var(--bg2);border-top:2px solid var(--amber)}
-.era-n{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;color:var(--muted);margin-bottom:20px}
-.era-cell.now .era-n{color:var(--amber)}
-.era-t{font-family:'Bebas Neue',sans-serif;font-size:clamp(20px,2vw,28px);color:var(--white);letter-spacing:0.02em;line-height:1}
-@media(max-width:980px){.era-row{grid-template-columns:1fr 1fr}}
-
-/* THREE PILLARS - at-a-glance typographic index */
-.pillar-index{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
-.pidx{position:relative;background:rgba(12,13,16,0.78);padding:44px 34px 38px;display:block}
-.pidx::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--amber);opacity:0.55}
-.pidx-n{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;color:var(--dim);letter-spacing:0.02em;margin-bottom:26px}
-.pidx-t{font-family:'Bebas Neue',sans-serif;font-size:27px;line-height:1.02;color:var(--white);letter-spacing:0.02em;margin-bottom:14px}
-.pidx-d{font-size:15px;color:var(--muted);line-height:1.62;max-width:300px}
-@media(max-width:880px){.pillar-index{grid-template-columns:1fr}}
-
-.hero .scanline{position:absolute;left:0;right:0;height:1px;z-index:1;background:linear-gradient(90deg,transparent,rgba(201,162,39,0.55),transparent);opacity:0.7;animation:scanmove 7s linear infinite;pointer-events:none}
-@keyframes scanmove{0%{top:-2%}100%{top:102%}}
-/* Firstbar signal pulse on grid */
-.firstbar .pulse-dot{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber);z-index:1;opacity:0}
-@keyframes pulseTravelV{0%{opacity:0;transform:translateY(0)}8%{opacity:0.9}92%{opacity:0.9}100%{opacity:0;transform:translateY(var(--travel,200px))}}
-@keyframes pulseTravel{0%{opacity:0;transform:translateX(0)}8%{opacity:0.9}92%{opacity:0.9}100%{opacity:0;transform:translateX(var(--travel,300px))}}
-/* count-up: prevent layout shift */
-.stat-n,.fb-stat-n{font-variant-numeric:tabular-nums}
-@media(prefers-reduced-motion:reduce){.hero .scanline,.firstbar .pulse-dot{animation:none;display:none}}
-
-.shimmer{position:relative;display:inline-block;background:linear-gradient(105deg,#ffffff 0%,#ffffff 42%,#fff7e0 48%,#e8c766 50%,#fff7e0 52%,#ffffff 58%,#ffffff 100%);background-size:280% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.shimmer.swept{animation:sweep 2.2s cubic-bezier(0.4,0,0.2,1) forwards}
-@keyframes sweep{from{background-position:100% 0}to{background-position:-20% 0}}
-.shimmer em{-webkit-text-fill-color:transparent}
-
-.lang-toggle{display:flex;align-items:center;gap:0;margin-right:8px;border:1px solid var(--border2);border-radius:2px;overflow:hidden}
-.lang-toggle a{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:6px 11px;text-decoration:none;color:var(--muted);transition:color 0.2s,background 0.2s;height:auto!important;border:none!important}
-.lang-toggle a.on{color:#0a0b0d;background:var(--white)}
-.lang-toggle a:not(.on):hover{color:var(--white);background:rgba(255,255,255,0.06)}
-
-html{scroll-padding-top:72px}
-section[id],div[id]{scroll-margin-top:72px}
-.sec,.hero,.firstbar,.page-hero,.prod-section{scroll-margin-top:72px}
-
-.hero-term{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.04em;color:var(--amber);margin-bottom:18px;min-height:16px;opacity:0.85}
-.hero-term .tcur{display:inline-block;width:7px;height:13px;background:var(--amber);margin-left:3px;vertical-align:middle;animation:tblink 1s steps(1) infinite}
-@keyframes tblink{50%{opacity:0}}
-.hero{will-change:transform}
-.hero video{will-change:transform}
-
-.layers{position:relative}
-.layers::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border);z-index:0}
-.layers::after{content:'';position:absolute;left:-1px;top:0;width:4px;height:60px;background:linear-gradient(to bottom,transparent,var(--amber),transparent);z-index:1;filter:blur(1px);animation:sigflow 3.2s linear infinite;opacity:0.9}
-@keyframes sigflow{0%{top:-60px}100%{top:100%}}
-@media(prefers-reduced-motion: reduce){.layers::after{display:none}}
-.layer{position:relative;z-index:2}
-.layer .layer-n{position:relative}
-.layer .layer-n::before{content:'';position:absolute;left:-30px;top:50%;width:7px;height:7px;border-radius:50%;background:var(--border2);transform:translateY(-50%);transition:background 0.3s,box-shadow 0.3s}
-.layer:hover .layer-n::before{background:var(--amber);box-shadow:0 0 10px var(--amber)}
-
-/*MOBILE-STACK*/
-@media(max-width:680px){
-.pillars3,.stats-row,/* BACKED BY */
-.backed,/* NAV CARDS - with background graphics */
-.nav-cards,/* STATS */
-.stats-row,/* THESIS SECTION - infrastructure positioning */
-.thesis,.era-row,[style*="grid-template-columns"]{grid-template-columns:1fr !important}
-}
-/* Mobile hero title: ensure it renders bright like desktop (some mobile browsers paint the
-   background-clip:text shimmer too dark). Fall back to solid fills below 900px. */
-@media(max-width:900px){
-  .hero h1.shimmer{background:none!important;-webkit-text-fill-color:#fff!important;color:#fff!important;animation:none!important}
-  .hero h1.shimmer em{-webkit-text-fill-color:var(--muted)!important;color:var(--muted)!important}
-}
-
-/* --- Mobile nav menu --- */
-.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border:1px solid var(--border2);border-radius:3px;background:rgba(255,255,255,0.02);cursor:pointer;padding:0;z-index:210}
-.nav-burger span{display:block;width:18px;height:2px;background:var(--text);margin:0 auto;transition:transform 0.3s,opacity 0.3s}
-nav.open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-nav.open .nav-burger span:nth-child(2){opacity:0}
-nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:820px){
-  .nav-burger{display:flex}
-  .nav-links{position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:rgba(8,9,11,0.98);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:6px 0 18px;transform:translateY(-10px);opacity:0;pointer-events:none;transition:transform 0.3s ease,opacity 0.3s ease;max-height:calc(100vh - 72px);overflow-y:auto}
-  nav.open .nav-links{transform:none;opacity:1;pointer-events:auto}
-  .nav-links a{height:auto;padding:15px 24px;font-size:13px;border-bottom:1px solid rgba(255,255,255,0.04)}
-  .lang-toggle{margin:14px 24px 6px;align-self:flex-start}
-  .nav-cta{margin:12px 24px 2px;justify-content:center;text-align:center;padding:15px 24px!important;border-radius:3px}
-}
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-logo"><a href="index.html"><img src="assets/logo_bone.png" alt="Bone Robotics"></a></div>
-  <div class="nav-links" id="navLinks">
-    <a href="platform.html">Platform</a>
-    <a href="product.html">Product</a>
-    <a href="company.html">Company</a>
-    <a href="resources.html">Resources</a>
-    <div class="lang-toggle"><a href="index.html" class="on">EN</a><a href="kr/index.html">KO</a></div>
-    <a href="contact.html" class="nav-cta">Request a Briefing</a>
-  </div>
-<button class="nav-burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-</nav>
-
-<!-- HERO -->
-<div class="hero" id="home">
-  <img class="bg" id="heroBg" src="assets/landing_page_2.png" alt="Physical AI network" style="filter:brightness(0.92) contrast(1.02)">
-  <div class="grad"></div>
-  <div class="content">
-    <div class="hero-term" id="heroTerm"></div>
-    <div class="eyebrow a1">Civilization Infrastructure Company</div>
-    <h1 class="a2 shimmer" id="heroShim">WE BUILD THE<br><em>BACKBONE.</em></h1>
-    <p class="lead a3">Civilization runs on systems no one sees. We build them, own them, and defend them — end to end.</p>
-    <div class="btns a4">
-      <a href="platform.html" class="btn-p">See How It Works</a>
-      <a href="contact.html" class="btn-g">Request a Briefing →</a>
-    </div>
-  </div>
-</div>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="tick-i">Physical AI <b>Infrastructure</b></span>
-    <span class="tick-i">Command & Control <b>Operating System</b></span>
-    <span class="tick-i">Low-Altitude <b>Air Defense</b></span>
-    <span class="tick-i">Disaster Response <b>Autonomous Agents</b></span>
-    <span class="tick-i">Owned <b>End to End</b></span>
-    <span class="tick-i">Made in <b>Korea</b></span>
-    <span class="tick-i">From Manufacturing <b>to Mission</b></span>
-    <span class="tick-i">Physical AI <b>Infrastructure</b></span>
-    <span class="tick-i">Command & Control <b>Operating System</b></span>
-    <span class="tick-i">Low-Altitude <b>Air Defense</b></span>
-    <span class="tick-i">Disaster Response <b>Autonomous Agents</b></span>
-    <span class="tick-i">Owned <b>End to End</b></span>
-    <span class="tick-i">Made in <b>Korea</b></span>
-    <span class="tick-i">From Manufacturing <b>to Mission</b></span>
-  </div>
-</div>
-
-<!-- WHY WE EXIST: Civilization infrastructure -->
-<div class="sec full alt" style="padding-left:0;padding-right:0;position:relative;overflow:hidden">
- <video id="thesisBg" autoplay muted loop playsinline poster="assets/v12_poster.jpg" aria-hidden="true" style="position:absolute;top:-18%;left:0;width:100%;height:136%;object-fit:cover;opacity:0.6;z-index:0;will-change:transform"><source src="assets/v12.mp4" type="video/mp4"></video>
- <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 130% 110% at 50% 50%,rgba(15,16,19,0.55) 0%,rgba(15,16,19,0.88) 100%)"></div>
- <div style="max-width:1400px;margin:0 auto;padding:128px 48px;position:relative;z-index:2">
-  <div class="eyebrow-sec rev">Why We Exist</div>
-  <p class="rev" style="font-size:clamp(21px,2.4vw,32px);color:var(--white);line-height:1.45;max-width:980px;margin-bottom:60px;font-weight:400">A power grid. A contested border. A wildfire front. Each depends on infrastructure that has to work the moment everything else fails. Bone builds that infrastructure — and makes it autonomous.</p>
-  <div class="thesis">
-    <div class="rev">
-      <div class="thesis-statement">A nation is only as resilient as the <em>infrastructure</em> beneath it.</div>
-    </div>
-    <div class="thesis-body rev">
-      <p>Energy, security, public safety, logistics — every system a society depends on is going autonomous. That only holds if someone builds the layer underneath: software to decide, hardware to act, networks to connect, factories to produce at scale.</p>
-      <p>Bone builds that layer as one system — and stays with it in the field. In a wildfire. On a contested border. At national scale. Not drones. The infrastructure civilization runs on.</p>
-    </div>
-  </div>
- </div>
-</div>
-
-<!-- PROOF BAND: already in the field -->
-<div class="firstbar">
-  <div class="grid-bg"></div>
-  <div class="firstbar-inner">
-    <div class="firstbar-eye">Already in the Field</div>
-    <div class="firstbar-h" style="font-size:clamp(48px,6.5vw,96px)">PROOF, NOT <em style="color:var(--muted);font-style:normal">PROMISES.</em></div>
-    <p class="firstbar-sub">A thesis this big means nothing without deployment. Bone's systems already run under government contract — proven in real defense and disaster operations, not demos.</p>
-    <div class="firstbar-stats">
-      <div class="fb-stat"><div class="fb-stat-n">₩2.8B</div><div class="fb-stat-l">First-Year Revenue</div></div>
-      <div class="fb-stat"><div class="fb-stat-n">292</div><div class="fb-stat-l">Autonomous Flights</div></div>
-      <div class="fb-stat"><div class="fb-stat-n">379km</div><div class="fb-stat-l">Validated Range</div></div>
-      <div class="fb-stat"><div class="fb-stat-n">90%+</div><div class="fb-stat-l">Field Autonomy</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- THE THREE PILLARS: at-a-glance index (smooth-scroll, linear-friendly) -->
-<div class="sec full alt" style="padding-left:0;padding-right:0;position:relative;overflow:hidden">
- <img src="assets/wireframe_mountain.png" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.42;z-index:0">
- <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(8,9,11,0.55) 0%,rgba(8,9,11,0.4) 40%,rgba(8,9,11,0.66) 100%)"></div>
- <div style="max-width:1400px;margin:0 auto;padding:104px 48px;position:relative;z-index:2">
-  <div class="eyebrow-sec rev">What Holds It Up</div>
-  <h2 class="rev" style="margin-bottom:52px;max-width:920px">EVERYTHING WE BUILD<br>RESTS ON <em>THREE PILLARS.</em></h2>
-  <div class="pillar-index rev">
-    <div class="pidx">
-      <div class="pidx-n">01</div>
-      <div class="pidx-t">WHY BONE</div>
-      <div class="pidx-d">We own every layer no one else does — software, supply chain, field operations.</div>
-    </div>
-    <div class="pidx">
-      <div class="pidx-n">02</div>
-      <div class="pidx-t">SYSTEM OF SYSTEMS</div>
-      <div class="pidx-d">We fuse the whole stack into one operational capability — not parts, a system.</div>
-    </div>
-    <div class="pidx">
-      <div class="pidx-n">03</div>
-      <div class="pidx-t">A NEW INDUSTRIAL CATEGORY</div>
-      <div class="pidx-d">We industrialize Physical AI — the next great industry, the way Korea has built industries before.</div>
-    </div>
-  </div>
- </div>
-</div>
-
-<!-- NAV CARDS with background graphics -->
-<div class="nav-cards">
-  <a href="platform.html" class="nav-card rev">
-    <img class="nc-bg" src="assets/img_002_94b620d85f40.png" alt="">
-    <div class="nc-grid"></div>
-    <div class="nc-overlay"></div>
-    <div class="nc-num">01</div>
-    <div class="nc-body">
-      <div class="nc-tag">System of Systems · C2 OS</div>
-      <div class="nc-title">Platform</div>
-      <p class="nc-desc">The integrated system — C2 OS, resilient comms, field robotics, and manufacturing, fused into one operational capability.</p>
-      <span class="nc-arrow">→</span>
-    </div>
-  </a>
-  <a href="product.html" class="nav-card rev">
-    <img class="nc-bg contain" src="assets/img_003_4e5fdca142c3.png" alt="">
-    <div class="nc-grid"></div>
-    <div class="nc-overlay"></div>
-    <div class="nc-num">02</div>
-    <div class="nc-body">
-      <div class="nc-tag">Saerier · Saena · SOMA</div>
-      <div class="nc-title">Product</div>
-      <p class="nc-desc">The field layer — autonomous systems proven in real defense and disaster operations.</p>
-      <span class="nc-arrow">→</span>
-    </div>
-  </a>
-  <a href="company.html" class="nav-card rev">
-    <img class="nc-bg" src="assets/img_004_3dbf86876218.jpg" alt="">
-    <div class="nc-grid"></div>
-    <div class="nc-overlay"></div>
-    <div class="nc-num">03</div>
-    <div class="nc-body">
-      <div class="nc-tag">Why Bone · Vision</div>
-      <div class="nc-title">Company</div>
-      <p class="nc-desc">Why Bone, and the new industrial category we're building — the kind of company Korea has built before.</p>
-      <span class="nc-arrow">→</span>
-    </div>
-  </a>
-</div>
-
-<!-- CLOSING -->
-<div class="closing dk">
-  <div class="eyebrow-sec rev" style="justify-content:center">Autonomy in Residence</div>
-  <h2 class="rev">WE DON'T SHIP AND LEAVE.<br>WE STAY UNTIL IT <em>WORKS.</em></h2>
-  <p class="rev">Government procurement, partnership, or investment — let's talk about the infrastructure you need built.</p>
-  <div class="rev"><a href="contact.html" class="btn-p">Request a Briefing →</a></div>
-</div>
-
-<footer>
-  <div><img src="assets/img_001_2cd59baf6c82.png" alt="Bone Robotics" style="height:22px;opacity:0.5"></div>
-  <div class="f-nav" style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">
-    <a href="platform.html" style="color:var(--muted);text-decoration:none">Platform</a>
-    <a href="product.html" style="color:var(--muted);text-decoration:none">Product</a>
-    <a href="company.html" style="color:var(--muted);text-decoration:none">Company</a>
-    <a href="resources.html" style="color:var(--muted);text-decoration:none">Resources</a>
-    <a href="contact.html" style="color:var(--muted);text-decoration:none">Contact</a>
-    <a href="privacy.html" style="color:var(--muted);text-decoration:none">Privacy</a>
-  </div>
-  <div class="f-copy">© 2026 Bone Robotics Inc.</div>
-</footer>
-<div class="priv">No cookies · No third-party trackers · No analytics</div>
-
-<script>
-document.querySelectorAll('.rev').forEach(el => {
-  new IntersectionObserver((e) => {
-    e.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('on'), i * 70);
-        e.observer && e.observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold: 0.08}).observe(el);
-});
-</script>
-
-
-
-
-<script>
-// Count-up animation
-function countUp(el){
-  const target=parseFloat(el.dataset.count);
-  const dec=parseInt(el.dataset.dec||'0');
-  const pre=el.dataset.prefix||'';
-  const suf=el.dataset.suffix||'';
-  const dur=1400; const t0=performance.now();
-  const emHTML=el.querySelector('em')?el.querySelector('em').outerHTML:'';
-  function tick(now){
-    let p=Math.min((now-t0)/dur,1);
-    p=1-Math.pow(1-p,3);
-    const val=(target*p).toFixed(dec);
-    el.firstChild.nodeValue=pre+val;
-    if(p<1) requestAnimationFrame(tick);
-    else el.firstChild.nodeValue=pre+target.toFixed(dec);
-  }
-  // reset text node before em
-  if(el.dataset.count){ requestAnimationFrame(tick); }
-}
-const statObs=new IntersectionObserver((es)=>{
-  es.forEach(e=>{ if(e.isIntersecting && e.target.dataset.count && !e.target.dataset.done){ e.target.dataset.done='1'; countUp(e.target);} });
-},{threshold:0.5});
-document.querySelectorAll('.stat-n[data-count]').forEach(el=>statObs.observe(el));
-
-// Hero shimmer on load
-window.addEventListener('load',()=>{ const hs=document.getElementById('heroShim'); if(hs) setTimeout(()=>hs.classList.add('swept'),600); });
-// First-bar shimmer on scroll-in
-const shimObs=new IntersectionObserver((es)=>{
-  es.forEach(e=>{ if(e.isIntersecting && !e.target.dataset.swept){ e.target.dataset.swept='1'; e.target.classList.add('swept'); } });
-},{threshold:0.6});
-const fs=document.getElementById('firstShim'); if(fs) shimObs.observe(fs);
-</script>
-
-
-<script>
-/* ---- Terminal boot typing ---- */
-(function(){
-  const el=document.getElementById('heroTerm');
-  if(!el) return;
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const lines=[
-    'INITIALIZING C2 OS // BONE-CORE v4.2',
-    'SENSOR FUSION ........ ONLINE',
-    'AUTONOMY ENGINE ...... ONLINE',
-    'LINK // GPS-DENIED RESILIENT ... OK',
-    'SYSTEM READY'
-  ];
-  if(reduce){ el.textContent='SYSTEM READY'; return; }
-  let li=0,ci=0;
-  function type(){
-    if(li>=lines.length){
-      el.innerHTML='<span style="color:var(--amber)">SYSTEM READY</span><span class="tcur"></span>';
-      return;
-    }
-    const cur=lines[li];
-    el.innerHTML=cur.slice(0,ci)+'<span class="tcur"></span>';
-    ci++;
-    if(ci>cur.length){
-      li++; ci=0;
-      setTimeout(type, li>=lines.length?0:380);
-    } else {
-      setTimeout(type, 22+Math.random()*30);
-    }
-  }
-  setTimeout(type, 500);
-})();
-
-/* ---- Hero parallax (video + particles drift slower than scroll) ---- */
-(function(){
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce) return;
-  const hero=document.querySelector('.hero');
-  const vid=hero?hero.querySelector('video, img.bg'):null;
-  const fx=null;
-  const content=hero?hero.querySelector('.content'):null;
-  let ticking=false;
-  function onScroll(){
-    if(ticking) return;
-    ticking=true;
-    requestAnimationFrame(()=>{
-      const y=window.scrollY;
-      if(y<window.innerHeight){
-        if(vid) vid.style.transform='translateY('+(y*0.35)+'px) scale(1.05)';
-        if(fx) fx.style.transform='translateY('+(y*0.22)+'px)';
-        if(content) content.style.transform='translateY('+(y*0.12)+'px)';
-        if(content) content.style.opacity=String(Math.max(0,1-y/(window.innerHeight*0.7)));
-      }
-      ticking=false;
-    });
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-})();
-</script>
-<script>
-/* ---- Thesis background vertical parallax ---- */
-(function(){
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce) return;
-  var bg=document.getElementById('thesisBg');
-  if(!bg) return;
-  var sec=bg.parentElement;
-  var ticking=false;
-  function onScroll(){
-    if(ticking) return; ticking=true;
-    requestAnimationFrame(function(){
-      var r=sec.getBoundingClientRect();
-      var vh=window.innerHeight;
-      if(r.bottom>0 && r.top<vh){
-        var p=(r.top + r.height/2 - vh/2)/vh;   // -1 .. 1 across viewport
-        bg.style.transform='translateY('+(p*-70)+'px)';
-      }
-      ticking=false;
-    });
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-})();
-</script>
-<script>
-(function(){
-  var nav=document.querySelector('nav');
-  var burger=nav&&nav.querySelector('.nav-burger');
-  if(!nav||!burger)return;
-  burger.addEventListener('click',function(){
-    var open=nav.classList.toggle('open');
-    burger.setAttribute('aria-expanded',open?'true':'false');
-  });
-  nav.querySelectorAll('.nav-links a').forEach(function(a){
-    a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');});
-  });
-  window.addEventListener('resize',function(){if(window.innerWidth>820&&nav.classList.contains('open')){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');}});
-})();
-</script>
-</body>
-</html>
+</style></head><body><nav class="nav"><div class="nav-in"><div class="nav-logo"><a href="index.html"><img src="assets/logo_dark.png" alt="Bone Robotics"></a></div><div class="nav-links" id="nav"><a href="platform.html">Platform</a><a href="product.html">Product</a><a href="company.html">Company</a><a href="resources.html">Resources</a><a href="contact.html" class="nav-cta">Request a Briefing</a></div><button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav><main class="frame"><section class="hero"><div class="hero-grid"><div class="hero-main"><div class="readout"><span class="dot"></span><span id="term" data-msg="BONE-CORE v4.2 // C2 OS  —  SYSTEM READY"></span></div><div class="eyebrow rev">Civilization Infrastructure Company<span class="ln"></span></div><h1 class="rev">We build the<br><em>backbone.</em></h1><p class="lead rev">Civilization runs on systems no one sees. We build them, own them, and defend them — end to end.</p><div class="btns rev"><a class="btn btn-p" href="platform.html">See how it works</a><a class="btn btn-g" href="contact.html">Request a briefing →</a></div></div><div class="hero-fig"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="assets/landing_page_2.jpg" alt=""></div></div><div class="manifest rev"><div class="man-cell"><span class="man-k">System</span><span class="man-v">Physical AI Infra</span></div><div class="man-cell"><span class="man-k">Core</span><span class="man-v">Command &amp; Control OS</span></div><div class="man-cell"><span class="man-k">Domain</span><span class="man-v">Defense · Safety</span></div><div class="man-cell"><span class="man-k">Ownership</span><span class="man-v">End to End</span></div><div class="man-cell"><span class="man-k">Origin</span><span class="man-v">Made in Korea</span></div></div></section><div class="ticker"><div class="ticker-in"><span>Physical AI <b>Infrastructure</b></span><span>Command &amp; Control <b>Operating System</b></span><span>Low-Altitude <b>Air Defense</b></span><span>Disaster-Response <b>Autonomous Agents</b></span><span>Owned <b>End to End</b></span><span>Made in <b>Korea</b></span><span>Physical AI <b>Infrastructure</b></span><span>Command &amp; Control <b>Operating System</b></span><span>Low-Altitude <b>Air Defense</b></span><span>Disaster-Response <b>Autonomous Agents</b></span><span>Owned <b>End to End</b></span><span>Made in <b>Korea</b></span></div></div><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">Why we exist<span class="ln"></span></div><div class="sec-idx">01 / 05</div></div><p class="big rev">A power grid. A contested border. A wildfire front. Each depends on infrastructure that has to work the moment <em>everything else fails.</em></p></div><div class="whyrow"><div class="whyvid rev"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><video src="assets/v2.mp4" autoplay loop muted playsinline></video><div class="fig-cap"><b>FIELD</b> &nbsp;//&nbsp; Systems in operation</div></div><div class="whytxt rev"><p class="big">A nation is only as resilient as the <em>infrastructure</em> beneath it.</p><p class="body" style="margin-top:24px">Most robotics companies build a product. Most AI companies build a model. Most defense primes integrate other people's parts.</p><p class="body"><b>Bone owns and integrates every layer</b> — hardware, autonomy, sensors, comms, manufacturing, and command-and-control — into one capability that behaves as a whole. In the field. Under contract. When conditions turn hostile.</p></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">Already in the field<span class="ln"></span></div><div class="sec-idx">02 / 05</div></div><h2 class="rev">Proof, not <em>promises.</em></h2><p class="lead rev" style="margin-top:22px">A thesis this big means nothing without deployment. Bone's systems already run under government contract — proven in real defense and disaster operations.</p></div><div class="stats rev"><div class="stat"><div class="stat-n">₩2.8B</div><div class="stat-l">First-year revenue</div></div><div class="stat"><div class="stat-n">292</div><div class="stat-l">Autonomous flights</div></div><div class="stat"><div class="stat-n">379<span style="font-size:.5em">km</span></div><div class="stat-l">Validated range</div></div><div class="stat"><div class="stat-n">90%+</div><div class="stat-l">Field autonomy</div></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">The system<span class="ln"></span></div><div class="sec-idx">03 / 05</div></div></div><div class="feat"><div class="feat-txt rev"><h2>One system,<br><em>many layers.</em></h2><p class="body" style="margin-top:24px">From the C2 brain down to the manufacturing floor, every layer is built and owned in-house, then fused under a single command picture. That is what lets the whole thing keep working when one piece is contested.</p><div class="btns"><a class="btn btn-g" href="platform.html">Explore the platform →</a></div></div><div class="feat-fig bp"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="assets/one_system_bp.png" alt="System overview schematic"><div class="fig-cap"><b>SCHEMATIC</b> &nbsp;//&nbsp; System overview</div></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">Explore the system<span class="ln"></span></div><div class="sec-idx">04 / 05</div></div></div><div class="cards rev"><a class="card" href="platform.html"><div class="card-fig"><img src="assets/command_center.jpg" alt="Operations center"></div><div class="card-body"><div class="card-idx">01 — System of systems</div><div class="card-t">Platform</div><div class="card-d">The integrated system — C2 OS, resilient comms, field robotics, and manufacturing as one capability.</div><div class="card-go">Enter →</div></div></a><a class="card" href="product.html"><div class="card-fig"><img src="assets/p9.png" alt="Autonomous system in the field"></div><div class="card-body"><div class="card-idx">02 — Saerier · Saena · SOMA</div><div class="card-t">Product</div><div class="card-d">The field layer — autonomous systems proven in real defense and disaster operations.</div><div class="card-go">Enter →</div></div></a><a class="card" href="company.html"><div class="card-fig"><img src="assets/img_004_3dbf86876218.jpg" alt="Bone leadership" style="object-position:center 20%"></div><div class="card-body"><div class="card-idx">03 — Why Bone · Vision</div><div class="card-t">Company</div><div class="card-d">Why Bone exists, and the new industrial category we're building.</div><div class="card-go">Enter →</div></div></a></div></section><section class="sec cta"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><h2 class="rev">We don't ship and leave.<br>We stay until it <em>works.</em></h2><p class="lead rev">Government procurement, partnership, or investment — let's talk about the infrastructure you need built.</p><div class="btns rev"><a class="btn btn-p" href="contact.html">Request a briefing →</a><a class="btn btn-g" href="platform.html">See the platform</a></div></section></main><footer class="footer"><div class="footer-in"><div class="footer-logo"><img src="assets/logo_dark.png" alt="Bone Robotics"></div><div class="f-nav"><a href="platform.html">Platform</a><a href="product.html">Product</a><a href="company.html">Company</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div><div class="f-copy">© 2026 Bone Robotics Inc.</div></div></footer><div class="priv">No cookies · No third-party trackers · No analytics</div><script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+const b=document.getElementById('burger');if(b){b.onclick=()=>document.getElementById('nav').classList.toggle('show')}
+document.querySelectorAll('.faq-q').forEach(q=>{q.onclick=()=>{const it=q.closest('.faq-item');const a=it.querySelector('.faq-a');
+if(it.classList.toggle('open')){a.style.maxHeight=a.scrollHeight+'px'}else{a.style.maxHeight=0}}});
+const t=document.getElementById('term');if(t){const msg=t.dataset.msg;let i=0;(function ty(){if(i<=msg.length){t.textContent=msg.slice(0,i)+(i<msg.length?'▌':'');i++;setTimeout(ty,38)}else{t.textContent=msg}})();}
+</script></body></html>

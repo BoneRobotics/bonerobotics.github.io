@@ -1,406 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Company · Bone Robotics</title>
-<meta name="description" content="Bone Robotics builds and industrializes the infrastructure of the Physical AI era — autonomous systems for defense and public safety, owned from software to manufacturing, made in Korea.">
-<meta property="og:title" content="Bone Robotics · Industrializing the Physical AI Infrastructure.">
-<meta property="og:description" content="Bone Robotics builds and industrializes the infrastructure of the Physical AI era — autonomous systems for defense and public safety, owned from software to manufacturing, made in Korea.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Bone Robotics · Industrializing the Physical AI Infrastructure.">
-<meta name="twitter:description" content="Bone Robotics builds and industrializes the infrastructure of the Physical AI era — autonomous systems for defense and public safety, owned from software to manufacturing, made in Korea.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0a0b0d;--bg2:#101216;--bg3:#06070a;
-  --border:rgba(255,255,255,0.12);--border2:rgba(255,255,255,0.22);
-  --text:#e8e6e0;--muted:#9a9890;--dim:#6e6c66;
-  --accent:#c9a227;--amber:#c9a227;--accent2:#f5f3ee;--white:#ffffff;--steel:#5b7a99;
-}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Company — Bone Robotics</title><meta name="description" content="Built to last: the industrial backbone of the Physical AI era."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,11,0.55);-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 1px 0 rgba(255,255,255,0.03) inset}
-.nav-logo img{height:26px;width:auto;display:block}
-.nav-links{display:flex;gap:0;align-items:center}
-.nav-links a{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s,background 0.2s;padding:0 22px;height:72px;display:flex;align-items:center}
-.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.04)}
-.nav-cta{background:transparent!important;color:var(--muted)!important;font-weight:500;border:1px solid rgba(255,255,255,0.55);border-radius:2px;height:auto!important;padding:8px 16px!important;margin-left:8px}
-.nav-cta:hover{background:rgba(255,255,255,0.06)!important;color:var(--white)!important;border-color:#fff}
-.btn-p{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:var(--white);color:#0a0b0d;padding:16px 34px;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;font-weight:500}
-.btn-p:hover{background:var(--amber);transform:translateY(-2px)}
-.btn-g{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);border:1px solid var(--border2);padding:16px 34px;text-decoration:none;display:inline-block;transition:all 0.2s}
-.btn-g:hover{border-color:var(--white);background:rgba(255,255,255,0.06)}
-.page-hero{position:relative;width:100%;min-height:100vh;overflow:hidden;display:flex;align-items:flex-end;justify-content:flex-start}
-.page-hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.page-hero .grid-overlay{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent 40%,black 100%)}
-.page-hero .grad{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,11,13,0.97) 0%,rgba(10,11,13,0.55) 40%,rgba(10,11,13,0.2) 75%,transparent 100%),linear-gradient(to right,rgba(10,11,13,0.7) 0%,rgba(10,11,13,0.1) 60%)}
-.page-hero .content{position:relative;z-index:2;padding:0 48px 80px;width:100%;max-width:1400px}
-.page-hero .eyebrow{font-family:'DM Mono',monospace;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:26px;display:flex;align-items:center;gap:16px;font-weight:500}
-.page-hero .eyebrow::before{content:'';width:36px;height:2px;background:var(--accent)}
-.page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,11vw,160px);line-height:0.86;color:#fff;margin-bottom:30px;letter-spacing:0.005em;max-width:100%;overflow-wrap:break-word}
-.page-hero h1 em{color:var(--muted);font-style:normal}
-.page-hero p{font-size:clamp(18px,1.8vw,22px);color:var(--text);line-height:1.6;max-width:640px;font-weight:400;margin-bottom:40px}
-.page-hero .btns{display:flex;gap:18px;flex-wrap:wrap}
-.sec{padding:120px 48px;border-bottom:1px solid var(--border);max-width:1400px;margin:0 auto}
-.sec.full{max-width:none}
-.sec.alt{background:var(--bg2)}
-.sec.dk{background:var(--bg3)}
-.eyebrow-sec{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:48px;display:flex;align-items:center;gap:18px;font-weight:500}
-.eyebrow-sec::after{content:'';flex:1;height:1px;background:var(--border)}
-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:0.9;color:var(--white);letter-spacing:0.01em}
-h2 em{color:var(--muted);font-style:normal}
-.lead-p{font-size:18px;color:var(--text);line-height:1.7;font-weight:400}
-footer{padding:36px 48px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);background:var(--bg3)}
-.f-copy{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;color:var(--muted)}
-.priv{border-top:1px solid var(--border);padding:14px 48px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--dim);background:var(--bg3);text-align:center}
-@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
-.a1{animation:fadeUp 0.9s 0.15s ease both}.a2{animation:fadeUp 0.9s 0.35s ease both}.a3{animation:fadeUp 0.9s 0.55s ease both}.a4{animation:fadeUp 0.9s 0.75s ease both}
-.rev{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
-.rev.on{opacity:1;transform:translateY(0)}
-@media(max-width:980px){nav{padding:0 20px}.nav-links a{padding:0 13px;font-size:11px}.page-hero .content{padding:0 20px 60px}.sec{padding:80px 20px}footer,.priv{padding-left:20px;padding-right:20px}}
-@media(max-width:680px){}
-
-.split-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:56px;align-items:start}
-.mission-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5.5vw,84px);line-height:0.95;color:var(--white);letter-spacing:0.01em}
-.mission-big em{color:var(--muted);font-style:normal}
-.mbody p{font-size:18px;color:var(--text);line-height:1.75;margin-bottom:20px;font-weight:400}
-.mbody p.hi{color:var(--text);font-weight:500}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:56px}
-.pillar{position:relative;background:var(--bg2);overflow:hidden;transition:background 0.3s}
-.pillar:hover{background:var(--bg3)}
-.pillar::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--amber);transform:scaleY(0);transform-origin:top;transition:transform 0.4s;z-index:3}
-.pillar:hover::before{transform:scaleY(1)}
-.pillar-img{position:relative;height:208px;overflow:hidden}
-.pillar-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.85) brightness(0.8) contrast(1.04);transition:transform 0.6s ease,filter 0.5s ease}
-.pillar:hover .pillar-img img{transform:scale(1.06);filter:grayscale(0.12) brightness(1.02) contrast(1)}
-.pillar-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,18,22,0.1) 0%,transparent 45%,var(--bg2) 100%);pointer-events:none}
-.pillar-c{padding:32px 44px 44px}
-.pillar-n{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.1em;color:var(--muted);margin-bottom:16px;font-weight:500}
-.pillar-lbl{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.02em;color:var(--white);margin-bottom:14px;line-height:1}
-.pillar-txt{font-size:16px;color:var(--muted);line-height:1.7}
-.company-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px}
-.block-lbl{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;font-weight:500}
-.list-box{display:flex;flex-direction:column;border:1px solid var(--border)}
-.list-row{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;transition:background 0.2s}
-.list-row:last-child{border-bottom:none}
-.list-row:hover{background:var(--bg2)}
-.list-name{font-size:16px;font-weight:600;color:var(--white)}
-.list-type{font-family:'DM Mono',monospace;font-size:12px;text-transform:uppercase;color:var(--muted);letter-spacing:0.05em}
-.tl-box{display:flex;flex-direction:column;border:1px solid var(--border)}
-.tl-row{display:grid;grid-template-columns:130px 1fr;padding:20px 24px;border-bottom:1px solid var(--border);gap:20px}
-.tl-row:last-child{border-bottom:none}
-.tl-date{font-family:'DM Mono',monospace;font-size:13px;text-transform:uppercase;color:var(--muted);letter-spacing:0.05em;font-weight:500}
-.tl-event{font-size:15px;color:var(--text);line-height:1.5}
-.founder{display:grid;grid-template-columns:380px 1fr;gap:0;border:1px solid var(--border);background:var(--border);gap:1px}
-.founder-photo{position:relative;background:var(--bg3);overflow:hidden;min-height:480px}
-.founder-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(15%)}
-.founder-info{background:var(--bg2);padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
-.f-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,68px);color:var(--white);line-height:0.92;letter-spacing:0.02em;margin-bottom:8px}
-.f-role{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border);font-weight:500}
-.f-info p{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:16px}
-.f-info strong{color:var(--text);font-weight:500}
-.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.tag{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);padding:8px 14px}
-.team-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:0.92;color:var(--white);max-width:900px;margin-bottom:24px}
-.team-big em{color:var(--muted);font-style:normal}
-@media(max-width:980px){.split-head,.company-grid,.pillars{grid-template-columns:1fr;gap:32px}.founder{grid-template-columns:1fr}.founder-photo{min-height:380px}}
-
-.lang-toggle{display:flex;align-items:center;gap:0;margin-right:8px;border:1px solid var(--border2);border-radius:2px;overflow:hidden}
-.lang-toggle a{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:6px 11px;text-decoration:none;color:var(--muted);transition:color 0.2s,background 0.2s;height:auto!important;border:none!important}
-.lang-toggle a.on{color:#0a0b0d;background:var(--white)}
-.lang-toggle a:not(.on):hover{color:var(--white);background:rgba(255,255,255,0.06)}
-
-html{scroll-padding-top:72px}
-.sec,.page-hero{scroll-margin-top:72px}
-.factory-band{scroll-margin-top:72px}
-
-.factory-band{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
-.factory-inner{max-width:1400px;margin:0 auto;padding:120px 48px}
-.factory-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:48px}
-.factory-cell{position:relative;aspect-ratio:4/3;background:var(--bg3);overflow:hidden;display:flex;align-items:center;justify-content:center}
-.factory-cell img{width:100%;height:100%;object-fit:cover}
-.factory-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--dim)}
-.factory-ph-icon{font-size:34px;opacity:0.4}
-.factory-ph-txt{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim)}
-.factory-lbl{position:absolute;bottom:18px;left:20px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:rgba(10,11,13,0.72);padding:6px 12px;backdrop-filter:blur(8px);z-index:2}
-@media(max-width:860px){.factory-grid{grid-template-columns:1fr}}
-
-.careers-band{border-top:1px solid var(--border);background:var(--bg2);position:relative;overflow:hidden}
-.careers-inner{max-width:1400px;margin:0 auto;padding:128px 48px;position:relative;z-index:2}
-.careers-grid-bg{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 70% 100% at 50% 40%,black,transparent)}
-.careers-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,8vw,120px);line-height:0.88;color:var(--white);letter-spacing:0.01em;margin-bottom:24px}
-.careers-sub{font-size:18px;color:var(--text);line-height:1.7;max-width:640px;margin-bottom:40px;font-weight:400}
-.careers-roles{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px}
-.crole{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);padding:9px 16px}
-
-.hero-term{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.04em;color:var(--amber);margin-bottom:18px;min-height:16px;opacity:0.85}
-.hero-term .tcur{display:inline-block;width:7px;height:13px;background:var(--amber);margin-left:3px;vertical-align:middle;animation:tblink 1s steps(1) infinite}
-@keyframes tblink{50%{opacity:0}}
-.page-hero img.bg,.page-hero video.bg{will-change:transform}
-
-/*MOBILE-STACK*/
-@media(max-width:680px){
-.company-grid,.factory-grid,.founder,.pillars,.split-head,.tl-row,[style*="grid-template-columns"]{grid-template-columns:1fr !important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+:root{
+--bg:#eceef1;--panel:#f5f6f8;--deep:#e4e7ea;
+--line:rgba(21,23,26,0.13);--line2:rgba(21,23,26,0.26);
+--ink:#16181b;--text:#262a2f;--muted:#697079;--dim:#9aa1a8;
+--steel:#5e7790;--live:#3f7d6e;
+--mono:'DM Mono',ui-monospace,monospace;--disp:'Bebas Neue',sans-serif;--body:'DM Sans',sans-serif;
 }
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;
+-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-top:62px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ink);color:#fff}
 
-/* --- Mobile nav menu --- */
-.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border:1px solid var(--border2);border-radius:3px;background:rgba(255,255,255,0.02);cursor:pointer;padding:0;z-index:210}
-.nav-burger span{display:block;width:18px;height:2px;background:var(--text);margin:0 auto;transition:transform 0.3s,opacity 0.3s}
-nav.open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-nav.open .nav-burger span:nth-child(2){opacity:0}
-nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:820px){
-  .nav-burger{display:flex}
-  .nav-links{position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:rgba(8,9,11,0.98);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:6px 0 18px;transform:translateY(-10px);opacity:0;pointer-events:none;transition:transform 0.3s ease,opacity 0.3s ease;max-height:calc(100vh - 72px);overflow-y:auto}
-  nav.open .nav-links{transform:none;opacity:1;pointer-events:auto}
-  .nav-links a{height:auto;padding:15px 24px;font-size:13px;border-bottom:1px solid rgba(255,255,255,0.04)}
-  .lang-toggle{margin:14px 24px 6px;align-self:flex-start}
-  .nav-cta{margin:12px 24px 2px;justify-content:center;text-align:center;padding:15px 24px!important;border-radius:3px}
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:stretch;
+background:rgba(236,238,241,0.82);backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);
+border-bottom:1px solid var(--line2)}
+.nav-in{max-width:1440px;margin:0 auto;width:100%;display:flex;align-items:stretch;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;padding:0 26px;border-right:1px solid var(--line)}
+.nav-logo img{height:21px;width:auto}
+.nav-links{margin-left:auto;display:flex;align-items:stretch}
+.nav-links a{display:flex;align-items:center;padding:0 22px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.13em;
+text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);transition:background .2s,color .2s}
+.nav-links a:hover{background:var(--panel);color:var(--ink)}
+.nav-links a.active{color:var(--ink);background:var(--panel)}
+.nav-links a.active::before{content:'';position:absolute;margin-top:-21px;width:5px;height:5px;background:var(--steel)}
+.nav-cta{display:flex;align-items:center;padding:0 24px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.13em;
+text-transform:uppercase;color:#eef0f2!important;background:var(--ink);border-left:1px solid var(--ink)}
+.nav-cta:hover{background:#000}
+.burger{display:none;margin-left:auto;width:62px;border-left:1px solid var(--line);background:transparent;cursor:pointer;
+flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{width:20px;height:1.5px;background:var(--ink);transition:.3s}
+
+/* ---------- FRAME ---------- */
+.frame{max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line);
+background:var(--bg);position:relative}
+.sec{border-top:1px solid var(--line2);position:relative}
+.in{padding:74px 46px}
+.in-tight{padding:46px}
+
+/* ---------- TYPE ---------- */
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(46px,7vw,110px);line-height:0.86;letter-spacing:0.006em;
+color:var(--ink);text-transform:uppercase}
+h1 em{font-style:normal;color:var(--dim)}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(40px,5.4vw,78px);line-height:0.86;letter-spacing:0.008em;
+color:var(--ink);text-transform:uppercase}
+h2 em{font-style:normal;color:var(--dim)}
+h3{font-family:var(--disp);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:0.9;letter-spacing:0.01em;color:var(--ink);text-transform:uppercase}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.62;color:var(--text);max-width:62ch}
+p.big{font-family:var(--disp);font-weight:400;font-size:clamp(30px,3.6vw,52px);line-height:0.98;letter-spacing:0.01em;color:var(--ink);text-transform:uppercase}
+p.big em{font-style:normal;color:var(--dim)}
+.body{font-size:16px;line-height:1.7;color:var(--muted)}
+.body b,.body strong{color:var(--text);font-weight:600}
+.body + .body{margin-top:18px}
+
+/* ---------- READOUT / EYEBROW ---------- */
+.readout{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--steel);
+display:flex;align-items:center;gap:9px;margin-bottom:26px}
+.readout .dot{width:7px;height:7px;background:var(--live);border-radius:50%;box-shadow:0 0 0 0 rgba(63,125,110,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,125,110,.45)}70%{box-shadow:0 0 0 7px rgba(63,125,110,0)}100%{box-shadow:0 0 0 0 rgba(63,125,110,0)}}
+.eyebrow{display:flex;align-items:center;gap:13px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.18em;
+text-transform:uppercase;color:var(--steel)}
+.eyebrow::before{content:'';width:7px;height:7px;background:var(--steel);flex:none}
+.eyebrow .ln{flex:1;height:1px;background:var(--line2)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px}
+.sec-idx{font-family:var(--mono);font-size:11.5px;letter-spacing:0.14em;color:var(--dim);white-space:nowrap}
+.sec-idx b{color:var(--ink);font-weight:500}
+
+/* ---------- BUTTONS ---------- */
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:15px 26px;
+border:1px solid var(--ink);transition:.22s;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn-p{background:var(--ink);color:#eef0f2}
+.btn-p:hover{background:#000}
+.btn-g{background:var(--panel);color:var(--ink);border-color:var(--line2)}
+.btn-g:hover{border-color:var(--ink)}
+
+/* ---------- HERO ---------- */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr}
+.hero-main{padding:50px 46px;border-right:1px solid var(--line2);display:flex;flex-direction:column;justify-content:center}
+.hero-main h1{margin-bottom:24px}
+.hero-fig{position:relative;background:#0e1013;overflow:hidden;aspect-ratio:1/1}
+.hero-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-fig.bp{background:var(--panel)}
+.hero-fig.bp img{object-fit:contain;padding:34px}
+.hero-fig.contain{background:#0e1013}
+.hero-fig.contain img{object-fit:contain;padding:30px}
+
+/* ---------- FIGURE ---------- */
+.figure{position:relative;background:#0e1013;overflow:hidden}
+.figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.figure.bp{background:var(--panel)}
+.figure.bp img{object-fit:contain}
+a.figure:hover img,.hoverable:hover .figure img{transform:scale(1.04)}
+.fig-cap{position:absolute;left:0;bottom:0;z-index:4;background:var(--panel);border-top:1px solid var(--line2);
+border-right:1px solid var(--line2);padding:9px 14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+text-transform:uppercase;color:var(--muted)}
+.fig-cap b{color:var(--steel);font-weight:500}
+.tk{position:absolute;width:10px;height:10px;border:0 solid var(--ink);z-index:5;pointer-events:none}
+.tk.tl{top:0;left:0;border-width:1.5px 0 0 1.5px}
+.tk.tr{top:0;right:0;border-width:1.5px 1.5px 0 0}
+.tk.bl{bottom:0;left:0;border-width:0 0 1.5px 1.5px}
+.tk.br{bottom:0;right:0;border-width:0 1.5px 1.5px 0}
+
+/* ---------- MANIFEST BAR ---------- */
+.manifest{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line2);background:var(--panel)}
+.man-cell{padding:16px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.man-cell:last-child{border-right:none}
+.man-k{font-family:var(--mono);font-size:9.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--dim)}
+.man-v{font-family:var(--mono);font-size:12px;letter-spacing:0.02em;text-transform:uppercase;color:var(--ink)}
+
+/* ---------- TICKER ---------- */
+.ticker{border-top:1px solid var(--line2);background:var(--deep);overflow:hidden;white-space:nowrap}
+.ticker-in{display:inline-flex;gap:46px;padding:13px 0;animation:tick 38s linear infinite}
+.ticker-in span{font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.ticker-in span b{color:var(--ink);font-weight:500}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- MODULE GRIDS ---------- */
+.mods{display:grid;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.mods.c3{grid-template-columns:repeat(3,1fr)}
+.mods.c2{grid-template-columns:repeat(2,1fr)}
+.mods.c4{grid-template-columns:repeat(4,1fr)}
+.mod{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column;min-height:210px}
+.mod-idx{font-family:var(--mono);font-size:11px;letter-spacing:0.13em;color:var(--steel);margin-bottom:16px}
+.mod-t{font-family:var(--disp);font-size:30px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin:0 0 12px}
+.mod-d{font-size:14.5px;line-height:1.62;color:var(--muted)}
+
+/* ---------- STATS ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-left:1px solid var(--line)}
+.stat{border-right:1px solid var(--line);padding:34px 28px}
+.stat:last-child{border-right:none}
+.stat-n{font-family:var(--disp);font-size:clamp(40px,4.6vw,64px);line-height:0.9;color:var(--ink);letter-spacing:0.01em}
+.stat-l{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* ---------- CARDS (nav) ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;background:var(--panel);transition:background .25s}
+.card:hover{background:var(--bg)}
+.card-fig{height:188px;overflow:hidden;background:#0e1013;border-bottom:1px solid var(--line2);position:relative}
+.card-fig img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.card:hover .card-fig img{transform:scale(1.05)}
+.card-body{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1}
+.card-idx{font-family:var(--mono);font-size:10.5px;letter-spacing:0.13em;color:var(--steel)}
+.card-t{font-family:var(--disp);font-size:34px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin:8px 0 10px}
+.card-d{font-size:14px;line-height:1.6;color:var(--muted);flex:1}
+.card-go{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);margin-top:20px}
+
+/* ---------- THESIS 2-col ---------- */
+.thesis{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.thesis>div{padding:54px 46px}
+.thesis>div:first-child{border-right:1px solid var(--line)}
+
+/* ---------- LAYER ROWS ---------- */
+.lrow{display:grid;grid-template-columns:64px 0.82fr 1.5fr;border-top:1px solid var(--line);align-items:stretch}
+.lrow:last-child{border-bottom:1px solid var(--line)}
+.l-idx{border-right:1px solid var(--line);padding:30px 0 0 24px;font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:0.08em}
+.l-txt{padding:34px 36px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.l-stage{font-family:var(--mono);font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+.l-t{font-family:var(--disp);font-size:30px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin-bottom:11px}
+.l-d{font-size:14.5px;line-height:1.62;color:var(--muted);max-width:62ch}
+.l-media{background:var(--panel);display:flex;align-items:center;justify-content:center;padding:30px 34px}
+.l-media img{width:100%;height:auto;max-height:430px;object-fit:contain}
+
+/* ---------- FEATURE split ---------- */
+.feat{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);align-items:stretch}
+.feat.rev2{direction:rtl}.feat.rev2>*{direction:ltr}
+.feat-txt{padding:54px 46px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+.feat-fig{position:relative;min-height:420px;background:#0e1013;overflow:hidden}
+.feat-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feat-fig.bp{background:var(--panel)}
+.feat-fig.bp img{object-fit:contain;padding:30px}
+.feat-fig.r43{aspect-ratio:4/3;min-height:0;align-self:start}
+/* product four-panel showcase */
+.showcase{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-left:1px solid var(--line)}
+.sc-cell{position:relative;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#0a0b0d;aspect-ratio:4/3;overflow:hidden}
+.sc-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.sc-cell:hover img{transform:scale(1.05)}
+.sc-veil{position:absolute;inset:0;background:#ffffff;opacity:0.82;pointer-events:none;z-index:1;transition:opacity .45s ease}
+.sc-cell:hover .sc-veil{opacity:0}
+.sc-lbl{position:absolute;bottom:12px;left:14px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);transition:color .45s ease}
+.sc-cell:hover .sc-lbl{color:rgba(255,255,255,0.85)}
+
+/* ---------- PRODUCT modules ---------- */
+.prod{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line2);align-items:stretch}
+.prod-fig{position:relative;min-height:440px;background:#0e1013;overflow:hidden}
+.prod-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prod-fig.bp{background:var(--panel)}
+.prod-fig.bp img{object-fit:contain;padding:36px}
+.prod-txt{padding:50px 46px;border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.prod.rev .prod-txt{border-left:none;border-right:1px solid var(--line);order:-1}
+.prod-code{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+.prod-name{font-family:var(--disp);font-size:clamp(40px,4.4vw,60px);line-height:0.9;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.prod-tag{font-family:var(--mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.prod-d{font-size:15px;line-height:1.65;color:var(--muted);margin-bottom:26px;max-width:54ch}
+
+/* ---------- SPEC strip ---------- */
+.spec{border-top:1px solid var(--line)}
+.spec-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--line)}
+.spec-k{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);padding:12px 0}
+.spec-v{font-family:var(--mono);font-size:12.5px;letter-spacing:0.02em;color:var(--ink);padding:12px 0;border-left:1px solid var(--line);padding-left:20px}
+
+/* parts-list lineup */
+.lineup{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.lu{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 24px;display:flex;flex-direction:column;gap:7px;transition:background .2s}
+.lu:hover{background:var(--panel)}
+.lu-code{font-family:var(--mono);font-size:10px;letter-spacing:0.13em;color:var(--steel)}
+.lu-name{font-family:var(--disp);font-size:26px;text-transform:uppercase;color:var(--ink);letter-spacing:0.01em}
+.lu-d{font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.gal .figure{border-right:1px solid var(--line);border-bottom:1px solid var(--line);height:200px}
+.gal .figure img{width:100%;height:100%;object-fit:cover}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;
+align-items:center;gap:20px;font-family:var(--body);font-size:18px;font-weight:600;color:var(--ink)}
+.faq-q .pm{font-family:var(--mono);font-size:20px;color:var(--steel);transition:.3s}
+.faq-item.open .pm{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a p{padding:0 0 24px;color:var(--muted);font-size:15px;line-height:1.65;max-width:80ch}
+
+/* downloads rows */
+.dl{border-top:1px solid var(--line)}
+.dl-row{display:grid;grid-template-columns:60px 1fr 130px 90px;align-items:center;border-bottom:1px solid var(--line);padding:22px 0}
+.dl-fmt{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--steel)}
+.dl-t{font-weight:600;color:var(--ink);font-size:16px}
+.dl-t span{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:3px;font-family:var(--body)}
+.dl-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim)}
+.dl-go{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);text-align:right}
+
+/* empty state */
+.empty{border:1px solid var(--line);background:var(--panel);padding:54px;text-align:center}
+.empty p{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+
+/* form */
+.form{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.field{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 24px;display:flex;flex-direction:column;gap:9px}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim)}
+.field input,.field textarea,.field select{background:transparent;border:none;border-bottom:1px solid var(--line2);
+font-family:var(--body);font-size:15px;color:var(--ink);padding:6px 0;outline:none;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--steel)}
+
+/* CTA */
+.cta{position:relative;background:var(--panel);padding:88px 46px;text-align:center}
+.cta h2{margin-bottom:20px}
+.cta .lead{margin:0 auto 38px}
+.cta .btns{justify-content:center}
+
+/* policy */
+.policy{max-width:880px}
+.pol-item{display:grid;grid-template-columns:54px 1fr;border-top:1px solid var(--line);padding:26px 0}
+.pol-n{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.06em}
+.pol-h{font-weight:700;color:var(--ink);font-size:17px;margin-bottom:9px}
+.pol-b{color:var(--muted);font-size:15px;line-height:1.65}
+.pol-b ul{margin:8px 0 0 18px}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--line2);background:var(--panel);max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.footer-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 46px;flex-wrap:wrap}
+.footer-logo img{height:18px;opacity:.5}
+.f-nav{display:flex;gap:22px;flex-wrap:wrap}
+.f-nav a{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.f-nav a:hover{color:var(--ink)}
+.f-copy{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--dim)}
+.priv{max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line);
+border-top:1px solid var(--line);padding:13px 46px;background:var(--panel);
+font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);text-align:center}
+
+/* reveal */
+.rev{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rev.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}.ticker-in,.readout .dot{animation:none}}
+
+/* responsive */
+@media(max-width:980px){
+.in{padding:54px 26px}.thesis>div,.feat-txt,.prod-txt{padding:40px 26px}
+.hero-grid,.thesis,.feat,.prod{grid-template-columns:1fr}
+.hero-main{border-right:none;border-bottom:1px solid var(--line2);padding:48px 26px}
+.hero-fig{aspect-ratio:1/1}.feat-fig,.prod-fig{min-height:330px}
+.feat.rev2{direction:ltr}.feat-txt{border-right:none;border-bottom:1px solid var(--line)}
+.prod.rev .prod-txt{order:0;border-right:none}.prod-txt{border-left:none;border-top:1px solid var(--line)}
+.thesis>div:first-child{border-right:none;border-bottom:1px solid var(--line)}
+.cards,.mods.c3,.stats,.lineup,.gal,.mods.c4,.showcase{grid-template-columns:1fr 1fr}
+.manifest{grid-template-columns:1fr 1fr}.man-cell:nth-child(2n){border-right:none}
+.lrow{grid-template-columns:1fr}.l-idx{border-right:none;border-bottom:1px solid var(--line);padding:18px 24px}
+.l-txt{border-right:none;border-bottom:1px solid var(--line)}.l-media{min-height:220px}
+.nav-links{display:none}.burger{display:flex}
+.nav-links.show{display:flex;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line2)}
+.nav-links.show a{border-left:none;border-bottom:1px solid var(--line);height:50px}
+.form{grid-template-columns:1fr}.field{border-right:none}
 }
-</style>
-</head>
-<body>
-<nav>
-  <div class="nav-logo"><a href="index.html"><img src="assets/logo_bone.png" alt="Bone Robotics"></a></div>
-  <div class="nav-links" id="navLinks">
-    <a href="platform.html">Platform</a>
-    <a href="product.html">Product</a>
-    <a href="company.html" class="active">Company</a>
-    <a href="resources.html">Resources</a>
-    <div class="lang-toggle"><a href="company.html" class="on">EN</a><a href="kr/company.html">KO</a></div>
-    <a href="contact.html" class="nav-cta">Request a Briefing</a>
-  </div>
-<button class="nav-burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-</nav>
-
-<div class="page-hero">
-  <img class="bg" src="assets/future_city_bright.png" alt="Company" style="object-position:center 30%">
-  <div class="grid-overlay"></div>
-  <div class="grad"></div>
-  <div class="content">
-    <div class="hero-term" id="heroTerm"></div>
-    <div class="eyebrow a1">Industrializing the Physical AI Infrastructure</div>
-    <h1 class="a2">BUILT TO<br><em>LAST.</em></h1>
-    <p class="a3">We are building the industrial backbone of the Physical AI era — the kind of enduring company Korea has built before, for the technology that will define the next century.</p>
-    <div class="btns a4">
-      <a href="#mission" class="btn-p">Our Mission</a>
-      <a href="#team" class="btn-g">Meet the Team →</a>
-    </div>
-  </div>
-</div>
-
-<div class="sec" id="mission">
-  <div class="eyebrow-sec rev">The Mission</div>
-  <div class="split-head rev">
-    <div class="mission-big">Some companies write software. We build the things that <em>hold a nation up.</em></div>
-    <div class="mbody">
-      <p>The defining technologies of every era were owned by the companies that built the hard parts — the steel, the silicon, the ships. That ownership took decades and discipline, and it outlasted everyone who doubted it.</p>
-      <p>We started Bone for the same reason those companies existed: because the machines that will defend and serve the next century have to be made by someone, and that someone should be trusted.</p>
-      <p class="hi">Korea built the backbone of the modern world. We intend to build the next one.</p>
-    </div>
-  </div>
-  <div class="pillars rev">
-    <div class="pillar">
-      <div class="pillar-img"><img src="assets/p_field.jpg" alt="Autonomous systems operating in the field"></div>
-      <div class="pillar-c">
-        <div class="pillar-n">PRINCIPLE 01</div>
-        <div class="pillar-lbl">Autonomy in Residence</div>
-        <div class="pillar-txt">We don't ship and leave. Command, hardware, and AI go to the field as one system — and we stay bonded to it until the problem is solved. This is how infrastructure earns trust.</div>
-      </div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-img"><img src="assets/p_manufacturing.jpg" alt="In-house manufacturing and production"></div>
-      <div class="pillar-c">
-        <div class="pillar-n">PRINCIPLE 02</div>
-        <div class="pillar-lbl">Allied Manufacturing Sovereignty</div>
-        <div class="pillar-txt">Critical autonomy cannot run on fragile supply chains. We relocate production to allied ground — making Korea the trusted manufacturing hub for the Physical AI era.</div>
-      </div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-img"><img src="assets/p_components.jpg" alt="Component-level engineering and electronics"></div>
-      <div class="pillar-c">
-        <div class="pillar-n">PRINCIPLE 03</div>
-        <div class="pillar-lbl">End-to-End Ownership</div>
-        <div class="pillar-txt">From component sourcing and manufacturing to software and field operations, we own every layer. Not a services company. Not an integrator. A platform company building durable infrastructure.</div>
-      </div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-img"><img src="assets/p_industry.jpg" alt="Enduring industrial infrastructure"></div>
-      <div class="pillar-c">
-        <div class="pillar-n">PRINCIPLE 04</div>
-        <div class="pillar-lbl">Built to Last</div>
-        <div class="pillar-txt">We are building the kind of company Korea has produced before — Hyundai, POSCO, Samsung. Enterprises that defined an industrial era. The Physical AI era needs its own.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="factory-band">
- <div class="factory-inner">
-  <div class="eyebrow-sec rev">Lab · Factory · Field</div>
-  <div class="split-head rev">
-    <h2>WE MAKE IT.<br>THEN WE <em>BREAK IT.</em></h2>
-    <p class="lead-p">Design, build, and test happen under one roof. The engineers who write the autonomy stack are steps away from the line that assembles the airframe — and the range where it flies. That loop is the company.</p>
-  </div>
-  <div class="factory-grid rev">
-    <div class="factory-cell">
-      <video autoplay muted loop playsinline poster="assets/v12_poster.jpg" style="width:100%;height:100%;object-fit:cover;display:block">
-        <source src="assets/drone_hit.mp4" type="video/mp4">
-      </video>
-      <div class="factory-lbl">Target Drone Hit · Field Test</div>
-    </div>
-    <div class="factory-cell">
-      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block">
-        <source src="assets/saerier_field_test.mp4" type="video/mp4">
-      </video>
-      <div class="factory-lbl">Disaster Monitoring · Field Test</div>
-    </div>
-  </div>
- </div>
-</div>
-
-<!-- ARCH BAND -->
-<div style="position:relative;width:100%;height:54vh;min-height:380px;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <img src="assets/arch_steps.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(0.62) contrast(1.05)">
-  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,11,13,0.9),rgba(10,11,13,0.3) 55%,rgba(10,11,13,0.62))"></div>
-  <div style="position:absolute;inset:0;display:flex;align-items:flex-end">
-    <div style="max-width:1400px;margin:0 auto;width:100%;padding:0 48px 56px">
-      <div style="font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:500">Built to Last</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,4.5vw,68px);line-height:0.92;color:#fff;letter-spacing:0.01em">INFRASTRUCTURE<br><em style="color:var(--muted);font-style:normal">OUTLASTS HYPE.</em></div>
-    </div>
-  </div>
-</div>
-
-<div class="sec" id="team">
-  <div class="eyebrow-sec rev">Leadership</div>
-  <div class="rev" style="margin-bottom:56px">
-    <div class="team-big">We build for those who <em>cannot afford</em> to fail.</div>
-    <p class="lead-p" style="max-width:640px">Bone is a warrior culture. Lab, Factory, and Field under one roof — AI researchers, robotics engineers, defense specialists, and manufacturing operators working as a single unit. No hand-offs. No dependencies.</p>
-  </div>
-  <div class="founder rev">
-    <div class="founder-photo"><img src="assets/img_004_3dbf86876218.jpg" alt="DK Lee"></div>
-    <div class="founder-info">
-      <div class="f-name">DK Lee</div>
-      <div class="f-role">Founder & CEO</div>
-      <div class="f-info">
-        <p>Graduated from <strong>Cornell University</strong>. Co-founded <strong>MarqVision</strong> — an AI platform backed by Y Combinator and SoftBank Ventures — scaling it to 200+ global enterprise clients as CBO and Korea CEO.</p>
-        <p>After MarqVision, DK spent years mapping the gap between AI software and physical production infrastructure — attending IEEE ICRA, engaging the teams behind Google RT-1/RT-2, and identifying what no one was building.</p>
-        <p>He founded Bone Robotics in January 2025 and personally committed <strong>$1.5M</strong> — over 10% of the seed round.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Cornell University</span>
-        <span class="tag">MarqVision Co-Founder</span>
-        <span class="tag">YC · SoftBank</span>
-        <span class="tag">Physical AI</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="careers-band">
- <div class="careers-grid-bg"></div>
- <div class="careers-inner">
-  <div class="eyebrow-sec rev">Careers</div>
-  <div class="careers-h rev">ARE YOU<br>WITH <em style="color:var(--amber);font-style:normal">US?</em></div>
-  <p class="careers-sub rev">We're building a team of engineers, operators, and builders who want to industrialize the hardest parts of the Physical AI era — and rebuild an allied industrial base while doing it. If that's the problem you want to spend years on, we want to talk.</p>
-  <div class="careers-roles rev">
-    <span class="crole">Robotics Engineering</span>
-    <span class="crole">Autonomy & AI</span>
-    <span class="crole">RF & Communications</span>
-    <span class="crole">Manufacturing</span>
-    <span class="crole">Field Operations</span>
-    <span class="crole">Business & Strategy</span>
-  </div>
-  <div class="rev"><a href="contact.html" class="btn-p">See Open Roles →</a></div>
- </div>
-</div>
-
-<footer>
-  <div><img src="assets/img_001_2cd59baf6c82.png" alt="Bone Robotics" style="height:22px;opacity:0.5"></div>
-  <div class="f-nav" style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">
-    <a href="platform.html" style="color:var(--muted);text-decoration:none">Platform</a>
-    <a href="product.html" style="color:var(--muted);text-decoration:none">Product</a>
-    <a href="company.html" style="color:var(--muted);text-decoration:none">Company</a>
-    <a href="resources.html" style="color:var(--muted);text-decoration:none">Resources</a>
-    <a href="contact.html" style="color:var(--muted);text-decoration:none">Contact</a>
-    <a href="privacy.html" style="color:var(--muted);text-decoration:none">Privacy</a>
-  </div>
-  <div class="f-copy">© 2026 Bone Robotics Inc.</div>
-</footer>
-<div class="priv">No cookies · No third-party trackers · No analytics</div>
-
-<script>
-document.querySelectorAll('.rev').forEach(el => {
-  new IntersectionObserver((e) => {
-    e.forEach((entry, i) => {
-      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('on'), i * 70);
-    });
-  }, {threshold: 0.08}).observe(el);
-});
-</script>
-
-<script>
-(function(){
-  const el=document.getElementById('heroTerm');
-  if(!el) return;
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const lines=['ACCESSING COMPANY RECORD','LAB // FACTORY // FIELD','ONE ROOF ... CONFIRMED','READY'];
-  if(reduce){ el.textContent='READY'; return; }
-  let li=0,ci=0;
-  function type(){
-    if(li>=lines.length){ el.innerHTML='<span style="color:var(--amber)">READY</span><span class="tcur"></span>'; return; }
-    const cur=lines[li];
-    el.innerHTML=cur.slice(0,ci)+'<span class="tcur"></span>';
-    ci++;
-    if(ci>cur.length){ li++; ci=0; setTimeout(type, li>=lines.length?0:340); }
-    else setTimeout(type, 22+Math.random()*28);
-  }
-  setTimeout(type, 450);
-})();
-</script>
-
-<script>
-(function(){
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce) return;
-  const hero=document.querySelector('.page-hero');
-  if(!hero) return;
-  const bg=hero.querySelector('.bg');
-  const content=hero.querySelector('.content');
-  let ticking=false;
-  function onScroll(){
-    if(ticking) return; ticking=true;
-    requestAnimationFrame(()=>{
-      const y=window.scrollY;
-      if(y<window.innerHeight){
-        if(bg) bg.style.transform='translateY('+(y*0.35)+'px) scale(1.08)';
-        if(content){ content.style.transform='translateY('+(y*0.12)+'px)'; content.style.opacity=String(Math.max(0,1-y/(window.innerHeight*0.7))); }
-      }
-      ticking=false;
-    });
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-})();
-</script>
-<script>
-(function(){
-  var nav=document.querySelector('nav');
-  var burger=nav&&nav.querySelector('.nav-burger');
-  if(!nav||!burger)return;
-  burger.addEventListener('click',function(){
-    var open=nav.classList.toggle('open');
-    burger.setAttribute('aria-expanded',open?'true':'false');
-  });
-  nav.querySelectorAll('.nav-links a').forEach(function(a){
-    a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');});
-  });
-  window.addEventListener('resize',function(){if(window.innerWidth>820&&nav.classList.contains('open')){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');}});
-})();
-</script>
-</body>
-</html>
+@media(max-width:560px){
+.cards,.mods.c3,.stats,.lineup,.gal,.mods.c4,.manifest{grid-template-columns:1fr}
+.man-cell{border-right:none}.stat,.lu{border-right:none}
+.sec-head{flex-direction:column;align-items:flex-start;gap:14px}
+.dl-row{grid-template-columns:50px 1fr;row-gap:6px}.dl-meta,.dl-go{grid-column:2;text-align:left}
+}
+</style></head><body><nav class="nav"><div class="nav-in"><div class="nav-logo"><a href="index.html"><img src="assets/logo_dark.png" alt="Bone Robotics"></a></div><div class="nav-links" id="nav"><a href="platform.html">Platform</a><a href="product.html">Product</a><a href="company.html" class="active">Company</a><a href="resources.html">Resources</a><a href="contact.html" class="nav-cta">Request a Briefing</a></div><button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav><main class="frame"><section class="hero"><div class="hero-grid"><div class="hero-main"><div class="readout"><span class="dot"></span><span id="term" data-msg="BONE ROBOTICS // EST. KOREA  —  BUILDING"></span></div><div class="eyebrow rev">Company<span class="ln"></span></div><h1 class="rev">Built to <em>last.</em></h1><p class="lead rev">We build the industrial backbone of the Physical AI era — the kind of enduring company Korea has built before, for the technology that defines the next one.</p><div class="btns rev"><a class="btn btn-p" href="#mission">Meet the mission →</a><a class="btn btn-g" href="contact.html">Request a briefing →</a></div></div><div class="hero-fig"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="assets/future_city_bright.png" alt=""></div></div><div class="manifest rev"><div class="man-cell"><span class="man-k">Founded</span><span class="man-v">Korea</span></div><div class="man-cell"><span class="man-k">Model</span><span class="man-v">Full-stack</span></div><div class="man-cell"><span class="man-k">Vertical</span><span class="man-v">Defense · Safety</span></div><div class="man-cell"><span class="man-k">Make</span><span class="man-v">Allied</span></div><div class="man-cell"><span class="man-k">Horizon</span><span class="man-v">Decades</span></div></div></section><section class="sec" id="mission"><div class="in"><div class="sec-head"><div class="eyebrow">The mission<span class="ln"></span></div><div class="sec-idx">01 / 04</div></div><p class="big rev">Some companies write software. We build the things that <em>hold a nation up.</em></p></div><div class="thesis"><div class="rev"><p class="body">The defining technologies of every era were owned by the companies that built the things underneath — the steel, the silicon, the ships. That ownership took decades and discipline, and it outlasted everyone who doubted it.</p></div><div class="rev"><p class="body">Bone exists for the same reason those companies existed: because the machines that defend and serve a nation have to be made by someone, and that someone should be trusted. They built the backbone of the modern world. We intend to build the next one.</b></p></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">What we hold to<span class="ln"></span></div><div class="sec-idx">02 / 04</div></div></div><div class="cards rev"><a class="card"><div class="card-fig"><img src="assets/p_field.jpg" alt="Field operations"></div><div class="card-body"><div class="card-idx">Principle 01</div><div class="card-t" style="font-size:26px">Autonomy in residence</div><div class="card-d">We don't ship and leave. Systems live where they operate — tuned to terrain, mission, and the people who rely on them.</div></div></a><a class="card"><div class="card-fig"><img src="assets/printing.jpg" alt="In-house production"></div><div class="card-body"><div class="card-idx">Principle 02</div><div class="card-t" style="font-size:26px">Allied manufacturing</div><div class="card-d">Critical autonomy cannot run on fragile supply chains. We make it in allied ground.</div></div></a><a class="card"><div class="card-fig"><img src="assets/p_components.jpg" alt="Components"></div><div class="card-body"><div class="card-idx">Principle 03</div><div class="card-t" style="font-size:26px">End-to-end ownership</div><div class="card-d">From software to airframe, we own every layer — so the whole system stays accountable.</div></div></a></div></section><div class="feat"><div class="feat-txt rev"><div class="eyebrow" style="margin-bottom:20px">Lab · Factory · Field<span class="ln"></span></div><h2>We make it,<br>then we <em>break it.</em></h2><p class="body" style="margin-top:24px">Design, build, and test happen under one roof. The engineers who write the autonomy stack are steps away from the line that assembles the airframe — and the range where it flies. That loop is the company.</p></div><div class="feat-fig r43"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="assets/make_and_break.jpg" alt="Lab, factory, field"><div class="fig-cap"><b>FIG.02</b> &nbsp;//&nbsp; Lab · factory · field</div></div></div><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">Leadership<span class="ln"></span></div><div class="sec-idx">03 / 04</div></div><p class="big rev" style="max-width:18ch">We build for those who <em>cannot afford to fail.</em></p></div><div class="feat"><div class="feat-fig" style="min-height:480px"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="assets/img_004_3dbf86876218.jpg" alt="DK Lee" style="object-position:center 18%"><div class="fig-cap"><b>FOUNDER</b> &nbsp;//&nbsp; DK Lee</div></div><div class="feat-txt rev" style="border-right:none;border-left:1px solid var(--line)"><div class="prod-name" style="font-size:48px">DK Lee</div><div class="prod-tag">Founder &amp; CEO</div><p class="body">Graduated from Cornell University. Co-founded MarqVision — an AI platform backed by Y Combinator and SoftBank Ventures — scaling it to 200+ global enterprise clients.</p><p class="body">After MarqVision, DK spent years mapping the gap between AI software and physical production — and founded Bone.</p></div></div></section><section class="sec cta"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><h2 class="rev">Are you <em>with us?</em></h2><p class="lead rev">Procurement, partnership, investment, or a role on the team — let's talk.</p><div class="btns rev"><a class="btn btn-p" href="contact.html">Request a briefing →</a><a class="btn btn-g" href="contact.html">See open roles</a></div></section></main><footer class="footer"><div class="footer-in"><div class="footer-logo"><img src="assets/logo_dark.png" alt="Bone Robotics"></div><div class="f-nav"><a href="platform.html">Platform</a><a href="product.html">Product</a><a href="company.html">Company</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div><div class="f-copy">© 2026 Bone Robotics Inc.</div></div></footer><div class="priv">No cookies · No third-party trackers · No analytics</div><script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+const b=document.getElementById('burger');if(b){b.onclick=()=>document.getElementById('nav').classList.toggle('show')}
+document.querySelectorAll('.faq-q').forEach(q=>{q.onclick=()=>{const it=q.closest('.faq-item');const a=it.querySelector('.faq-a');
+if(it.classList.toggle('open')){a.style.maxHeight=a.scrollHeight+'px'}else{a.style.maxHeight=0}}});
+const t=document.getElementById('term');if(t){const msg=t.dataset.msg;let i=0;(function ty(){if(i<=msg.length){t.textContent=msg.slice(0,i)+(i<msg.length?'▌':'');i++;setTimeout(ty,38)}else{t.textContent=msg}})();}
+</script></body></html>
