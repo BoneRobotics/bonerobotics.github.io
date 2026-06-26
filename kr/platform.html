@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>플랫폼 — Bone Robotics</title><meta name="description" content="하드웨어, 자율성, 센서, 통신, 제조, 지휘통제를 하나의 작전 역량으로 통합한 Bone의 시스템 오브 시스템즈."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+:root{
+--bg:#eceef1;--panel:#f5f6f8;--deep:#e4e7ea;
+--line:rgba(21,23,26,0.13);--line2:rgba(21,23,26,0.26);
+--ink:#16181b;--text:#262a2f;--muted:#697079;--dim:#9aa1a8;
+--steel:#5e7790;--live:#3f7d6e;
+--mono:'DM Sans',sans-serif;--disp:'DM Sans',sans-serif;--body:'DM Sans',sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;
+-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-top:62px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ink);color:#fff}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:stretch;
+background:rgba(236,238,241,0.82);backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);
+border-bottom:1px solid var(--line2)}
+.nav-in{max-width:1440px;margin:0 auto;width:100%;display:flex;align-items:stretch;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;padding:0 26px;border-right:1px solid var(--line)}
+.nav-logo img{height:40px;width:auto}
+.nav-links{margin-left:auto;display:flex;align-items:stretch}
+.nav-links a{display:flex;align-items:center;padding:0 22px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.13em;
+text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);transition:background .2s,color .2s}
+.nav-links a:hover{background:var(--panel);color:var(--ink)}
+.nav-links a.active{color:var(--ink);background:var(--panel)}
+.nav-links a.active::before{content:'';position:absolute;margin-top:-21px;width:5px;height:5px;background:var(--steel)}
+.nav-cta{display:flex;align-items:center;padding:0 24px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.13em;
+text-transform:uppercase;color:#eef0f2!important;background:var(--ink);border-left:1px solid var(--ink)}.lang-tog{display:flex;align-items:stretch;border-left:1px solid var(--line)}.lang-tog .lt-opt{display:flex;align-items:center;padding:0 13px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--dim);border-left:none;transition:color .2s,background .2s}.lang-tog .lt-opt+.lt-opt{border-left:1px solid var(--line)}.lang-tog .lt-opt:hover{color:var(--ink);background:var(--panel)}.lang-tog .lt-opt.on{color:var(--ink)}
+.nav-cta:hover{background:#000}
+.burger{display:none;margin-left:auto;width:62px;border-left:1px solid var(--line);background:transparent;cursor:pointer;
+flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{width:20px;height:1.5px;background:var(--ink);transition:.3s}
+
+/* ---------- FRAME ---------- */
+.frame{max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line);
+background:var(--bg);position:relative}
+.sec{border-top:1px solid var(--line2);position:relative}
+.in{padding:74px 46px}
+.in-tight{padding:46px}
+
+/* ---------- TYPE ---------- */
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(46px,7vw,110px);line-height:0.86;letter-spacing:0.006em;
+color:var(--ink);text-transform:uppercase}
+h1 em{font-style:normal;color:var(--dim)}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(40px,5.4vw,78px);line-height:0.86;letter-spacing:0.008em;
+color:var(--ink);text-transform:uppercase}
+h2 em{font-style:normal;color:var(--dim)}
+h3{font-family:var(--disp);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:0.9;letter-spacing:0.01em;color:var(--ink);text-transform:uppercase}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.62;color:var(--text);max-width:62ch}
+p.big{font-family:var(--disp);font-weight:400;font-size:clamp(30px,3.6vw,52px);line-height:0.98;letter-spacing:0.01em;color:var(--ink);text-transform:uppercase}
+p.big em{font-style:normal;color:var(--dim)}
+.body{font-size:16px;line-height:1.7;color:var(--muted)}
+.body b,.body strong{color:var(--text);font-weight:600}
+.body + .body{margin-top:18px}
+
+/* ---------- READOUT / EYEBROW ---------- */
+.readout{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--steel);
+display:flex;align-items:center;gap:9px;margin-bottom:26px}
+.readout .dot{width:7px;height:7px;background:var(--live);border-radius:50%;box-shadow:0 0 0 0 rgba(63,125,110,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,125,110,.45)}70%{box-shadow:0 0 0 7px rgba(63,125,110,0)}100%{box-shadow:0 0 0 0 rgba(63,125,110,0)}}
+.eyebrow{display:flex;align-items:center;gap:13px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.18em;
+text-transform:uppercase;color:var(--steel)}
+.eyebrow::before{content:'';width:16px;height:16px;background:url(../assets/motif.png) center/contain no-repeat;flex:none}
+.eyebrow .ln{flex:1;height:1px;background:var(--line2)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px}
+.sec-idx{font-family:var(--mono);font-size:11.5px;letter-spacing:0.14em;color:var(--dim);white-space:nowrap}
+.sec-idx b{color:var(--ink);font-weight:500}
+
+/* ---------- BUTTONS ---------- */
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:15px 26px;
+border:1px solid var(--ink);transition:.22s;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn-p{background:var(--ink);color:#eef0f2}
+.btn-p:hover{background:#000}
+.btn-g{background:var(--panel);color:var(--ink);border-color:var(--line2)}
+.btn-g:hover{border-color:var(--ink)}
+
+/* ---------- HERO ---------- */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr}
+.hero-main{padding:50px 46px;border-right:1px solid var(--line2);display:flex;flex-direction:column;justify-content:center}
+.hero-main h1{margin-bottom:24px}
+.hero-fig{position:relative;background:#0e1013;overflow:hidden;aspect-ratio:1/1}
+.hero-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-fig.bp{background:var(--bg)}
+.hero-fig.bp img{object-fit:contain;padding:34px}
+.hero-fig.contain{background:#0e1013}
+.hero-fig.contain img{object-fit:contain;padding:30px}
+
+/* ---------- FIGURE ---------- */
+.figure{position:relative;background:#0e1013;overflow:hidden}
+.figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.figure.bp{background:var(--bg)}
+.figure.bp img{object-fit:contain}
+a.figure:hover img,.hoverable:hover .figure img{transform:scale(1.04)}
+.fig-cap{position:absolute;left:0;bottom:0;z-index:4;background:var(--panel);border-top:1px solid var(--line2);
+border-right:1px solid var(--line2);padding:9px 14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+text-transform:uppercase;color:var(--muted)}
+.fig-cap b{color:var(--steel);font-weight:500}
+.tk{position:absolute;width:10px;height:10px;border:0 solid var(--ink);z-index:5;pointer-events:none}
+.tk.tl{top:0;left:0;border-width:1.5px 0 0 1.5px}
+.tk.tr{top:0;right:0;border-width:1.5px 1.5px 0 0}
+.tk.bl{bottom:0;left:0;border-width:0 0 1.5px 1.5px}
+.tk.br{bottom:0;right:0;border-width:0 1.5px 1.5px 0}
+
+/* ---------- MANIFEST BAR ---------- */
+.manifest{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line2);background:var(--panel)}
+.man-cell{padding:16px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.man-cell:last-child{border-right:none}
+.man-k{font-family:var(--mono);font-size:9.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--dim)}
+.man-v{font-family:var(--mono);font-size:12px;letter-spacing:0.02em;text-transform:uppercase;color:var(--ink)}
+
+/* ---------- TICKER ---------- */
+.ticker{border-top:1px solid var(--line2);background:var(--deep);overflow:hidden;white-space:nowrap}
+.ticker-in{display:inline-flex;gap:46px;padding:13px 0;animation:tick 38s linear infinite}
+.ticker-in span{font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.ticker-in span b{color:var(--ink);font-weight:500}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- MODULE GRIDS ---------- */
+.mods{display:grid;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.mods.c3{grid-template-columns:repeat(3,1fr)}
+.mods.c2{grid-template-columns:repeat(2,1fr)}
+.mods.c4{grid-template-columns:repeat(4,1fr)}
+.mod{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column;min-height:210px}
+.mod-idx{font-family:var(--mono);font-size:11px;letter-spacing:0.13em;color:var(--steel);margin-bottom:16px}
+.mod-t{font-family:var(--disp);font-size:30px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin:0 0 12px}
+.mod-d{font-size:14.5px;line-height:1.62;color:var(--muted)}
+
+/* ---------- STATS ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-left:1px solid var(--line)}
+.stat{border-right:1px solid var(--line);padding:34px 28px}
+.stat:last-child{border-right:none}
+.stat-n{font-family:var(--disp);font-size:clamp(40px,4.6vw,64px);line-height:0.9;color:var(--ink);letter-spacing:0.01em}
+.stat-l{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* ---------- CARDS (nav) ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;background:var(--panel);transition:background .25s}
+.card:hover{background:var(--bg)}
+.card-fig{height:188px;overflow:hidden;background:#0e1013;border-bottom:1px solid var(--line2);position:relative}
+.card-fig img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.card:hover .card-fig img{transform:scale(1.05)}
+.card-body{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1}
+.card-idx{font-family:var(--mono);font-size:10.5px;letter-spacing:0.13em;color:var(--steel)}
+.card-t{font-family:var(--disp);font-size:34px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin:8px 0 10px}
+.card-d{font-size:14px;line-height:1.6;color:var(--muted);flex:1}
+.card-go{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);margin-top:20px}
+
+/* ---------- THESIS 2-col ---------- */
+.thesis{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.thesis>div{padding:54px 46px;transition:background .28s ease,color .28s ease}
+.thesis>div:first-child{border-right:1px solid var(--line)}
+.thesis>div:hover{background:var(--ink)}
+.thesis>div:hover .body{color:#fff}
+.thesis>div:hover .body b{color:#fff}
+
+/* ---------- LAYER ROWS ---------- */
+.lrow{display:grid;grid-template-columns:64px 0.82fr 1.5fr;border-top:1px solid var(--line);align-items:stretch}
+.lrow:last-child{border-bottom:1px solid var(--line)}
+.l-idx{border-right:1px solid var(--line);padding:30px 0 0 24px;font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:0.08em}
+.l-txt{padding:34px 36px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.l-stage{font-family:var(--mono);font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+.l-t{font-family:var(--disp);font-size:30px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin-bottom:11px}
+.l-d{font-size:14.5px;line-height:1.62;color:var(--muted);max-width:62ch}
+.l-media{background:var(--bg);display:flex;align-items:center;justify-content:center;padding:30px 34px}
+.l-media img{width:100%;height:auto;max-height:430px;object-fit:contain}
+/* interactive layer stack */
+.lstack{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lpanel{border-right:1px solid var(--line);display:flex;flex-direction:column;height:604px;overflow:hidden}
+.litem{flex:0 0 auto;overflow:hidden;border-bottom:1px solid var(--line);padding:24px 34px;cursor:pointer;display:flex;flex-direction:column;justify-content:center;transition:flex .5s cubic-bezier(.2,.7,.2,1),background .3s ease}
+.litem:last-child{border-bottom:none}
+.litem .l-stage{transition:color .3s ease}
+.litem .l-t{margin-bottom:0;transition:color .3s ease}
+.litem .l-d{max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .45s ease,opacity .35s ease,margin-top .45s ease}
+.litem.active{background:var(--panel);flex:1 1 auto;box-shadow:inset 3px 0 0 var(--steel)}
+.litem.active .l-t{color:var(--ink)}
+.litem.active .l-stage{color:var(--steel)}
+.litem.active .l-d{max-height:240px;opacity:1;margin-top:14px;color:var(--muted)}
+.lview{position:relative;background:var(--bg);min-height:604px;overflow:hidden}
+.lshot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:36px;opacity:0;transition:opacity .5s ease}
+.lshot.active{opacity:1}
+.lshot img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+
+
+/* ---------- FEATURE split ---------- */
+.feat{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);align-items:stretch}
+.feat.rev2{margin-top:96px}
+.feat.rev2{direction:rtl}.feat.rev2>*{direction:ltr}
+.feat-txt{padding:54px 46px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+.feat-fig{position:relative;min-height:420px;background:#0e1013;overflow:hidden}
+.feat-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feat-fig.bp{background:var(--bg)}
+.feat-fig.bp img{object-fit:contain;padding:30px}
+.feat-fig.r43{aspect-ratio:4/3;min-height:0;align-self:start}
+/* product four-panel showcase */
+.showcase{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-left:1px solid var(--line)}
+.sc-cell{position:relative;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#0a0b0d;aspect-ratio:4/3;overflow:hidden}
+.sc-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.sc-cell:hover img{transform:scale(1.05)}
+
+
+.sc-lbl{position:absolute;bottom:12px;left:14px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);text-shadow:0 1px 4px rgba(0,0,0,0.55);transition:color .45s ease}
+
+
+/* ---------- PRODUCT modules ---------- */
+.prod{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line2);align-items:stretch;margin-top:80px}
+.prod-fig{position:relative;min-height:440px;background:#0e1013;overflow:hidden}
+.prod-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prod-fig.bp{background:var(--bg)}
+.prod-fig.bp img{object-fit:contain;padding:36px}
+.prod-right{display:flex;flex-direction:column;min-width:0}
+.prod-right .prod-fig{flex:1 1 auto;min-height:380px}
+.pacc{display:flex;border-top:1px solid var(--line);height:195px;background:var(--panel)}
+.pcell{position:relative;flex:1 1 0;min-width:0;overflow:hidden;border-right:1px solid var(--line);cursor:pointer;transition:flex .5s cubic-bezier(.2,.7,.2,1)}
+.pcell:last-child{border-right:none}
+.pcell.active{flex:3.4 1 0}
+.pcell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;transition:opacity .5s ease,transform .6s ease}
+.pcell.pc-top img{object-position:50% 22%}
+.pcell.active img{opacity:1;transform:scale(1.03)}
+.plbl{position:absolute;bottom:9px;left:12px;z-index:2;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;white-space:nowrap;opacity:0;transition:opacity .4s ease}
+.pcell.active .plbl{opacity:1}
+
+.prod-txt{padding:50px 46px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.prod.rev .prod-txt{border-left:none;border-right:1px solid var(--line);order:-1}
+.prod-code{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+.prod-name{font-family:var(--disp);font-size:clamp(40px,4.4vw,60px);line-height:0.9;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.prod-tag{font-family:var(--mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.prod-d{font-size:15px;line-height:1.65;color:var(--muted);margin-bottom:26px;max-width:54ch}
+
+/* ---------- SPEC strip ---------- */
+.spec{border-top:1px solid var(--line)}
+.spec-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--line)}
+.spec-k{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);padding:12px 0}
+.spec-v{font-family:var(--mono);font-size:12.5px;letter-spacing:0.02em;color:var(--ink);padding:12px 0;border-left:1px solid var(--line);padding-left:20px}
+
+/* parts-list lineup */
+.lineup{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.lu{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 24px;display:flex;flex-direction:column;gap:7px;transition:background .2s}
+.lu:hover{background:var(--panel)}
+.lu-code{font-family:var(--mono);font-size:10px;letter-spacing:0.13em;color:var(--steel)}
+.lu-name{font-family:var(--disp);font-size:26px;text-transform:uppercase;color:var(--ink);letter-spacing:0.01em}
+.lu-d{font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.gal .figure{border-right:1px solid var(--line);border-bottom:1px solid var(--line);height:200px}
+.gal .figure img{width:100%;height:100%;object-fit:cover}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;
+align-items:center;gap:20px;font-family:var(--body);font-size:18px;font-weight:600;color:var(--ink)}
+.faq-q .pm{font-family:var(--mono);font-size:20px;color:var(--steel);transition:.3s}
+.faq-item.open .pm{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a p{padding:0 0 24px;color:var(--muted);font-size:15px;line-height:1.65;max-width:80ch}
+
+/* downloads rows */
+.dl{border-top:1px solid var(--line)}
+.dl-row{display:grid;grid-template-columns:60px 1fr 130px 90px;align-items:center;border-bottom:1px solid var(--line);padding:22px 0}
+.dl-fmt{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--steel)}
+.dl-t{font-weight:600;color:var(--ink);font-size:16px}
+.dl-t span{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:3px;font-family:var(--body)}
+.dl-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim)}
+.dl-go{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);text-align:right}
+
+/* empty state */
+.empty{border:1px solid var(--line);background:var(--panel);padding:54px;text-align:center}
+.empty p{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+
+/* form */
+.form{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.field{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 24px;display:flex;flex-direction:column;gap:9px}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim)}
+.field input,.field textarea,.field select{background:transparent;border:none;border-bottom:1px solid var(--line2);
+font-family:var(--body);font-size:15px;color:var(--ink);padding:6px 0;outline:none;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--steel)}
+
+/* CTA */
+.cta{position:relative;background:var(--panel);padding:88px 46px;text-align:center}
+.cta h2{margin-bottom:20px}
+.cta .lead{margin:0 auto 38px}
+.cta .btns{justify-content:center}
+
+/* policy */
+.policy{max-width:880px}
+.pol-item{display:grid;grid-template-columns:54px 1fr;border-top:1px solid var(--line);padding:26px 0}
+.pol-n{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.06em}
+.pol-h{font-weight:700;color:var(--ink);font-size:17px;margin-bottom:9px}
+.pol-b{color:var(--muted);font-size:15px;line-height:1.65}
+.pol-b ul{margin:8px 0 0 18px}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--line2);background:var(--panel);max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.footer-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 46px;flex-wrap:wrap}
+
+.f-nav{display:flex;gap:22px;flex-wrap:wrap}
+.f-nav a{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.f-nav a:hover{color:var(--ink)}
+.f-copy{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--dim)}
+
+
+/* reveal */
+.rev{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rev.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}.ticker-in,.readout .dot{animation:none}}
+
+/* responsive */
+@media(max-width:980px){
+.in{padding:54px 26px}.thesis>div,.feat-txt,.prod-txt{padding:40px 26px}
+.hero-grid,.thesis,.feat,.prod{grid-template-columns:1fr}
+.hero-main{border-right:none;border-bottom:1px solid var(--line2);padding:48px 26px}
+.hero-fig{aspect-ratio:1/1}.feat-fig,.prod-fig{min-height:330px}
+.feat.rev2{direction:ltr}.feat-txt{border-right:none;border-bottom:1px solid var(--line)}
+.prod-txt{border-right:none;border-top:1px solid var(--line)}.prod-right .prod-fig{min-height:300px}.pacc{height:162px}
+.thesis>div:first-child{border-right:none;border-bottom:1px solid var(--line)}
+.cards,.mods.c3,.stats,.lineup,.gal,.mods.c4,.showcase{grid-template-columns:1fr 1fr}
+.manifest{grid-template-columns:1fr 1fr}.man-cell:nth-child(2n){border-right:none}
+.lrow{grid-template-columns:1fr}.l-idx{border-right:none;border-bottom:1px solid var(--line);padding:18px 24px}
+.l-txt{border-right:none;border-bottom:1px solid var(--line)}.l-media{min-height:220px}
+.lstack{grid-template-columns:1fr}.lpanel{border-right:none;height:auto;overflow:visible}.litem{overflow:visible}.lview{min-height:320px;border-top:1px solid var(--line)}
+.nav-links{display:none}.burger{display:flex}
+.nav-links.show{display:flex;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line2)}
+.nav-links.show a{border-left:none;border-bottom:1px solid var(--line);height:50px}
+.form{grid-template-columns:1fr}.field{border-right:none}
+}
+@media(max-width:560px){
+.cards,.mods.c3,.stats,.lineup,.gal,.mods.c4,.manifest{grid-template-columns:1fr}
+.man-cell{border-right:none}.stat,.lu{border-right:none}
+.sec-head{flex-direction:column;align-items:flex-start;gap:14px}
+.dl-row{grid-template-columns:50px 1fr;row-gap:6px}.dl-meta,.dl-go{grid-column:2;text-align:left}
+}
+.f-legal{border-top:1px solid var(--line);padding:22px 46px;font-family:var(--mono);font-size:11px;line-height:1.95;letter-spacing:0.04em;color:var(--dim)}.f-legal b{color:var(--muted);font-weight:500;letter-spacing:0.08em}h1,h2,h3,p.big,.mod-t,.stat-n,.card-t,.l-t,.prod-name,.lu-name{font-weight:300}h1{font-size:clamp(40px,5.2vw,78px);line-height:1.0;letter-spacing:-0.01em}h2{font-size:clamp(36px,4.8vw,66px);line-height:1.01;letter-spacing:-0.01em}h3{line-height:1.0;letter-spacing:-0.005em}p.big{font-size:clamp(28px,3.4vw,46px);line-height:1.04;letter-spacing:-0.01em}.prod-name{line-height:0.98;letter-spacing:-0.01em}.stat-n{line-height:0.95;letter-spacing:-0.01em}.card-t{letter-spacing:-0.005em}h1,h2,h3,p.big,.mod-t,.card-t,.l-t,.prod-name,.lu-name{text-transform:none}h1{text-transform:capitalize}.lastwm{background-image:url(../assets/wm_platform.png);background-position:center center;background-size:380px;background-repeat:no-repeat}</style></head><body><nav class="nav"><div class="nav-in"><div class="nav-logo"><a href="index.html"><img src="../assets/logo1_small.png" alt="Bone Robotics"></a></div><div class="nav-links" id="nav"><a href="platform.html" class="active">플랫폼</a><a href="company.html">회사소개</a><a href="resources.html">자료실</a><div class="lang-tog"><a class="lt-opt" href="../platform.html">EN</a><a class="lt-opt on" href="platform.html">KR</a></div><a href="contact.html" class="nav-cta">브리핑 요청</a></div><button class="burger" id="burger" aria-label="메뉴"><span></span><span></span><span></span></button></div></nav><main class="frame"><section class="hero"><div class="hero-grid"><div class="hero-main"><div class="readout"><span class="dot"></span><span id="term" data-msg="C2 OS // FOUR-LAYER STACK  —  ONLINE"></span></div><div class="eyebrow rev">플랫폼<span class="ln"></span></div><h1 class="rev">We integrate the<br><em>whole system.</em></h1><p class="lead rev">하드웨어, 자율성, 센서, 통신, 제조, 지휘통제 — 하나의 작전 역량으로 융합합니다. 부품이 아니라, 하나의 시스템입니다.</p><div class="btns rev"><a class="btn btn-g" href="contact.html">브리핑 요청 →</a></div></div><div class="hero-fig"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="../assets/drone_above_city.jpg" alt=""></div></div><div class="manifest rev"><div class="man-cell"><span class="man-k">계층</span><span class="man-v">4</span></div><div class="man-cell"><span class="man-k">코어</span><span class="man-v">C2 OS</span></div><div class="man-cell"><span class="man-k">통신</span><span class="man-v">5G · RF · RTK</span></div><div class="man-cell"><span class="man-k">로보틱스</span><span class="man-v">공중 · 지상 · 해상</span></div><div class="man-cell"><span class="man-k">제조</span><span class="man-v">동맹국</span></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">통합하는 이유<span class="ln"></span></div><div class="sec-idx">01 / 04</div></div><p class="big rev">대부분은 제품을 만듭니다. 우리는 <em>하나처럼 작동하는</em> 역량을 만듭니다.</p></div><div class="thesis"><div class="rev"><p class="body">시스템 오브 시스템즈는 제품의 묶음이 아닙니다. 모든 계층을 직접 소유하는 것만이, 결정적인 순간에 전체가 작동하고 한 부분이 재밍·차단·파괴되어도 계속 작동하게 하는 유일한 방법입니다.</p></div><div class="rev"><p class="body">Bone은 하드웨어, 자율성, 센서, 통신, 제조, 지휘통제를 직접 소유하고 통합합니다. 하나의 공급사. 하나의 지휘 화면. 책임지는 하나의 시스템.</p></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">4계층 스택<span class="ln"></span></div><div class="sec-idx">02 / 04</div></div><h2 class="rev">네 개의 계층,<br>하나의 <em>시스템.</em></h2></div><div class="lstack rev"><div class="lpanel"><div class="litem active"><div class="l-stage">01 — 판단</div><div class="l-t">지휘통제 운영체제</div><div class="l-d">센서 융합, AI 판단 로직, 하나의 작전 화면. 하드웨어에 종속되지 않고 임무에 맞게 구성 가능한 — 그 아래 모든 것을 지휘하는 두뇌.</div></div><div class="litem"><div class="l-stage">02 — 연결</div><div class="l-t">강인한 통신</div><div class="l-d">5G, RF 하이브리드, RTK-GPS 링크로 분쟁·GPS 차단 환경에서도 끊기지 않도록 설계. 명령과 데이터가 결코 끊기지 않습니다.</div></div><div class="litem"><div class="l-stage">03 — 실행</div><div class="l-t">자율 현장 로보틱스</div><div class="l-d">하나의 C2 두뇌 아래에서 요격, 감시, 재난대응을 수행하는 공중·지상·해상 플랫폼.</div></div><div class="litem"><div class="l-stage">04 — 생산</div><div class="l-t">동맹국 제조</div><div class="l-d">D-Makers를 통한 자체 생산 — 취약한 공급망 없이 확장할 수 있는 산업 기반.</div></div></div><div class="lview"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><div class="lshot active"><img src="../assets/layer1_bp.png" alt=""></div><div class="lshot"><img src="../assets/layer2_bp.png" alt=""></div><div class="lshot"><img src="../assets/layer3_bp.png" alt=""></div><div class="lshot"><img src="../assets/layer4_bp.png" alt=""></div></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">라인업<span class="ln"></span></div><div class="sec-idx">03 / 04</div></div><h2 class="rev">제품.</h2></div><div class="lineup rev"><a class="lu" href="#gcs"><span class="lu-code">UNIT 00 — C2</span><span class="lu-name">GCS</span><span class="lu-d">지휘통제 OS</span></a><a class="lu" href="#saerier"><span class="lu-code">UNIT 01 — INTERCEPT</span><span class="lu-name">Saerier</span><span class="lu-d">저고도 요격기</span></a><a class="lu" href="#saena"><span class="lu-code">UNIT 02 — ISR</span><span class="lu-name">Saena</span><span class="lu-d">감시 · 군집</span></a><a class="lu" href="#soma"><span class="lu-code">UNIT 03 — DFR</span><span class="lu-name">SOMA</span><span class="lu-d">재난대응</span></a></div></section><section class="prod" id="gcs"><div class="prod-txt rev"><div class="prod-code">UNIT 00 — C2</div><div class="prod-name">GCS</div><div class="prod-tag">지상통제 · C2 OS</div><p class="prod-d">지휘 계층. 한 명의 운용자가 하나의 작전 화면에서 모든 플랫폼을 지휘합니다 — 센서 융합, AI 의사결정, 임무 통제를 하나의 콘솔에서.</p><div class="spec"><div class="spec-row"><div class="spec-k">역할</div><div class="spec-v">지휘통제</div></div><div class="spec-row"><div class="spec-k">판단</div><div class="spec-v">AI 보조 융합</div></div><div class="spec-row"><div class="spec-k">링크</div><div class="spec-v">5G · RF · RTK-GPS</div></div><div class="spec-row"><div class="spec-k">영역</div><div class="spec-v">공중 · 지상 · 해상</div></div></div></div><div class="prod-right rev"><div class="prod-fig"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="../assets/gcs_5.png" alt=""><div class="fig-cap"><b>UNIT 00</b> &nbsp;//&nbsp; GCS</div></div></div></section><section class="prod" id="saerier"><div class="prod-txt rev"><div class="prod-code">UNIT 01 — INTERCEPT</div><div class="prod-name">Saerier</div><div class="prod-tag">저고도 요격기</div><p class="prod-d">다른 시스템이 놓치는 저고도 위협을 탐지·추적·요격하도록 제작. 빠르고 자율적이며, 중요한 고도에서의 방공을 위해 C2 두뇌가 지휘합니다.</p><div class="spec"><div class="spec-row"><div class="spec-k">분류</div><div class="spec-v">요격기</div></div><div class="spec-row"><div class="spec-k">고도</div><div class="spec-v">저고도</div></div><div class="spec-row"><div class="spec-k">유도</div><div class="spec-v">자율</div></div><div class="spec-row"><div class="spec-k">임무 부여</div><div class="spec-v">C2 OS</div></div></div></div><div class="prod-right rev"><div class="prod-fig bp"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="../assets/saerier_bp.png" alt=""><div class="fig-cap"><b>UNIT 01</b> &nbsp;//&nbsp; Saerier</div></div><div class="pacc"><div class="pcell active"><img src="../assets/img_008_393643e1e386.jpg" alt=""><div class="plbl">단일 기체</div></div><div class="pcell"><img src="../assets/img_009_a58b7a56847e.jpg" alt=""><div class="plbl">조립</div></div><div class="pcell"><img src="../assets/img_010_745fbb88f477.jpg" alt=""><div class="plbl">투하 전개 시스템</div></div><div class="pcell"><img src="../assets/img_006_aec407a8efd8.jpg" alt=""><div class="plbl">서브드론 통합</div></div></div></div></section><section class="prod" id="saena"><div class="prod-txt rev"><div class="prod-code">UNIT 02 — ISR</div><div class="prod-name">Saena</div><div class="prod-tag">감시 · 군집</div><p class="prod-d">지속 ISR 및 협조 군집 작전. Saena는 하나의 화면을 공유하고 넓은 영역을 커버하며 분쟁 공역에서 감시선을 유지합니다.</p><div class="spec"><div class="spec-row"><div class="spec-k">역할</div><div class="spec-v">ISR · 군집</div></div><div class="spec-row"><div class="spec-k">협조</div><div class="spec-v">다기체</div></div><div class="spec-row"><div class="spec-k">체공</div><div class="spec-v">장시간</div></div><div class="spec-row"><div class="spec-k">임무 부여</div><div class="spec-v">C2 OS</div></div></div></div><div class="prod-right rev"><div class="prod-fig bp"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="../assets/saena_bp.png" alt=""><div class="fig-cap"><b>UNIT 02</b> &nbsp;//&nbsp; Saena</div></div><div class="pacc"><div class="pcell active pc-top"><img src="../assets/img_013_a9887e1f732b.jpg" alt=""><div class="plbl">측면</div></div><div class="pcell pc-top"><img src="../assets/img_014_ecbdeaaf96b7.jpg" alt=""><div class="plbl">투하 시퀀스</div></div><div class="pcell"><img src="../assets/img_015_8830e70f6ba7.jpg" alt=""><div class="plbl">전개 상세</div></div><div class="pcell"><img src="../assets/img_016_22cc1ecebf9d.jpg" alt=""><div class="plbl">공중 발사 · Saerier</div></div></div></div></section><section class="prod" id="soma"><div class="prod-txt rev"><div class="prod-code">UNIT 03 — DFR</div><div class="prod-name">SOMA</div><div class="prod-tag">재난대응 · DFR</div><p class="prod-d">공공안전을 위한 드론 우선 대응. SOMA는 산불 전선, 침수 지역, 붕괴 현장에 — 가장 먼저, 자율적으로, 그리고 국방 전력과 동일한 지휘 체계 아래 — 도달합니다.</p><div class="spec"><div class="spec-row"><div class="spec-k">역할</div><div class="spec-v">재난대응</div></div><div class="spec-row"><div class="spec-k">전개</div><div class="spec-v">드론 우선 (DFR)</div></div><div class="spec-row"><div class="spec-k">Domain</div><div class="spec-v">공공안전</div></div><div class="spec-row"><div class="spec-k">임무 부여</div><div class="spec-v">C2 OS</div></div></div></div><div class="prod-right rev"><div class="prod-fig bp"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="../assets/soma_bp.png" alt=""><div class="fig-cap"><b>UNIT 03</b> &nbsp;//&nbsp; SOMA</div></div><div class="pacc"><div class="pcell active"><img src="../assets/img_018_84dcde895ae3.jpg" alt=""><div class="plbl">정면</div></div><div class="pcell"><img src="../assets/img_019_96800dc60a0d.jpg" alt=""><div class="plbl">측면</div></div><div class="pcell"><img src="../assets/img_020_7ae9bc5a6f5c.jpg" alt=""><div class="plbl">대각</div></div><div class="pcell"><img src="../assets/img_017_6454290a3fb2.jpg" alt=""><div class="plbl">전개 형상</div></div></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">현장에서<span class="ln"></span></div><div class="sec-idx">04 / 04</div></div><h2 class="rev">실제 작전에서 <em>검증.</em></h2></div><div class="showcase rev"><div class="sc-cell"><img src="../assets/p15.png" alt=""><div class="sc-lbl">다영역 작전</div></div><div class="sc-cell"><img src="../assets/p18.png" alt=""><div class="sc-lbl">전방 배치</div></div><div class="sc-cell"><img src="../assets/p_field.jpg" alt=""><div class="sc-lbl">현장 운용</div></div><div class="sc-cell"><img src="../assets/command_center.jpg" alt=""><div class="sc-lbl">지휘 통제실</div></div></div></section><section class="sec cta lastwm"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><h2 class="rev">하나의 시스템.<br><em>엔드 투 엔드</em>로 소유.</h2><p class="lead rev">그 위에서 작동하는 플랫폼을 확인하거나, 필요한 인프라에 대해 문의하세요.</p><div class="btns rev"><a class="btn btn-g" href="contact.html">브리핑 요청</a></div></section></main><footer class="footer"><div class="footer-in"><div class="f-nav"><a href="platform.html">플랫폼</a><a href="company.html">회사소개</a><a href="resources.html">자료실</a><a href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a></div><div class="f-copy">© 2026 Bone Robotics Co., Ltd. 모든 권리 보유.</div></div><div class="f-legal"><b>Bone Robotics Co., Ltd.</b> &middot; 대표이사: DK Lee &middot; 사업자등록번호 727-88-03866<br>서울특별시 강남구 테헤란로 518, 13층 103호, 대한민국<br>info@bonerobotics.ai</div></footer><script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+const b=document.getElementById('burger');if(b){b.onclick=()=>document.getElementById('nav').classList.toggle('show')}
+document.querySelectorAll('.faq-q').forEach(q=>{q.onclick=()=>{const it=q.closest('.faq-item');const a=it.querySelector('.faq-a');
+if(it.classList.toggle('open')){a.style.maxHeight=a.scrollHeight+'px'}else{a.style.maxHeight=0}}});
+const t=document.getElementById('term');if(t){const msg=t.dataset.msg;let i=0;(function ty(){if(i<=msg.length){t.textContent=msg.slice(0,i)+(i<msg.length?'▌':'');i++;setTimeout(ty,38)}else{t.textContent=msg}})();}
+</script><script>(function(){var items=[].slice.call(document.querySelectorAll(".litem"));var shots=[].slice.call(document.querySelectorAll(".lshot"));if(!items.length)return;function act(i){items.forEach(function(el,k){el.classList.toggle("active",k===i)});shots.forEach(function(el,k){el.classList.toggle("active",k===i)})}items.forEach(function(el,i){el.addEventListener("mouseenter",function(){act(i)})});act(0);})();</script><script>document.querySelectorAll(".pacc").forEach(function(row){var cells=[].slice.call(row.querySelectorAll(".pcell"));function a(i){cells.forEach(function(c,k){c.classList.toggle("active",k===i)})}cells.forEach(function(c,i){c.addEventListener("mouseenter",function(){a(i)})});a(0);});</script></body></html>
