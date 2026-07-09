@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Sofia+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#050505"/><g fill="none" stroke="#E4DCCA" stroke-width="2.4"><circle cx="50" cy="50" r="24" stroke-opacity=".85"/><circle cx="50" cy="50" r="8" fill="#E4DCCA" stroke="none"/><line x1="50" y1="20" x2="50" y2="34"/><line x1="50" y1="66" x2="50" y2="80"/><line x1="20" y1="50" x2="34" y2="50"/><line x1="66" y1="50" x2="80" y2="50"/></g></svg></template>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+a:hover{color:#67473A}
+body{background:#E4DCCA;-webkit-font-smoothing:antialiased;font-family:'Sofia Sans',sans-serif}
+::selection{background:#241B15;color:#E4DCCA}
+@keyframes bpulse{0%{box-shadow:0 0 0 0 rgba(103,71,58,.45)}70%{box-shadow:0 0 0 7px rgba(103,71,58,0)}100%{box-shadow:0 0 0 0 rgba(103,71,58,0)}}
+</style>
+</helmet>
+
+<div style="font-family:'Sofia Sans',sans-serif;color:#33281F;max-width:480px;margin:0 auto;background:#E4DCCA;">
+
+  <!-- HERO -->
+  <div style="position:relative;height:88vh;min-height:560px;overflow:hidden;background:#050505;">
+    <img src="assets/ramp_c.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);">
+    <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,5,5,.86) 0%,rgba(5,5,5,.28) 55%,rgba(5,5,5,.45) 100%);"></div>
+    <div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;z-index:3;">
+      <img src="assets/logo_lockup_white.png" style="height:20px;width:auto;">
+      <a href="#m-cta" style="font-size:12.5px;font-weight:600;color:#241B15;background:#E4DCCA;padding:10px 16px;border-radius:999px;transition:all .35s cubic-bezier(.2,.8,.2,1);" style-hover="background:rgba(228,220,202,.16);color:#E4DCCA;backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px rgba(228,220,202,.5),0 8px 20px rgba(0,0,0,.28);transform:translateY(-2px) scale(1.03);">Request a Briefing</a>
+    </div>
+    <div style="position:absolute;left:22px;right:22px;bottom:40px;z-index:3;">
+      <h1 style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:36px;line-height:1.12;letter-spacing:-0.01em;color:#F7F3EC;">We Build the Backbone of Physical AI</h1>
+      <p style="margin-top:16px;font-size:14.5px;line-height:1.6;color:#D8CEBD;">From fragmented robots to mission-ready physical AI.<br>Built in Korea. Trusted by allies. Deployed in the real world.</p>
+      <p style="margin-top:12px;font-size:13px;line-height:1.6;color:#B6A79B;">Bone builds trusted autonomous security and ISR systems for allied critical infrastructure — ports, shipyards, coastal bases, and energy facilities.</p>
+    </div>
+  </div>
+
+  <!-- WHY WE EXIST -->
+  <div style="padding:64px 22px;background:linear-gradient(rgba(203,189,164,.55),rgba(203,189,164,.55)),url('assets/travertine_c.jpg') center/cover;">
+    <div style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:18px;">Why we exist</div>
+    <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:27px;line-height:1.2;letter-spacing:-0.01em;color:#241B15;margin-bottom:24px;">A nation is only as resilient as the infrastructure beneath it.</p>
+    <p style="font-size:15px;line-height:1.7;color:#57503F;margin-bottom:16px;">Most robotics companies build a product. Most AI companies build a model. Most defense primes integrate other people's parts.</p>
+    <p style="font-size:15px;line-height:1.7;color:#57503F;">Bone owns and integrates every layer — hardware, autonomy, sensors, comms, manufacturing, and command-and-control — into one capability that behaves as a whole. In the field. Under contract. When conditions turn hostile.</p>
+    <p style="font-size:15px;line-height:1.7;color:#241B15;font-weight:600;margin-top:20px;">We start where the need is most immediate and the stakes are highest: securing the ports, shipyards, coastal bases, and energy facilities that allied nations cannot afford to lose.</p>
+  </div>
+
+  <!-- THE SYSTEM -->
+  <div style="padding:56px 16px;">
+    <div style="background:#CDBFA9;border-radius:16px;padding:36px 24px;">
+      <div style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:16px;">The system</div>
+      <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:26px;line-height:1.16;color:#241B15;margin-bottom:14px;">One system, owned end to end.</p>
+      <p style="font-size:14px;line-height:1.65;color:#6E5F4C;margin-bottom:26px;">From the C2 brain down to the manufacturing floor, every layer is built and owned in-house, then fused under a single command picture — and every mission feeds back into the next build. A closed loop, not a stack.</p>
+      <div style="background:#EFE9DB;border-radius:12px;padding:20px;margin-bottom:22px;"><img src="assets/layer1_bp_t_c.png" style="width:100%;height:auto;"></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid rgba(20,20,18,.16);"><span style="font-family:'Montserrat',sans-serif;font-size:16px;color:#241B15;">Command &amp; Control OS</span><span style="font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#8A7256;">Decide</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid rgba(20,20,18,.16);"><span style="font-family:'Montserrat',sans-serif;font-size:16px;color:#241B15;">Resilient Communications</span><span style="font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#8A7C69;">Connect</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid rgba(20,20,18,.16);"><span style="font-family:'Montserrat',sans-serif;font-size:16px;color:#241B15;">Autonomous Field Robotics</span><span style="font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#8A7C69;">Act</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid rgba(20,20,18,.16);"><span style="font-family:'Montserrat',sans-serif;font-size:16px;color:#241B15;">Allied Manufacturing</span><span style="font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#8A7C69;">Produce</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid rgba(20,20,18,.16);border-bottom:1px solid rgba(20,20,18,.16);"><span style="font-family:'Montserrat',sans-serif;font-size:16px;color:#241B15;">Field Data &amp; Learning</span><span style="font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#8A7C69;">Learn</span></div>
+    </div>
+  </div>
+
+  <!-- THE DIFFERENCE -->
+  <div style="padding:64px 22px;background:#1A140F;">
+    <div style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#B6A79B;font-weight:600;margin-bottom:16px;">The difference</div>
+    <p style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:27px;line-height:1.18;color:#E4DCCA;margin-bottom:32px;">We know how to build this.</p>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div><div style="display:flex;align-items:center;gap:10px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:10px;padding:13px 16px;"><span style="flex:none;width:18px;height:18px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:10px;">✕</span><span style="font-size:13.5px;color:#8A7C69;">Many vendors, one fragile integrator</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:#EFE9DB;border-radius:10px;padding:13px 16px;margin-top:6px;"><span style="flex:none;width:18px;height:18px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:10px;">✓</span><span style="font-size:13.5px;color:#33281F;font-weight:600;">One vendor — every layer owned in-house</span></div></div>
+      <div><div style="display:flex;align-items:center;gap:10px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:10px;padding:13px 16px;"><span style="flex:none;width:18px;height:18px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:10px;">✕</span><span style="font-size:13.5px;color:#8A7C69;">Fails when one piece is jammed or denied</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:#EFE9DB;border-radius:10px;padding:13px 16px;margin-top:6px;"><span style="flex:none;width:18px;height:18px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:10px;">✓</span><span style="font-size:13.5px;color:#33281F;font-weight:600;">Keeps operating when contested</span></div></div>
+      <div><div style="display:flex;align-items:center;gap:10px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:10px;padding:13px 16px;"><span style="flex:none;width:18px;height:18px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:10px;">✕</span><span style="font-size:13.5px;color:#8A7C69;">Nobody fully accountable</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:#EFE9DB;border-radius:10px;padding:13px 16px;margin-top:6px;"><span style="flex:none;width:18px;height:18px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:10px;">✓</span><span style="font-size:13.5px;color:#33281F;font-weight:600;">End-to-end accountable, in the field</span></div></div>
+      <div><div style="display:flex;align-items:center;gap:10px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:10px;padding:13px 16px;"><span style="flex:none;width:18px;height:18px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:10px;">✕</span><span style="font-size:13.5px;color:#8A7C69;">Unverifiable component provenance</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:#EFE9DB;border-radius:10px;padding:13px 16px;margin-top:6px;"><span style="flex:none;width:18px;height:18px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:10px;">✓</span><span style="font-size:13.5px;color:#33281F;font-weight:600;">Every component traceable — a trusted bill of materials</span></div></div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div style="padding:64px 16px 8px;">
+    <div style="padding:0 6px;">
+      <div style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:16px;">The products</div>
+      <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:27px;line-height:1.18;color:#241B15;margin-bottom:28px;">Four platforms, <br>one command brain.</p>
+      <p style="font-size:14px;line-height:1.65;color:#6E5F4C;margin:-14px 0 28px;">You don’t buy a drone. You deploy a security capability — robots, fixed sensors, edge AI, secure comms, and C2 as one system, installed, trained, and maintained.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="background:#EFE9DB;border-radius:14px;overflow:hidden;"><div style="height:150px;background:#0d0e11;overflow:hidden;"><img src="assets/gcs_5_c.jpg" style="width:100%;height:100%;object-fit:cover;"></div><div style="padding:18px 20px;"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8A7C69;margin-bottom:6px;">C2 GCS</div><div style="font-family:'Montserrat',sans-serif;font-size:20px;color:#241B15;margin-bottom:6px;">Command OS</div><div style="font-size:13px;line-height:1.55;color:#6E5F4C;">One operator directs every platform from a single picture.</div></div></div>
+      <div style="background:#EFE9DB;border-radius:14px;overflow:hidden;"><div style="height:150px;background:#EFE9DB;display:flex;align-items:center;justify-content:center;padding:12px;"><img src="assets/saerier_bp_c.png" style="max-width:100%;max-height:100%;object-fit:contain;"></div><div style="padding:18px 20px;"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8A7C69;margin-bottom:6px;">Interceptor</div><div style="font-family:'Montserrat',sans-serif;font-size:20px;color:#241B15;margin-bottom:6px;">Saerier</div><div style="font-size:13px;line-height:1.55;color:#6E5F4C;">Detect, track, and intercept low-altitude threats others miss.</div></div></div>
+      <div style="background:#EFE9DB;border-radius:14px;overflow:hidden;"><div style="height:150px;background:#EFE9DB;display:flex;align-items:center;justify-content:center;padding:12px;"><img src="assets/saena_bp_c.png" style="max-width:100%;max-height:100%;object-fit:contain;"></div><div style="padding:18px 20px;"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8A7C69;margin-bottom:6px;">ISR · Swarm</div><div style="font-family:'Montserrat',sans-serif;font-size:20px;color:#241B15;margin-bottom:6px;">Saena</div><div style="font-size:13px;line-height:1.55;color:#6E5F4C;">Persistent ISR and coordinated swarm across contested airspace.</div></div></div>
+      <div style="background:#EFE9DB;border-radius:14px;overflow:hidden;"><div style="height:150px;background:#EFE9DB;display:flex;align-items:center;justify-content:center;padding:12px;"><img src="assets/soma_bp_c.png" style="max-width:100%;max-height:100%;object-fit:contain;"></div><div style="padding:18px 20px;"><div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8A7C69;margin-bottom:6px;">Disaster response</div><div style="font-family:'Montserrat',sans-serif;font-size:20px;color:#241B15;margin-bottom:6px;">SOMA</div><div style="font-size:13px;line-height:1.55;color:#6E5F4C;">Drone-first response — first to the front, autonomously.</div></div></div>
+    </div>
+    <div style="margin:14px 6px 0;padding:18px 20px;border:1px solid rgba(20,20,18,.2);border-radius:12px;font-size:12.5px;line-height:1.7;color:#57503F;"><b style="color:#241B15;font-weight:600;">Every deployment includes:</b> autonomous aerial platforms · fixed &amp; mobile sensors · edge-AI perception · resilient comms · the C2 command picture · on-site install, operator training &amp; SLA · a trusted bill of materials you can audit down to the component.</div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div style="padding:64px 22px;background:linear-gradient(rgba(239,233,219,.92),rgba(239,233,219,.92)),url('assets/texture_sand_c.jpg') center/cover;margin-top:48px;">
+    <div style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:16px;">Roadmap</div>
+    <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:27px;line-height:1.18;color:#241B15;margin-bottom:36px;">From pilot to backbone.</p>
+    <div style="border-left:2px solid #67473A;padding-left:22px;position:relative;margin-left:5px;">
+      <div style="position:relative;padding-bottom:34px;">
+        <span style="position:absolute;left:-28.5px;top:4px;width:11px;height:11px;border-radius:50%;background:#67473A;animation:bpulse 2.6s infinite;"></span>
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:8px;">Now</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:19px;line-height:1.25;color:#241B15;margin-bottom:8px;">Deployed under government contract</div>
+        <p style="font-size:13px;line-height:1.6;color:#57503F;">292 autonomous flights, 379&nbsp;km validated, ₩2.8B first-year revenue — in real defense and disaster missions.</p>
+      </div>
+      <div style="position:relative;padding-bottom:34px;">
+        <span style="position:absolute;left:-28px;top:4px;width:10px;height:10px;border-radius:50%;border:1.5px solid #67473A;background:#EFE9DB;box-sizing:border-box;"></span>
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A7C69;font-weight:600;margin-bottom:8px;">2028</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:15.5px;line-height:1.3;color:#4A3B2C;margin-bottom:6px;">Two tracks, one system</div>
+        <p style="font-size:12px;line-height:1.55;color:#8A7C69;">Low-altitude defense at national scale, and autonomous security at commercial critical infrastructure — ports, shipyards, and energy sites — under one C2 picture.</p>
+      </div>
+      <div style="position:relative;">
+        <span style="position:absolute;left:-28px;top:4px;width:10px;height:10px;border-radius:50%;border:1.5px solid #67473A;background:#EFE9DB;box-sizing:border-box;"></span>
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A7C69;font-weight:600;margin-bottom:8px;">2029</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:15.5px;line-height:1.3;color:#4A3B2C;margin-bottom:6px;">Allied manufacturing &amp; export</div>
+        <p style="font-size:12px;line-height:1.55;color:#8A7C69;">Scaling the industrial base and delivering the stack to allied programs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUILT TO ENDURE -->
+  <div style="background:linear-gradient(rgba(239,233,219,.92),rgba(239,233,219,.92)),url('assets/texture_sand_c.jpg') center/cover;padding:0 16px 40px;">
+    <div style="background:#16110C;border-radius:16px;padding:44px 24px;">
+      <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:24px;color:#E4DCCA;margin-bottom:10px;">Built to endure.</p>
+      <p style="font-size:13.5px;line-height:1.6;color:#B6A79B;margin-bottom:28px;">The engineering that keeps the system operating when everything around it fails.</p>
+      <div style="padding:16px 0;border-top:1px solid rgba(228,220,202,.16);"><div style="font-family:'Montserrat',sans-serif;font-size:17px;color:#E4DCCA;margin-bottom:6px;">GPS-denied autonomy.</div><div style="font-size:13px;line-height:1.6;color:#B6A79B;">Platforms keep navigating and complete the mission when positioning is jammed or spoofed.</div></div>
+      <div style="padding:16px 0;border-top:1px solid rgba(228,220,202,.16);"><div style="font-family:'Montserrat',sans-serif;font-size:17px;color:#E4DCCA;margin-bottom:6px;">Contested-spectrum comms.</div><div style="font-size:13px;line-height:1.6;color:#B6A79B;">5G, RF hybrid, and RTK links that degrade gracefully and re-route — they don't drop.</div></div>
+      <div style="padding:16px 0;border-top:1px solid rgba(228,220,202,.16);"><div style="font-family:'Montserrat',sans-serif;font-size:17px;color:#E4DCCA;margin-bottom:6px;">Distributed command.</div><div style="font-size:13px;line-height:1.6;color:#B6A79B;">The C2 picture survives node loss; any operator can pick up the mission mid-flight.</div></div>
+      <div style="padding:16px 0;border-top:1px solid rgba(228,220,202,.16);"><div style="font-family:'Montserrat',sans-serif;font-size:17px;color:#E4DCCA;margin-bottom:6px;">Field-serviceable by design.</div><div style="font-size:13px;line-height:1.6;color:#B6A79B;">Repaired on-site with allied-made parts — no fragile supply chain in the loop.</div></div>
+      <div style="padding:16px 0 0;border-top:1px solid rgba(228,220,202,.16);"><div style="font-family:'Montserrat',sans-serif;font-size:17px;color:#E4DCCA;margin-bottom:6px;">Learns from every mission.</div><div style="font-size:13px;line-height:1.6;color:#B6A79B;">Field data flows back into models and production — the system that deploys today is sharper tomorrow, on a supply chain we can trace end to end.</div></div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div style="padding:64px 22px;">
+    <div style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:16px;">Team · Why we started</div>
+    <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:27px;line-height:1.2;color:#241B15;margin-bottom:20px;">We build for those who cannot afford to fail.</p>
+    <p style="font-size:15px;line-height:1.7;color:#6E5F4C;">Bone started with a gap no one was closing: AI software was accelerating, but the physical systems a nation depends on — defense, disaster response, critical infrastructure — were still built from disconnected parts. We started Bone to build them as one system, and to stay in the field until it works. Every system we ship carries the urgency, precision, and purpose of the team that built it — mission-ready, adaptive under pressure, built for the edge of contested environments.</p>
+  </div>
+
+  <!-- VALUES -->
+  <div style="position:relative;background:#16110C;overflow:hidden;">
+    <img src="assets/texture_dark_c.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;">
+    <div style="position:relative;padding:64px 22px;">
+      <div style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#B6A79B;font-weight:600;margin-bottom:18px;">Our values</div>
+      <p style="font-size:16px;line-height:1.6;color:#E4DCCA;margin-bottom:30px;">At Bone, we are building a small team of elite builders — people who thrive on complexity, move with urgency, and own their work end to end. These values are not statements. They are commitments — they define how we build, and what endures after us. If you are driven by purpose, precision, and impact, this is where you belong.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:22px;"><div style="font-family:'Montserrat',sans-serif;font-size:19px;color:#E4DCCA;margin-bottom:8px;">Ownership</div><div style="font-size:13px;line-height:1.6;color:#B6A79B;">We own outcomes, not tasks — the work is done when it works in the field.</div></div>
+        <div style="background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:22px;"><div style="font-family:'Montserrat',sans-serif;font-size:19px;color:#E4DCCA;margin-bottom:8px;">Urgency</div><div style="font-size:13px;line-height:1.6;color:#B6A79B;">We move fast without cutting corners. The threats we build against don't wait.</div></div>
+        <div style="background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:22px;"><div style="font-family:'Montserrat',sans-serif;font-size:19px;color:#E4DCCA;margin-bottom:8px;">Complexity</div><div style="font-size:13px;line-height:1.6;color:#B6A79B;">We take the problems others avoid — the whole system is the job.</div></div>
+        <div style="background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:22px;"><div style="font-family:'Montserrat',sans-serif;font-size:19px;color:#E4DCCA;margin-bottom:8px;">Field-First</div><div style="font-size:13px;line-height:1.6;color:#B6A79B;">Truth lives where the system operates. We stay there until it endures.</div></div>
+      </div>
+      <a href="#m-cta" style="display:inline-flex;align-items:center;gap:12px;margin-top:26px;font-size:15px;font-weight:500;color:#E4DCCA;">Join our Team <span style="font-size:18px;">→</span></a>
+    </div>
+  </div>
+
+  <!-- NEWSROOM -->
+  <div style="padding:64px 16px;">
+    <div style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:24px;padding:0 6px;">Newsroom</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <a href="https://techcrunch.com/2025/11/17/bone-ai-raises-funding-to-challenge-asias-defense-giants-with-next-gen-ai-powered-robotics/" target="_blank" rel="noopener" style="display:block;background:#EFE9DB;border-radius:14px;overflow:hidden;">
+        <span style="display:block;height:150px;overflow:hidden;"><img src="assets/spiro_c.jpg" style="width:100%;height:100%;object-fit:cover;"></span>
+        <span style="display:block;padding:18px 20px;">
+          <span style="display:flex;justify-content:space-between;gap:14px;margin-bottom:8px;"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#67473A;font-weight:600;">TechCrunch</span><span style="font-size:12px;color:#8A7C69;">Nov 2025</span></span>
+          <span style="display:block;font-family:'Montserrat',sans-serif;font-size:16px;line-height:1.4;color:#241B15;">Bone AI raises funding to challenge Asia's defense giants with next-gen AI-powered robotics</span>
+        </span>
+      </a>
+      <a href="https://www.chosun.com/english/industry-en/2026/01/28/GUWJUKBOUFBIJCAZ7DS6KTRRHE/" target="_blank" rel="noopener" style="display:block;background:#EFE9DB;border-radius:14px;padding:18px 20px;">
+        <span style="display:flex;justify-content:space-between;gap:14px;margin-bottom:8px;"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#67473A;font-weight:600;">The Chosun Daily</span><span style="font-size:12px;color:#8A7C69;">Jan 2026</span></span>
+        <span style="display:block;font-family:'Montserrat',sans-serif;font-size:16px;line-height:1.4;color:#241B15;">Bone and Korea's push into AI-powered defense robotics</span>
+      </a>
+      <a href="https://www.forbeskorea.co.kr/news/articleView.html?idxno=401147" target="_blank" rel="noopener" style="display:block;background:#EFE9DB;border-radius:14px;padding:18px 20px;">
+        <span style="display:flex;justify-content:space-between;gap:14px;margin-bottom:8px;"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#67473A;font-weight:600;">Forbes Korea</span><span style="font-size:12px;color:#8A7C69;">Dec 2025</span></span>
+        <span style="display:block;font-family:'Montserrat',sans-serif;font-size:16px;line-height:1.4;color:#241B15;">New Year's Essay 2026 — DK Lee, CEO of Bone</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA + FORM -->
+  <div id="m-cta" style="padding:64px 22px;background:#EFE9DB;">
+    <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:27px;line-height:1.2;color:#241B15;margin-bottom:14px;">What backbone can we build together?</p>
+    <p style="font-size:14.5px;line-height:1.65;color:#6E5F4C;margin-bottom:30px;">To discuss capabilities, partnerships, or specific mission requirements, please contact our team.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <select style="appearance:none;width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:15px 16px;font-family:'Sofia Sans',sans-serif;font-size:14.5px;color:#4A3B2C;outline:none;">
+        <option>Select a topic*</option>
+        <option>Critical infrastructure security (ports, energy, industrial sites)</option>
+        <option>Defense / public sector programs</option>
+        <option>Disaster &amp; emergency response</option>
+        <option>Partnership / co-development</option>
+        <option>Manufacturing &amp; supply (allied programs)</option>
+        <option>Press / media</option>
+        <option>Other</option>
+      </select>
+      <input placeholder="Name*" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:15px 16px;font-family:'Sofia Sans',sans-serif;font-size:14.5px;color:#241B15;outline:none;">
+      <input placeholder="Email*" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:15px 16px;font-family:'Sofia Sans',sans-serif;font-size:14.5px;color:#241B15;outline:none;">
+      <input placeholder="Company / Agency*" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:15px 16px;font-family:'Sofia Sans',sans-serif;font-size:14.5px;color:#241B15;outline:none;">
+      <textarea placeholder="How can we help?" rows="4" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:15px 16px;font-family:'Sofia Sans',sans-serif;font-size:14.5px;color:#241B15;outline:none;resize:vertical;"></textarea>
+      <label style="display:flex;align-items:flex-start;gap:10px;font-size:12.5px;line-height:1.55;color:#6E5F4C;">
+        <input type="checkbox" style="margin-top:3px;accent-color:#67473A;width:15px;height:15px;flex:none;">
+        <span>I agree to the collection and use of my information as described in the <a href="privacy.html" style="color:#67473A;font-weight:600;">Privacy Policy</a>.</span>
+      </label>
+      <button style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#241B15;color:#E4DCCA;border:0;border-radius:999px;padding:15px 26px;font-family:'Sofia Sans',sans-serif;font-size:14.5px;font-weight:600;cursor:pointer;margin-top:6px;">Submit →</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding:28px 22px 40px;background:#EFE9DB;border-top:1px solid rgba(20,20,18,.12);">
+    <img src="assets/logo_lockup_dark.png" style="height:18px;width:auto;margin-bottom:18px;">
+    <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:13px;font-weight:500;color:#6E5F4C;margin-bottom:16px;"><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy Policy</a></div>
+    <div style="font-size:12px;color:#8A7C69;">© 2026 Bone AI Inc.</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}"></script>
+</body>
+</html>

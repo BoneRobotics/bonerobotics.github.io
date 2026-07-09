@@ -1,321 +1,863 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bone Robotics — We build the backbone</title><meta name="description" content="Bone Robotics builds the Physical AI infrastructure for defense and public safety — owned end to end."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"><style>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&amp;family=Sofia+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#050505"></rect><g fill="none" stroke="#E4DCCA" stroke-width="2.4"><circle cx="50" cy="50" r="24" stroke-opacity=".85"></circle><circle cx="50" cy="50" r="8" fill="#E4DCCA" stroke="none"></circle><line x1="50" y1="20" x2="50" y2="34"></line><line x1="50" y1="66" x2="50" y2="80"></line><line x1="20" y1="50" x2="34" y2="50"></line><line x1="66" y1="50" x2="80" y2="50"></line></g></svg></template>
+<style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-:root{
---bg:#eceef1;--panel:#f5f6f8;--deep:#e4e7ea;
---line:rgba(21,23,26,0.13);--line2:rgba(21,23,26,0.26);
---ink:#16181b;--text:#262a2f;--muted:#697079;--dim:#9aa1a8;
---steel:#5e7790;--live:#3f7d6e;
---mono:'DM Sans',sans-serif;--disp:'DM Sans',sans-serif;--body:'DM Sans',sans-serif;
-}
-body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;
--webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-top:62px}
 img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--ink);color:#fff}
+a{color:inherit;text-decoration:none;transition:color .2s,background .2s}
+a:hover{color:#16181b}
+body{background:#d3d7db;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-family:'DM Sans',sans-serif}
+::selection{background:#16181b;color:#fff}
+@keyframes bpulse{0%{box-shadow:0 0 0 0 rgba(63,125,110,.45)}70%{box-shadow:0 0 0 7px rgba(63,125,110,0)}100%{box-shadow:0 0 0 0 rgba(63,125,110,0)}}
+@keyframes btick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+html{scroll-behavior:smooth}
+@keyframes sweep{to{transform:rotate(360deg)}}
+@keyframes bhalo{0%{transform:translate(-50%,-50%) scale(.55);opacity:.9}70%{transform:translate(-50%,-50%) scale(1.7);opacity:0}100%{transform:translate(-50%,-50%) scale(1.7);opacity:0}}
+@keyframes bslide{0%{left:0%;opacity:0}4%{opacity:1}94%{opacity:1}100%{left:100%;opacity:0}}
+@keyframes bflash0{0%{opacity:1;transform:translate(-50%,-50%) scale(1.7)}9%{opacity:0;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+@keyframes bflash1{0%,35%{opacity:0;transform:translate(-50%,-50%) scale(1)}40.3%{opacity:1;transform:translate(-50%,-50%) scale(1.7)}49%,100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+@keyframes bflash2{0%,65%{opacity:0;transform:translate(-50%,-50%) scale(1)}70.15%{opacity:1;transform:translate(-50%,-50%) scale(1.7)}79%,100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+@keyframes bintro{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+</style>
+<script>if(window.matchMedia&&matchMedia("(max-width:700px)").matches&&location.search.indexOf("desktop")<0){location.replace("mobile.html");}</script>
+</helmet>
+<div style="position:relative;width:100%;background:#E4DCCA;font-family:'Sofia Sans',sans-serif;color:#33281F;">
+<!-- INTRO SPLASH (dark-beige, white mark disperses like windblown sand) -->
+      <div ref="{{ introRef }}" style="position:absolute;inset:0;z-index:100;pointer-events:none;">
+        <svg width="0" height="0" style="position:absolute;">
+          <defs>
+            <filter id="bone-sand" x="-120%" y="-120%" width="340%" height="340%">
+              <feTurbulence id="bone-sand-noise" type="fractalNoise" baseFrequency="0.055 0.11" numOctaves="2" seed="7" result="n"></feTurbulence>
+              <feDisplacementMap id="bone-sand-disp" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+            </filter>
+          </defs>
+        </svg>
+        <div ref="{{ introBgRef }}" style="position:absolute;inset:0;background:#CDBFA9;transition:opacity 1.35s cubic-bezier(.4,0,.2,1);"></div>
+        <div style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;">
+          <img ref="{{ introLogoRef }}" src="assets/logo_mark_white.png" alt="Bone" style="width:52px;height:52px;object-fit:contain;filter:url(#bone-sand);animation:bintro 1.1s ease both;">
+        </div>
+      </div>
 
-/* ---------- NAV ---------- */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:stretch;
-background:rgba(236,238,241,0.82);backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);
-border-bottom:1px solid var(--line2)}
-.nav-in{max-width:1440px;margin:0 auto;width:100%;display:flex;align-items:stretch;border-left:1px solid var(--line);border-right:1px solid var(--line)}
-.nav-logo{display:flex;align-items:center;padding:0 26px;border-right:1px solid var(--line)}
-.nav-logo img{height:40px;width:auto}
-.nav-links{margin-left:auto;display:flex;align-items:stretch}
-.nav-links a{display:flex;align-items:center;padding:0 22px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.13em;
-text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);transition:background .2s,color .2s}
-.nav-links a:hover{background:var(--panel);color:var(--ink)}
-.nav-links a.active{color:var(--ink);background:var(--panel)}
-.nav-links a.active::before{content:'';position:absolute;margin-top:-21px;width:5px;height:5px;background:var(--steel)}
-.nav-cta{display:flex;align-items:center;padding:0 24px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.13em;
-text-transform:uppercase;color:#eef0f2!important;background:var(--ink);border-left:1px solid var(--ink)}.lang-tog{display:flex;align-items:stretch;border-left:1px solid var(--line)}.lang-tog .lt-opt{display:flex;align-items:center;padding:0 13px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--dim);border-left:none;transition:color .2s,background .2s}.lang-tog .lt-opt+.lt-opt{border-left:1px solid var(--line)}.lang-tog .lt-opt:hover{color:var(--ink);background:var(--panel)}.lang-tog .lt-opt.on{color:var(--ink)}
-.nav-cta:hover{background:#000}
-.burger{display:none;margin-left:auto;width:62px;border-left:1px solid var(--line);background:transparent;cursor:pointer;
-flex-direction:column;gap:5px;align-items:center;justify-content:center}
-.burger span{width:20px;height:1.5px;background:var(--ink);transition:.3s}
+      <!-- STICKY BAR (appears after hero) -->
+      <div style="position:sticky;top:0;z-index:60;height:0;pointer-events:none;">
+        <div ref="{{ stickyLogoRef }}" style="opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .4s ease,transform .4s ease;position:absolute;top:16px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;pointer-events:none;">
+          <a href="#2a" style="pointer-events:auto;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:rgba(228,220,202,.55);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(0,0,0,.25);">
+            <img src="assets/logo_mark_black.png" alt="Bone" style="width:24px;height:24px;object-fit:contain;">
+          </a>
+          <a href="#2a-cta" style="pointer-events:auto;font-size:13.5px;font-weight:600;color:#E4DCCA;background:rgba(22,17,12,.55);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(0,0,0,.25);padding:13px 22px;border-radius:999px;transition:background .3s ease,color .3s ease;" style-hover="background:#E4DCCA;color:#241B15;">Request a Briefing</a>
+        </div>
+      </div>
 
-/* ---------- FRAME ---------- */
-.frame{max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line);
-background:var(--bg);position:relative}
-.sec{border-top:1px solid var(--line2);position:relative}
-.in{padding:74px 46px}
-.in-tight{padding:46px}
+      <!-- HERO with overlaid nav -->
+      <div style="position:relative;height:660px;overflow:hidden;background:#050505;">
+        <img ref="{{ heroImgRef }}" src="assets/ramp_c.jpg" alt="Concrete infrastructure, curved ramp" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);will-change:transform;transform:scale(1.16);">
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.8) 0%,rgba(5,5,5,.34) 46%,rgba(5,5,5,.05) 78%),linear-gradient(0deg,rgba(5,5,5,.72) 0%,rgba(5,5,5,.1) 40%,rgba(5,5,5,.25) 100%);"></div>
+        <!-- hero line-art motion (draw / hold / erase cycle) -->
+        <svg ref="{{ heroArtRef }}" viewBox="0 0 360 356" style="position:absolute;right:170px;bottom:77px;width:330px;height:auto;z-index:2;pointer-events:none;opacity:.9;" fill="none" stroke="#F2EDE2" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <g data-scene="drone" style="opacity:0;">
+            <path d="M150 196 L210 196 L222 210 L214 224 L146 224 L138 210 Z"></path>
+            <path d="M162 196 L170 186 L190 186 L198 196"></path>
+            <path d="M146 208 L88 184 M80 176 L102 176 L102 188 L80 188 Z"></path>
+            <path d="M214 208 L272 184 M258 176 L280 176 L280 188 L258 188 Z"></path>
+            <path d="M50 170 a41 6 0 1 0 82 0 a41 6 0 1 0 -82 0"></path>
+            <path d="M228 170 a41 6 0 1 0 82 0 a41 6 0 1 0 -82 0"></path>
+            <path d="M88 166 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 M266 166 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"></path>
+            <path stroke-opacity=".45" stroke-width="1" d="M50 150 H132 M50 146 V154 M132 146 V154 M228 150 H310 M228 146 V154 M310 146 V154"></path>
+            <path d="M172 224 V236 M188 224 V236 M172 236 H188 M180 236 V240"></path>
+            <path d="M164 256 a16 16 0 1 0 32 0 a16 16 0 1 0 -32 0 M172 256 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0"></path>
+            <path stroke-opacity=".45" stroke-width="1" d="M180 236 V244 M180 268 V276 M160 256 H168 M192 256 H200"></path>
+            <path d="M152 224 L142 250 M208 224 L218 250 M134 250 H150 M210 250 H226"></path>
+            <path stroke-opacity=".6" stroke-width="1" d="M180 284 V290 M180 298 V304 M180 312 V318"></path>
+            <path stroke-opacity=".7" d="M170 332 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0 M180 318 V326 M180 338 V346 M164 332 H172 M188 332 H196"></path>
+            <path stroke-opacity=".7" d="M70 352 H290 M100 352 V347 M140 352 V347 M220 352 V347 M260 352 V347"></path>
+          </g>
+          <g data-scene="port" style="opacity:0;">
+            <path d="M60 352 H300"></path>
+            <path stroke-opacity=".6" stroke-width="1" d="M60 342 H198 M84 342 V352 M120 342 V352 M156 342 V352"></path>
+            <path d="M84 342 V224 M140 342 V224 M84 240 H140"></path>
+            <path stroke-opacity=".45" stroke-width="1" d="M84 300 L140 262 M84 262 L140 300"></path>
+            <path d="M58 224 H244 M112 224 V188"></path>
+            <path stroke-opacity=".6" stroke-width="1" d="M112 188 L64 224 M112 188 L240 224"></path>
+            <path d="M109 182 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"></path>
+            <path d="M186 224 V232 M178 232 H198 M180 232 V258 M196 232 V258"></path>
+            <path d="M172 258 H204 V274 H172 Z M172 266 H204"></path>
+            <path d="M92 322 H126 V342 H92 Z M92 302 H126 V322 H92 Z M92 312 H126"></path>
+            <path d="M204 352 L214 326 H300 M214 336 H300"></path>
+            <path d="M226 326 V310 H254 V326 M254 326 V310 H282 V326 M240 310 V296 H268 V310"></path>
+            <path d="M286 326 V298 H300"></path>
+            <path stroke-opacity=".45" stroke-width="1" d="M58 166 H244 M58 162 V170 M244 162 V170"></path>
+          </g>
+          <g data-scene="ugv" style="opacity:0;">
+            <path d="M112 244 L244 244 L252 254 L252 282 L244 290 L112 290 L104 280 L104 254 Z"></path>
+            <path stroke-opacity=".45" stroke-width="1" d="M120 252 H236 M120 282 H236"></path>
+            <path d="M252 258 L280 250 L284 262 L284 274 L276 284 L252 280"></path>
+            <path stroke-opacity=".5" stroke-width="1" d="M288 254 L312 246 M290 264 L316 262 M288 274 L310 280"></path>
+            <path d="M148 244 V236 H180 V244 M156 236 V230 M172 236 V230"></path>
+            <path d="M136 290 L126 314 L144 350 M168 290 L162 316 L176 350"></path>
+            <path d="M200 290 L194 316 L208 350 M232 290 L240 314 L224 350"></path>
+            <path d="M123 311 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 M159 313 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 M191 313 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 M237 311 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"></path>
+            <path d="M138 350 H150 M170 350 H182 M202 350 H214 M218 350 H230"></path>
+            <path d="M124 244 V228 M121 225 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"></path>
+            <path stroke-opacity=".6" stroke-width="1" d="M284 292 L288 300 M292 308 L296 316"></path>
+            <path stroke-opacity=".7" d="M288 336 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M296 322 V330 M296 342 V350 M282 336 H290 M302 336 H310"></path>
+            <path stroke-opacity=".7" d="M92 352 H292 M120 352 V347 M160 352 V347 M200 352 V347 M240 352 V347"></path>
+          </g>
+          <g data-scene="dome" style="opacity:0;">
+            <path d="M60 352 H300"></path>
+            <path d="M116 352 V322 H156 V352 M132 352 V336 H140 V352"></path>
+            <path d="M126 322 a10 10 0 0 1 20 0"></path>
+            <path d="M204 352 V316 H240 V352 M222 316 V296"></path>
+            <path d="M219 293 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"></path>
+            <path d="M84 352 A96 96 0 0 1 276 352"></path>
+            <path stroke-opacity=".7" d="M116 352 A64 64 0 0 1 244 352"></path>
+            <path stroke-opacity=".7" d="M148 352 A32 32 0 0 1 212 352"></path>
+            <path stroke-opacity=".45" stroke-width="1" d="M180 244 V252 M180 262 V270 M180 278 V286 M180 294 V302"></path>
+            <path d="M177 256 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 M177 288 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 M177 320 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"></path>
+            <path stroke-opacity=".45" stroke-width="1" d="M97 304 L90 300 M132 269 L128 262 M228 269 L232 262 M263 304 L270 300"></path>
+            <path stroke-opacity=".6" stroke-width="1" d="M330 148 L318 162 M310 172 L298 186 M290 196 L278 210 M270 220 L258 234"></path>
+            <path d="M246 244 L262 260 M262 244 L246 260 M254 232 V238 M254 266 V272 M234 252 H240 M268 252 H274"></path>
+            <path d="M196 318 L242 256 M236 254 L243 255 L242 262"></path>
+          </g>
+        </svg>
+        <!-- nav -->
+        <div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;padding:30px 48px;z-index:3;">
+          <div style="position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;"><img src="assets/logo_lockup_white.png" style="height:26px;width:auto;"></div>
+          <a href="#2a-cta" style="margin-left:auto;font-size:13.5px;font-weight:600;color:#241B15;background:#E4DCCA;padding:12px 22px;border-radius:999px;transition:all .35s cubic-bezier(.2,.8,.2,1);" style-hover="background:rgba(228,220,202,.14);color:#E4DCCA;backdrop-filter:blur(16px);box-shadow:inset 0 0 0 1px rgba(228,220,202,.55),0 10px 26px rgba(0,0,0,.28);transform:translateY(-2px) scale(1.03);">Request a Briefing</a>
+        </div>
+        <!-- headline -->
+        <div style="position:absolute;left:48px;bottom:80px;right:48px;z-index:3;">
+          <h1 style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:64px;line-height:1.06;letter-spacing:-0.015em;color:#F7F3EC;max-width:15ch;">We Build the Backbone of Physical AI</h1>
+          <p style="margin-top:30px;font-size:17px;line-height:1.65;color:#D8CEBD;max-width:52ch;">From fragmented robots to mission-ready physical AI.<br>Built in Korea. Trusted by allies. Deployed in the real world.</p>
+          <p style="margin-top:18px;font-size:15px;line-height:1.6;color:#B6A79B;max-width:60ch;">Bone builds trusted autonomous security and ISR systems for allied critical infrastructure — ports, shipyards, coastal bases, and energy facilities.</p>
+        </div>
+      </div>
 
-/* ---------- TYPE ---------- */
-h1{font-family:var(--disp);font-weight:400;font-size:clamp(46px,7vw,110px);line-height:0.86;letter-spacing:0.006em;
-color:var(--ink);text-transform:uppercase}
-h1 em{font-style:normal;color:var(--dim)}
-h2{font-family:var(--disp);font-weight:400;font-size:clamp(40px,5.4vw,78px);line-height:0.86;letter-spacing:0.008em;
-color:var(--ink);text-transform:uppercase}
-h2 em{font-style:normal;color:var(--dim)}
-h3{font-family:var(--disp);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:0.9;letter-spacing:0.01em;color:var(--ink);text-transform:uppercase}
-.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.62;color:var(--text);max-width:62ch}
-p.big{font-family:var(--disp);font-weight:400;font-size:clamp(30px,3.6vw,52px);line-height:0.98;letter-spacing:0.01em;color:var(--ink);text-transform:uppercase}
-p.big em{font-style:normal;color:var(--dim)}
-.body{font-size:16px;line-height:1.7;color:var(--muted)}
-.body b,.body strong{color:var(--text);font-weight:600}
-.body + .body{margin-top:18px}
+      <!-- INTRO / THESIS -->
+      <div data-reveal="0" style="padding:100px 64px 90px;background:linear-gradient(rgba(203,189,164,.55),rgba(203,189,164,.55)),url('assets/travertine_c.jpg') center/cover;">
+        <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:start;">
+          <div>
+            <div style="font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:26px;">Why we exist</div>
+            <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:40px;line-height:1.12;letter-spacing:-0.01em;color:#241B15;max-width:16ch;">A nation is only as resilient as the infrastructure beneath it.</p>
+          </div>
+          <div style="padding-top:56px;">
+            <p style="font-size:16.5px;line-height:1.75;color:#57503F;max-width:58ch;">Most robotics companies build a product. Most AI companies build a model. Most defense primes integrate other people's parts.</p>
+            <p style="font-size:16.5px;line-height:1.75;color:#57503F;max-width:58ch;margin-top:22px;">Bone owns and integrates every layer — hardware, autonomy, sensors, comms, manufacturing, and command-and-control — into one capability that behaves as a whole. In the field. Under contract. When conditions turn hostile.</p>
+            <p data-reveal="120" style="font-size:16.5px;line-height:1.75;color:#241B15;font-weight:600;max-width:58ch;margin-top:30px;padding-top:26px;border-top:1px solid rgba(20,20,18,.18);">We start where the need is most immediate and the stakes are highest: securing the ports, shipyards, coastal bases, and energy facilities that allied nations cannot afford to lose.</p>
+          </div>
+        </div>
+      </div>
 
-/* ---------- READOUT / EYEBROW ---------- */
-.readout{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--steel);
-display:flex;align-items:center;gap:9px;margin-bottom:26px}
-.readout .dot{width:7px;height:7px;background:var(--live);border-radius:50%;box-shadow:0 0 0 0 rgba(63,125,110,.5);animation:pulse 2.4s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,125,110,.45)}70%{box-shadow:0 0 0 7px rgba(63,125,110,0)}100%{box-shadow:0 0 0 0 rgba(63,125,110,0)}}
-.eyebrow{display:flex;align-items:center;gap:13px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.18em;
-text-transform:uppercase;color:var(--steel)}
-.eyebrow::before{content:'';width:16px;height:16px;background:url(assets/motif.png) center/contain no-repeat;flex:none}.eyebrow.nomotif::before{width:7px;height:7px;background:var(--steel)}
-.eyebrow .ln{flex:1;height:1px;background:var(--line2)}
-.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px}
-.sec-idx{font-family:var(--mono);font-size:11.5px;letter-spacing:0.14em;color:var(--dim);white-space:nowrap}
-.sec-idx b{color:var(--ink);font-weight:500}
+      <!-- SYSTEM PANEL (scroll-driven) -->
+      <div id="2a-system" ref="{{ sysRef }}" data-reveal="0" style="padding:64px 40px 72px;">
+        <div style="background:#CDBFA9;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;">
+          <div style="padding:52px 48px;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:22px;"><span style="font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;">The system</span><span ref="{{ sysStepRef }}" style="font-size:12px;letter-spacing:.1em;color:#8A7C69;">{{ sysStep }}</span></div>
+            <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.01em;color:#241B15;margin-bottom:20px;">One system, owned end to end.</p>
+            <p style="font-size:15.5px;line-height:1.65;color:#6E5F4C;max-width:44ch;margin-bottom:34px;">From the C2 brain down to the manufacturing floor, every layer is built and owned in-house, then fused under a single command picture — and every mission feeds back into the next build. A closed loop, not a stack.</p>
+            <div style="border-bottom:1px solid rgba(20,20,18,.16);">
+              <sc-for list="{{ sysLayers }}" as="ly" hint-placeholder-count="5">
+                <div data-sysrow="{{ ly.idx }}" style="{{ ly.rowStyle }}" onClick="{{ ly.select }}"><span style="{{ ly.nameStyle }}">{{ ly.name }}</span><span style="{{ ly.tagStyle }}">{{ ly.tag }}</span></div>
+              </sc-for>
+            </div>
+            <div ref="{{ sysDescRef }}" style="font-size:14px;line-height:1.6;color:#6E5F4C;margin-top:18px;min-height:44px;">{{ sysDesc }}</div>
+          </div>
+          <div style="background:#EFE9DB;position:relative;overflow:hidden;min-height:520px;">
+            {{ sysImgStack }}
+          </div>
+        </div>
+      </div>
 
-/* ---------- BUTTONS ---------- */
-.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
-.btn{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:15px 26px;
-border:1px solid var(--ink);transition:.22s;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-.btn-p{background:var(--ink);color:#eef0f2}
-.btn-p:hover{background:#000}
-.btn-g{background:var(--panel);color:var(--ink);border-color:var(--line2)}
-.btn-g:hover{border-color:var(--ink)}
+      <!-- THE DIFFERENCE (comparison cards) -->
+      <div style="padding:104px 64px;background:#1A140F;">
+        <div data-reveal="0" style="font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#B6A79B;font-weight:600;margin-bottom:20px;">The difference</div>
+        <p data-reveal="0" style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:44px;line-height:1.08;letter-spacing:-0.01em;color:#E4DCCA;max-width:24ch;margin-bottom:56px;">We know how to build this.</p>
+        <div style="display:grid;grid-template-columns:1fr 56px 1fr;gap:0;padding-bottom:16px;">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8A7C69;padding-left:22px;">The fragmented model</span>
+          <span></span>
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#E4DCCA;font-weight:600;padding-left:22px;">The Bone model</span>
+        </div>
+        <div>
+          <div data-reveal="0" data-reveal-split="1" style="display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:stretch;margin-bottom:12px;">
+            <div style="display:flex;align-items:center;gap:14px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:18px 22px;"><span style="flex:none;width:20px;height:20px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:11px;">✕</span><span style="font-size:15px;line-height:1.5;color:#8A7C69;">Many vendors, one fragile integrator</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;color:#B6A79B;font-size:18px;">→</div>
+            <div style="display:flex;align-items:center;gap:14px;background:#EFE9DB;border-radius:12px;padding:18px 22px;box-shadow:0 10px 26px rgba(0,0,0,.25);"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:11px;">✓</span><span style="font-size:15px;line-height:1.5;color:#33281F;font-weight:600;">One vendor — every layer owned in-house</span></div>
+          </div>
+          <div data-reveal="80" data-reveal-split="1" style="display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:stretch;margin-bottom:12px;">
+            <div style="display:flex;align-items:center;gap:14px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:18px 22px;"><span style="flex:none;width:20px;height:20px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:11px;">✕</span><span style="font-size:15px;line-height:1.5;color:#8A7C69;">Parts, not a system</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;color:#B6A79B;font-size:18px;">→</div>
+            <div style="display:flex;align-items:center;gap:14px;background:#EFE9DB;border-radius:12px;padding:18px 22px;box-shadow:0 10px 26px rgba(0,0,0,.25);"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:11px;">✓</span><span style="font-size:15px;line-height:1.5;color:#33281F;font-weight:600;">One capability that behaves as a whole</span></div>
+          </div>
+          <div data-reveal="160" data-reveal-split="1" style="display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:stretch;margin-bottom:12px;">
+            <div style="display:flex;align-items:center;gap:14px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:18px 22px;"><span style="flex:none;width:20px;height:20px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:11px;">✕</span><span style="font-size:15px;line-height:1.5;color:#8A7C69;">Fails when one piece is jammed or denied</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;color:#B6A79B;font-size:18px;">→</div>
+            <div style="display:flex;align-items:center;gap:14px;background:#EFE9DB;border-radius:12px;padding:18px 22px;box-shadow:0 10px 26px rgba(0,0,0,.25);"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:11px;">✓</span><span style="font-size:15px;line-height:1.5;color:#33281F;font-weight:600;">Keeps operating when contested</span></div>
+          </div>
+          <div data-reveal="240" data-reveal-split="1" style="display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:stretch;margin-bottom:12px;">
+            <div style="display:flex;align-items:center;gap:14px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:18px 22px;"><span style="flex:none;width:20px;height:20px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:11px;">✕</span><span style="font-size:15px;line-height:1.5;color:#8A7C69;">Dependent on fragile foreign chains</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;color:#B6A79B;font-size:18px;">→</div>
+            <div style="display:flex;align-items:center;gap:14px;background:#EFE9DB;border-radius:12px;padding:18px 22px;box-shadow:0 10px 26px rgba(0,0,0,.25);"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:11px;">✓</span><span style="font-size:15px;line-height:1.5;color:#33281F;font-weight:600;">Allied manufacturing, built to scale</span></div>
+          </div>
+          <div data-reveal="320" data-reveal-split="1" style="display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:stretch;margin-bottom:0;">
+            <div style="display:flex;align-items:center;gap:14px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:18px 22px;"><span style="flex:none;width:20px;height:20px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:11px;">✕</span><span style="font-size:15px;line-height:1.5;color:#8A7C69;">Nobody fully accountable</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;color:#B6A79B;font-size:18px;">→</div>
+            <div style="display:flex;align-items:center;gap:14px;background:#EFE9DB;border-radius:12px;padding:18px 22px;box-shadow:0 10px 26px rgba(0,0,0,.25);"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:11px;">✓</span><span style="font-size:15px;line-height:1.5;color:#33281F;font-weight:600;">End-to-end accountable, in the field</span></div>
+          </div>
+          <div data-reveal="400" data-reveal-split="1" style="display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:stretch;margin-top:12px;">
+            <div style="display:flex;align-items:center;gap:14px;background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:12px;padding:18px 22px;"><span style="flex:none;width:20px;height:20px;border-radius:50%;border:1px solid rgba(228,220,202,.4);color:#8A7C69;display:flex;align-items:center;justify-content:center;font-size:11px;">✕</span><span style="font-size:15px;line-height:1.5;color:#8A7C69;">Unverifiable component provenance</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;color:#B6A79B;font-size:18px;">→</div>
+            <div style="display:flex;align-items:center;gap:14px;background:#EFE9DB;border-radius:12px;padding:18px 22px;box-shadow:0 10px 26px rgba(0,0,0,.25);"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#67473A;color:#EFE9DB;display:flex;align-items:center;justify-content:center;font-size:11px;">✓</span><span style="font-size:15px;line-height:1.5;color:#33281F;font-weight:600;">Every component traceable — a trusted bill of materials</span></div>
+          </div>
+        </div>
+      </div>
 
-/* ---------- HERO ---------- */
-.hero-grid{display:grid;grid-template-columns:1fr 1fr}
-.hero-main{padding:50px 46px;border-right:1px solid var(--line2);display:flex;flex-direction:column;justify-content:center}
-.hero-main h1{margin-bottom:24px}
-.hero-fig{position:relative;background:#0e1013;overflow:hidden;aspect-ratio:1/1}
-.hero-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-fig.bp{background:var(--panel)}
-.hero-fig.bp img{object-fit:contain;padding:34px}
-.hero-fig.contain{background:#0e1013}
-.hero-fig.contain img{object-fit:contain;padding:30px}
+      <!-- PRODUCTS -->
+      <div id="2a-products" style="padding:110px 40px 30px;">
+        <div data-reveal="0" style="padding:0 24px;">
+          <div style="font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:20px;">The products</div>
+          <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:44px;line-height:1.08;letter-spacing:-0.01em;color:#241B15;max-width:22ch;margin-bottom:20px;">Four platforms, <br>one command brain.</p>
+          <p style="font-size:16px;line-height:1.7;color:#6E5F4C;max-width:68ch;margin-bottom:48px;">You don’t buy a drone. You deploy a security capability — robots, fixed sensors, edge AI, secure comms, and C2 as one system, installed, trained, and maintained.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:0 24px;">
+          <div data-reveal="0" style="background:#EFE9DB;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 48px rgba(36,27,21,.16);">
+            <div style="height:150px;background:#0d0e11;overflow:hidden;"><img src="assets/gcs_5_c.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div style="padding:22px;"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A7256;margin-bottom:8px;">C2 GCS</div><div style="font-family:'Montserrat',sans-serif;font-size:24px;color:#241B15;margin-bottom:8px;">Command OS</div><div style="font-size:13.5px;line-height:1.55;color:#6E5F4C;">One operator directs every platform from a single picture.</div></div>
+          </div>
+          <div data-reveal="100" style="background:#EFE9DB;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 48px rgba(36,27,21,.16);">
+            <div style="height:150px;background:#EFE9DB;display:flex;align-items:center;justify-content:center;padding:14px;"><img src="assets/saerier_bp_c.png" style="max-width:100%;max-height:100%;object-fit:contain;"></div>
+            <div style="padding:22px;"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A7256;margin-bottom:8px;">MOTHERSHIP</div><div style="font-family:'Montserrat',sans-serif;font-size:24px;color:#241B15;margin-bottom:8px;">Saerier</div><div style="font-size:13.5px;line-height:1.55;color:#6E5F4C;">Detect, track, and intercept low-altitude threats others miss.</div></div>
+          </div>
+          <div data-reveal="200" style="background:#EFE9DB;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 48px rgba(36,27,21,.16);">
+            <div style="height:150px;background:#EFE9DB;display:flex;align-items:center;justify-content:center;padding:14px;"><img src="assets/saena_bp_c.png" style="max-width:100%;max-height:100%;object-fit:contain;"></div>
+            <div style="padding:22px;"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A7256;margin-bottom:8px;">INTERCEPTOR · SWARM</div><div style="font-family:'Montserrat',sans-serif;font-size:24px;color:#241B15;margin-bottom:8px;">Saena</div><div style="font-size:13.5px;line-height:1.55;color:#6E5F4C;">Persistent ISR and coordinated swarm across contested airspace.</div></div>
+          </div>
+          <div data-reveal="300" style="background:#EFE9DB;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 48px rgba(36,27,21,.16);">
+            <div style="height:150px;background:#EFE9DB;display:flex;align-items:center;justify-content:center;padding:14px;"><img src="assets/soma_bp_c.png" style="max-width:100%;max-height:100%;object-fit:contain;"></div>
+            <div style="padding:22px;"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A7256;margin-bottom:8px;">Disaster response</div><div style="font-family:'Montserrat',sans-serif;font-size:24px;color:#241B15;margin-bottom:8px;">SOMA</div><div style="font-size:13.5px;line-height:1.55;color:#6E5F4C;">Drone-first response — first to the front, autonomously.</div></div>
+          </div>
+        </div>
+        <div data-reveal="150" style="margin:28px 24px 10px;padding:24px 28px;border:1px solid rgba(20,20,18,.2);border-radius:12px;font-size:14px;line-height:1.75;color:#57503F;"><b style="color:#241B15;font-weight:600;">Every deployment includes:</b> autonomous aerial platforms · fixed &amp; mobile sensors · edge-AI perception · resilient comms · the C2 command picture · on-site install, operator training &amp; SLA · a trusted bill of materials you can audit down to the component.</div>
+      </div>
 
-/* ---------- FIGURE ---------- */
-.figure{position:relative;background:#0e1013;overflow:hidden}
-.figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.figure.bp{background:var(--panel)}
-.figure.bp img{object-fit:contain}
-a.figure:hover img,.hoverable:hover .figure img{transform:scale(1.04)}
-.fig-cap{position:absolute;left:0;bottom:0;z-index:4;background:var(--panel);border-top:1px solid var(--line2);
-border-right:1px solid var(--line2);padding:9px 14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
-text-transform:uppercase;color:var(--muted)}
-.fig-cap b{color:var(--steel);font-weight:500}
-.tk{position:absolute;width:10px;height:10px;border:0 solid var(--ink);z-index:5;pointer-events:none}
-.tk.tl{top:0;left:0;border-width:1.5px 0 0 1.5px}
-.tk.tr{top:0;right:0;border-width:1.5px 1.5px 0 0}
-.tk.bl{bottom:0;left:0;border-width:0 0 1.5px 1.5px}
-.tk.br{bottom:0;right:0;border-width:0 1.5px 1.5px 0}
+      <!-- ROADMAP — Anduril-style horizontal timeline -->
+      <div style="background:linear-gradient(rgba(239,233,219,.92),rgba(239,233,219,.92)),url('assets/texture_sand_c.jpg') center/cover;padding:110px 64px 90px;margin-top:110px;">
+        <div data-reveal="0" style="font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:18px;">Roadmap</div>
+        <p data-reveal="0" style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:44px;line-height:1.05;letter-spacing:-0.01em;color:#241B15;margin-bottom:72px;">From pilot to backbone.</p>
 
-/* ---------- MANIFEST BAR ---------- */
-.manifest{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line2);background:var(--panel)}
-.man-cell{padding:16px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
-.man-cell:last-child{border-right:none}
-.man-k{font-family:var(--mono);font-size:9.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--dim)}
-.man-v{font-family:var(--mono);font-size:12px;letter-spacing:0.02em;text-transform:uppercase;color:var(--ink)}
+        <!-- infographics row -->
+        <div style="display:grid;grid-template-columns:1.35fr 1fr 1fr;align-items:flex-end;margin-bottom:22px;">
+          <div data-reveal="0" style="height:80px;display:flex;align-items:flex-end;"><svg width="150" height="72" viewBox="0 0 150 72" fill="none" stroke="#241B15" stroke-width="1.3" stroke-linecap="round"><line x1="1" y1="66" x2="149" y2="66" stroke-opacity=".45"></line><line x1="14" y1="66" x2="14" y2="62"></line><line x1="44" y1="66" x2="44" y2="62"></line><line x1="74" y1="66" x2="74" y2="62"></line><line x1="104" y1="66" x2="104" y2="62"></line><line x1="134" y1="66" x2="134" y2="62"></line><circle cx="47" cy="16" r="6"></circle><circle cx="77" cy="16" r="6"></circle><line x1="53" y1="16" x2="71" y2="16"></line><rect x="58" y="12" width="8" height="8"></rect><line x1="62" y1="24" x2="62" y2="60" stroke-dasharray="2.5 4"></line><path d="M90 8 a12 12 0 0 1 0 16"></path><path d="M97 3 a19 19 0 0 1 0 26"></path></svg></div>
+          <div data-reveal="150" style="height:80px;display:flex;align-items:flex-end;"><svg width="150" height="72" viewBox="0 0 150 72" fill="none" stroke="#241B15" stroke-width="1.3" stroke-linecap="round"><line x1="1" y1="66" x2="149" y2="66" stroke-opacity=".45"></line><path d="M56 66 V54 H66 V60 H74 V48 H84 V66"></path><path d="M28 66 a42 42 0 0 1 84 0" stroke-dasharray="4 4"></path><path d="M42 66 a28 28 0 0 1 56 0"></path><line x1="132" y1="12" x2="104" y2="34" stroke-dasharray="3 3"></line><line x1="100" y1="30" x2="108" y2="38"></line><line x1="108" y1="30" x2="100" y2="38"></line></svg></div>
+          <div data-reveal="300" style="height:80px;display:flex;align-items:flex-end;"><svg width="150" height="72" viewBox="0 0 150 72" fill="none" stroke="#241B15" stroke-width="1.3" stroke-linecap="round"><line x1="1" y1="66" x2="149" y2="66" stroke-opacity=".45"></line><path d="M18 66 V42 L34 32 V42 L50 32 V42 L66 32 V66"></path><rect x="26" y="50" width="8" height="8"></rect><rect x="42" y="50" width="8" height="8"></rect><line x1="74" y1="48" x2="106" y2="48"></line><path d="M100 42 L106 48 L100 54"></path><circle cx="126" cy="48" r="12"></circle><ellipse cx="126" cy="48" rx="5" ry="12"></ellipse><line x1="114" y1="48" x2="138" y2="48"></line></svg></div>
+        </div>
 
-/* ---------- TICKER ---------- */
-.ticker{border-top:1px solid var(--line2);background:var(--deep);overflow:hidden;white-space:nowrap}
-.ticker-in{display:inline-flex;gap:46px;padding:13px 0;animation:tick 38s linear infinite}
-.ticker-in span{font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
-.ticker-in span b{color:var(--ink);font-weight:500}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+        <!-- continuous line + dots -->
+        <div data-reveal="0" style="position:relative;height:12px;">
+          <span data-lineseg="" style="position:absolute;top:50%;left:0;right:0;height:2px;transform:translateY(-50%) scaleX(0);transform-origin:left;background:#67473A;transition:transform 1.3s cubic-bezier(.2,.7,.2,1) .1s;"></span>
+          <span style="position:absolute;top:50%;left:0%;width:140px;height:3px;border-radius:3px;transform:translateY(-50%) translateX(-50%);background:linear-gradient(90deg,rgba(255,252,244,0) 0%,rgba(255,252,244,.95) 50%,rgba(255,252,244,0) 100%);box-shadow:0 0 18px 4px rgba(255,250,238,.55);animation:bslide 6s linear infinite;pointer-events:none;z-index:3;"></span>
+          
+          <span style="position:absolute;top:50%;left:5px;transform:translate(-50%,-50%);width:52px;height:52px;pointer-events:none;"><span style="position:absolute;left:50%;top:50%;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle,rgba(255,252,244,.9) 0%,rgba(255,252,244,0) 68%);animation:bflash0 6s linear infinite;"></span></span>
+          <span style="position:absolute;top:50%;left:5px;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:#67473A;z-index:2;"></span>
+          
+          <span style="position:absolute;top:50%;left:40.3%;transform:translate(-50%,-50%);width:52px;height:52px;pointer-events:none;"><span style="position:absolute;left:50%;top:50%;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle,rgba(255,252,244,.9) 0%,rgba(255,252,244,0) 68%);animation:bflash1 6s linear infinite;"></span></span>
+          <span style="position:absolute;top:50%;left:40.3%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;border:1.5px solid #67473A;background:#EFE9DB;box-sizing:border-box;z-index:2;"></span>
+          
+          <span style="position:absolute;top:50%;left:70.15%;transform:translate(-50%,-50%);width:52px;height:52px;pointer-events:none;"><span style="position:absolute;left:50%;top:50%;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle,rgba(255,252,244,.9) 0%,rgba(255,252,244,0) 68%);animation:bflash2 6s linear infinite;"></span></span>
+          <span style="position:absolute;top:50%;left:70.15%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;border:1.5px solid #67473A;background:#EFE9DB;box-sizing:border-box;z-index:2;"></span>
+        </div>
 
-/* ---------- MODULE GRIDS ---------- */
-.mods{display:grid;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.mods.c3{grid-template-columns:repeat(3,1fr)}
-.mods.c2{grid-template-columns:repeat(2,1fr)}
-.mods.c4{grid-template-columns:repeat(4,1fr)}
-.mod{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column;min-height:210px}
-.mod-idx{font-family:var(--mono);font-size:11px;letter-spacing:0.13em;color:var(--steel);margin-bottom:16px}
-.mod-t{font-family:var(--disp);font-size:30px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin:0 0 12px}
-.mod-d{font-size:14.5px;line-height:1.62;color:var(--muted)}
+        <!-- text row -->
+        <div style="display:grid;grid-template-columns:1.35fr 1fr 1fr;margin-top:30px;">
+          <div data-reveal="0" style="padding-right:48px;">
+            <div style="font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:16px;">Now</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:28px;line-height:1.18;color:#241B15;margin-bottom:14px;">Deployed under government contract</div>
+            <p style="font-size:14.5px;line-height:1.65;color:#4A3B2C;max-width:36ch;">292 autonomous flights, 379&nbsp;km validated, ₩2.8B first-year revenue — in real defense and disaster missions.</p>
+          </div>
+          <div data-reveal="150" style="padding-right:40px;">
+            <div style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7C69;font-weight:600;margin-bottom:14px;">2028</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:17px;line-height:1.3;color:#4A3B2C;margin-bottom:10px;">Two tracks, one system</div>
+            <p style="font-size:12.5px;line-height:1.6;color:#8A7C69;max-width:30ch;">Low-altitude defense at national scale, and autonomous security at commercial critical infrastructure — ports, shipyards, and energy sites — under one C2 picture.</p>
+          </div>
+          <div data-reveal="300">
+            <div style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7C69;font-weight:600;margin-bottom:14px;">2029</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:17px;line-height:1.3;color:#4A3B2C;margin-bottom:10px;">Allied manufacturing &amp; export</div>
+            <p style="font-size:12.5px;line-height:1.6;color:#8A7C69;max-width:30ch;">Scaling the industrial base and delivering the stack to allied programs.</p>
+          </div>
+        </div>
+      </div>
 
-/* ---------- STATS ---------- */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-left:1px solid var(--line)}
-.stat{border-right:1px solid var(--line);padding:34px 28px;transition:background .28s ease,color .28s ease}
-.stat:last-child{border-right:none}
-.stat:hover{background:var(--ink)}
-.stat:hover .stat-n{color:#fff}
-.stat:hover .stat-l{color:#cfd4d9}
-.stat-n{font-family:var(--disp);font-size:clamp(40px,4.6vw,64px);line-height:0.9;color:var(--ink);letter-spacing:0.01em}
-.stat-l{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+      <!-- TRUST / PRINCIPLES (dark) -->
+      <div style="background:linear-gradient(rgba(239,233,219,.92),rgba(239,233,219,.92)),url('assets/texture_sand_c.jpg') center/cover;padding:0 40px 56px;">
+        <div style="background:#16110C;border-radius:18px;padding:76px 56px;overflow:hidden;">
+        <div data-reveal="0" style="display:grid;grid-template-columns:0.9fr 1.4fr;gap:64px;margin-bottom:52px;">
+          <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:34px;line-height:1.1;letter-spacing:-0.01em;color:#E4DCCA;">Built to endure.</p>
+          <p style="font-size:15px;line-height:1.65;color:#B6A79B;max-width:52ch;align-self:end;">The engineering that keeps the system operating when everything around it fails.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(228,220,202,.16);">
+          <sc-for list="{{ endureRows }}" as="er" hint-placeholder-count="4">
+            <div data-endrow="{{ er.idx }}" onMouseEnter="{{ er.enter }}" onMouseLeave="{{ er.leave }}" style="{{ er.rowStyle }}">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;">
+                <span style="{{ er.titleStyle }}">{{ er.title }}</span>
+                <span style="font-size:13px;color:#8A7C69;">{{ er.num }}</span>
+              </div>
+              <div style="{{ er.descStyle }}">{{ er.desc }}</div>
+            </div>
+          </sc-for>
+        </div>
+        </div>
+      </div>
 
-/* ---------- CARDS (nav) ---------- */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;background:var(--panel);transition:background .25s}
-.card:hover{background:var(--bg)}
-.card-fig{height:188px;overflow:hidden;background:#0e1013;border-bottom:1px solid var(--line2);position:relative}
-.card-fig img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
-.card:hover .card-fig img{transform:scale(1.05)}
-.card-body{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1}
-.card-idx{font-family:var(--mono);font-size:10.5px;letter-spacing:0.13em;color:var(--steel)}
-.card-t{font-family:var(--disp);font-size:34px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin:8px 0 10px}
-.card-d{font-size:14px;line-height:1.6;color:var(--muted);flex:1}
-.card-go{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);margin-top:20px}
+      <!-- TEAM -->
+      <div id="2a-company" data-reveal="0" style="display:grid;grid-template-columns:0.9fr 1.1fr;padding:104px 64px;gap:64px;align-items:start;">
+        <div>
+          <div style="font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#8A7256;font-weight:600;margin-bottom:26px;">Team · Why we started</div>
+          <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:44px;line-height:1.1;letter-spacing:-0.01em;color:#241B15;max-width:16ch;">We build for those who cannot afford to fail.</p>
+        </div>
+        <p style="font-size:16.5px;line-height:1.75;color:#6E5F4C;max-width:56ch;padding-top:60px;">Bone started with a gap no one was closing: AI software was accelerating, but the physical systems a nation depends on — defense, disaster response, critical infrastructure — were still built from disconnected parts. We started Bone to build them as one system, and to stay in the field until it works. Every system we ship carries the urgency, precision, and purpose of the team that built it — mission-ready, adaptive under pressure, built for the edge of contested environments.</p>
+      </div>
 
-/* ---------- THESIS 2-col ---------- */
-.thesis{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.thesis>div{padding:54px 46px}
-.thesis>div:first-child{border-right:1px solid var(--line)}
+      <!-- OUR VALUES (dark, Harmattan layout) -->
+      <div style="position:relative;background:#16110C;overflow:hidden;">
+        <img src="assets/texture_dark_c.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;">
+        <div data-reveal="0" style="position:relative;padding:110px 64px;">
+          <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;margin-bottom:72px;">
+            <div style="display:flex;flex-direction:column;justify-content:flex-end;">
+              <a data-reveal="250" href="#2a-cta" style="display:inline-flex;align-items:center;gap:14px;font-size:16px;font-weight:500;color:#E4DCCA;padding:12px 22px;margin:-12px -22px;border-radius:999px;transition:gap .3s ease,background .35s ease,box-shadow .35s ease;" style-hover="gap:24px;background:rgba(228,220,202,.12);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(228,220,202,.35);">Join our Team <span style="font-size:20px;">→</span></a>
+            </div>
+            <div>
+              <div style="font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#B6A79B;font-weight:600;margin-bottom:24px;">Our values</div>
+              <p style="font-size:22px;line-height:1.55;color:#E4DCCA;">At Bone, we are building a small team of elite builders — people who thrive on complexity, move with urgency, and own their work end to end. These values are not statements. They are commitments — they define how we build, and what endures after us. If you are driven by purpose, precision, and impact, this is where you belong.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+            <div data-reveal="0" style="background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:14px;padding:34px 28px;display:flex;flex-direction:column;min-height:300px;transition:all .35s ease;" style-hover="background:rgba(228,220,202,.1);backdrop-filter:blur(14px);border-color:rgba(228,220,202,.3);">
+              <div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:400;color:#E4DCCA;margin-bottom:20px;">Ownership</div>
+              <div style="font-size:14.5px;font-weight:600;line-height:1.55;color:#E4DCCA;margin-bottom:12px;">We own outcomes, not tasks.</div>
+              <div style="font-size:13.5px;line-height:1.6;color:#B6A79B;flex:1;">From software to airframe, the work is done when it works in the field — not when it ships.</div>
+              <div style="font-size:13px;color:#8A7C69;margin-top:24px;">01</div>
+            </div>
+            <div data-reveal="100" style="background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:14px;padding:34px 28px;display:flex;flex-direction:column;min-height:300px;transition:all .35s ease;" style-hover="background:rgba(228,220,202,.1);backdrop-filter:blur(14px);border-color:rgba(228,220,202,.3);">
+              <div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:400;color:#E4DCCA;margin-bottom:20px;">Urgency</div>
+              <div style="font-size:14.5px;font-weight:600;line-height:1.55;color:#E4DCCA;margin-bottom:12px;">We move fast without cutting corners.</div>
+              <div style="font-size:13.5px;line-height:1.6;color:#B6A79B;flex:1;">The threats we build against do not wait. Neither do we.</div>
+              <div style="font-size:13px;color:#8A7C69;margin-top:24px;">02</div>
+            </div>
+            <div data-reveal="200" style="background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:14px;padding:34px 28px;display:flex;flex-direction:column;min-height:300px;transition:all .35s ease;" style-hover="background:rgba(228,220,202,.1);backdrop-filter:blur(14px);border-color:rgba(228,220,202,.3);">
+              <div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:400;color:#E4DCCA;margin-bottom:20px;">Complexity</div>
+              <div style="font-size:14.5px;font-weight:600;line-height:1.55;color:#E4DCCA;margin-bottom:12px;">We take the problems others avoid.</div>
+              <div style="font-size:13.5px;line-height:1.6;color:#B6A79B;flex:1;">Hardware, autonomy, comms, and production as one system — that is the job.</div>
+              <div style="font-size:13px;color:#8A7C69;margin-top:24px;">03</div>
+            </div>
+            <div data-reveal="300" style="background:rgba(228,220,202,.05);border:1px solid rgba(228,220,202,.1);border-radius:14px;padding:34px 28px;display:flex;flex-direction:column;min-height:300px;transition:all .35s ease;" style-hover="background:rgba(228,220,202,.1);backdrop-filter:blur(14px);border-color:rgba(228,220,202,.3);">
+              <div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:400;color:#E4DCCA;margin-bottom:20px;">Field-First</div>
+              <div style="font-size:14.5px;font-weight:600;line-height:1.55;color:#E4DCCA;margin-bottom:12px;">We go to the field, not the whiteboard.</div>
+              <div style="font-size:13.5px;line-height:1.6;color:#B6A79B;flex:1;">Truth lives where the system operates. We stay there until it endures.</div>
+              <div style="font-size:13px;color:#8A7C69;margin-top:24px;">04</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-/* ---------- WHY video split ---------- */
-.whyrow{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);align-items:stretch}
-.whyvid{position:relative;background:#0e1013;overflow:hidden;min-height:440px;border-right:1px solid var(--line2)}
-.whyvid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.whytxt{padding:54px 46px;display:flex;flex-direction:column;justify-content:center}
+      <!-- NEWSROOM -->
+      <div id="2a-news" style="padding:104px 64px;">
+        <div data-reveal="0" style="display:grid;grid-template-columns:0.9fr 1.4fr;gap:64px;margin-bottom:56px;">
+          <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:34px;line-height:1.1;letter-spacing:-0.01em;color:#241B15;">Newsroom</p>
+          <span></span>
+        </div>
+        <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:stretch;">
+          <a data-reveal="0" href="https://techcrunch.com/2025/11/17/bone-ai-raises-funding-to-challenge-asias-defense-giants-with-next-gen-ai-powered-robotics/" target="_blank" rel="noopener" style="display:flex;flex-direction:column;background:#EFE9DB;border-radius:16px;overflow:hidden;box-shadow:0 16px 36px rgba(36,27,21,.08);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 28px 56px rgba(36,27,21,.16);">
+            <span style="display:block;height:260px;overflow:hidden;"><img src="assets/spiro_c.jpg" style="width:100%;height:100%;object-fit:cover;"></span>
+            <span style="display:flex;flex-direction:column;flex:1;padding:30px 32px 32px;">
+              <span style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:14px;"><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#67473A;font-weight:600;">TechCrunch · Featured</span><span style="font-size:13px;color:#8A7C69;white-space:nowrap;">Nov 2025</span></span>
+              <span style="font-family:'Montserrat',sans-serif;font-size:25px;line-height:1.3;color:#241B15;">Bone AI raises funding to challenge Asia's defense giants with next-gen AI-powered robotics</span>
+              <span style="display:inline-flex;align-items:center;gap:12px;margin-top:auto;padding-top:24px;font-size:14.5px;font-weight:600;color:#67473A;">Read the story <span style="font-size:17px;">→</span></span>
+            </span>
+          </a>
+          <div style="display:flex;flex-direction:column;gap:24px;">
+            <a data-reveal="120" href="https://www.chosun.com/english/industry-en/2026/01/28/GUWJUKBOUFBIJCAZ7DS6KTRRHE/" target="_blank" rel="noopener" style="display:flex;flex-direction:column;flex:1;background:#EFE9DB;border-radius:16px;padding:30px 32px;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px rgba(36,27,21,.14);">
+              <span style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:12px;"><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#67473A;font-weight:600;">The Chosun Daily</span><span style="font-size:13px;color:#8A7C69;white-space:nowrap;">Jan 2026</span></span>
+              <span style="font-family:'Montserrat',sans-serif;font-size:19px;line-height:1.35;color:#241B15;">Bone and Korea's push into AI-powered defense robotics</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;margin-top:auto;padding-top:18px;font-size:13.5px;font-weight:600;color:#67473A;">Read <span style="font-size:16px;">→</span></span>
+            </a>
+            <a data-reveal="240" href="https://www.forbeskorea.co.kr/news/articleView.html?idxno=401147" target="_blank" rel="noopener" style="display:flex;flex-direction:column;flex:1;background:#EFE9DB;border-radius:16px;padding:30px 32px;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px rgba(36,27,21,.14);">
+              <span style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:12px;"><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#67473A;font-weight:600;">Forbes Korea</span><span style="font-size:13px;color:#8A7C69;white-space:nowrap;">Dec 2025</span></span>
+              <span style="font-family:'Montserrat',sans-serif;font-size:19px;line-height:1.35;color:#241B15;">New Year's Essay 2026 — DK Lee, CEO of Bone</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;margin-top:auto;padding-top:18px;font-size:13.5px;font-weight:600;color:#67473A;">Read <span style="font-size:16px;">→</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
 
-/* ---------- LAYER ROWS ---------- */
-.lrow{display:grid;grid-template-columns:64px 0.82fr 1.5fr;border-top:1px solid var(--line);align-items:stretch}
-.lrow:last-child{border-bottom:1px solid var(--line)}
-.l-idx{border-right:1px solid var(--line);padding:30px 0 0 24px;font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:0.08em}
-.l-txt{padding:34px 36px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
-.l-stage{font-family:var(--mono);font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
-.l-t{font-family:var(--disp);font-size:30px;letter-spacing:0.01em;text-transform:uppercase;color:var(--ink);margin-bottom:11px}
-.l-d{font-size:14.5px;line-height:1.62;color:var(--muted);max-width:62ch}
-.l-media{background:var(--panel);display:flex;align-items:center;justify-content:center;padding:30px 34px}
-.l-media img{width:100%;height:auto;max-height:430px;object-fit:contain}
+      <!-- CTA + CONTACT -->
+      <div id="2a-cta" data-reveal="0" style="padding:104px 64px 96px;background:#EFE9DB;display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start;">
+        <div>
+          <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:44px;line-height:1.08;letter-spacing:-0.01em;color:#241B15;max-width:16ch;">What backbone can we build together?</p>
+          <p style="font-size:15.5px;line-height:1.7;color:#6E5F4C;max-width:42ch;margin-top:24px;">To discuss capabilities, partnerships, or specific mission requirements, please contact our team.</p>
+          <a href="mailto:info@bonerobotics.ai" style="display:inline-flex;align-items:center;gap:14px;margin-top:36px;font-size:16px;font-weight:500;color:#241B15;transition:gap .3s ease;" style-hover="gap:24px;">Contact Us <span style="font-size:20px;">→</span></a>
+        </div>
+        <sc-if value="{{ formVisible }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <select style="appearance:none;width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:18px 20px;font-family:'Sofia Sans',sans-serif;font-size:15.5px;color:#4A3B2C;outline:none;">
+              <option>Select a topic*</option>
+              <option>Critical infrastructure security (ports, energy, industrial sites)</option>
+              <option>Defense / public sector programs</option>
+              <option>Disaster &amp; emergency response</option>
+              <option>Partnership / co-development</option>
+              <option>Manufacturing &amp; supply (allied programs)</option>
+              <option>Press / media</option>
+              <option>Other</option>
+            </select>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <input placeholder="First name*" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:18px 20px;font-family:'Sofia Sans',sans-serif;font-size:15.5px;color:#241B15;outline:none;box-sizing:border-box;">
+              <input placeholder="Last name*" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:18px 20px;font-family:'Sofia Sans',sans-serif;font-size:15.5px;color:#241B15;outline:none;box-sizing:border-box;">
+            </div>
+            <input placeholder="Email*" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:18px 20px;font-family:'Sofia Sans',sans-serif;font-size:15.5px;color:#241B15;outline:none;box-sizing:border-box;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <input placeholder="Company / Agency*" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:18px 20px;font-family:'Sofia Sans',sans-serif;font-size:15.5px;color:#241B15;outline:none;box-sizing:border-box;">
+              <input placeholder="Country*" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:18px 20px;font-family:'Sofia Sans',sans-serif;font-size:15.5px;color:#241B15;outline:none;box-sizing:border-box;">
+            </div>
+            <textarea placeholder="How can we help?" rows="4" style="width:100%;background:#D8D0BE;border:0;border-radius:10px;padding:18px 20px;font-family:'Sofia Sans',sans-serif;font-size:15.5px;color:#241B15;outline:none;resize:vertical;box-sizing:border-box;"></textarea>
+            <label style="display:flex;align-items:flex-start;gap:12px;font-size:13.5px;line-height:1.55;color:#6E5F4C;cursor:pointer;margin-top:2px;">
+              <input type="checkbox" style="margin-top:3px;accent-color:#67473A;width:16px;height:16px;flex:none;">
+              <span>I agree to the collection and use of my information to respond to this inquiry, as described in the <a href="privacy.html" style="color:#67473A;font-weight:600;">Privacy Policy</a>.</span>
+            </label>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:6px;">
+              <button onClick="{{ submitContact }}" style="display:inline-flex;align-items:center;gap:12px;background:#241B15;color:#E4DCCA;border:0;border-radius:999px;padding:15px 28px;font-family:'Sofia Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;">Submit <span>→</span></button>
+              <span></span>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ formSent }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#EFE9DB;border-radius:16px;padding:56px 48px;">
+            <p style="font-family:'Montserrat',sans-serif;font-size:26px;color:#241B15;margin-bottom:16px;">Thank you.</p>
+            <p style="font-size:15.5px;line-height:1.7;color:#6E5F4C;max-width:46ch;">Your message has been received. Our team will reach out shortly. For anything urgent, write to info@bonerobotics.ai.</p>
+          </div>
+        </sc-if>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 64px;border-top:1px solid rgba(20,20,18,.12);background:#EFE9DB;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;"><img src="assets/logo_lockup_dark.png" style="height:20px;width:auto;"></div>
+        <div style="display:flex;gap:26px;font-size:13.5px;font-weight:500;color:#6E5F4C;"><a href="#2a-system">Platform</a><a href="#2a-company">Company</a><a href="#2a-cta">Contact</a><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy Policy</a></div>
+        <div style="font-size:13px;color:#8A7C69;">© 2026 Bone AI Inc.</div>
+      </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 0, sent: false, hovE: -1 };
 
-/* ---------- FEATURE split ---------- */
-.feat{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);align-items:stretch}
-.feat.rev2{direction:rtl}.feat.rev2>*{direction:ltr}
-.feat-txt{padding:54px 46px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
-.feat-fig{position:relative;min-height:420px;background:#0e1013;overflow:hidden}
-.feat-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.feat-fig.bp{background:var(--panel)}
-.feat-fig.bp img{object-fit:contain;padding:30px}
-.feat-fig.r43{aspect-ratio:4/3;min-height:0;align-self:start}
-/* product four-panel showcase */
-.showcase{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-left:1px solid var(--line)}
-.sc-cell{position:relative;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#0a0b0d;aspect-ratio:4/3;overflow:hidden}
-.sc-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
-.sc-cell:hover img{transform:scale(1.05)}
-.sc-veil{position:absolute;inset:0;background:#ffffff;opacity:0.82;pointer-events:none;z-index:1;transition:opacity .45s ease}
-.sc-cell:hover .sc-veil{opacity:0}
-.sc-lbl{position:absolute;bottom:12px;left:14px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);transition:color .45s ease}
-.sc-cell:hover .sc-lbl{color:rgba(255,255,255,0.85)}
+  _endure = [
+    { title: 'GPS-denied autonomy.', desc: 'Platforms keep navigating and complete the mission when positioning is jammed or spoofed.' },
+    { title: 'Contested-spectrum comms.', desc: '5G, RF hybrid, and RTK links that degrade gracefully and re-route — they don\u2019t drop.' },
+    { title: 'Distributed command.', desc: 'The C2 picture survives node loss; any operator can pick up the mission mid-flight.' },
+    { title: 'Field-serviceable by design.', desc: 'Repaired on-site with allied-made parts — no fragile supply chain in the loop.' },
+    { title: 'Learns from every mission.', desc: 'Field data flows back into models and production — the system that deploys today is sharper tomorrow, on a supply chain we can trace end to end.' }
+  ];
+  waveRef = React.createRef();
+  sysRef = React.createRef();
+  sysDescRef = React.createRef();
+  sysStepRef = React.createRef();
+  heroImgRef = React.createRef();
+  heroArtRef = React.createRef();
+  stickyLogoRef = React.createRef();
+  introRef = React.createRef();
+  introBgRef = React.createRef();
+  introLogoRef = React.createRef();
 
-/* ---------- PRODUCT modules ---------- */
-.prod{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line2);align-items:stretch}
-.prod-fig{position:relative;min-height:440px;background:#0e1013;overflow:hidden}
-.prod-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.prod-fig.bp{background:var(--panel)}
-.prod-fig.bp img{object-fit:contain;padding:36px}
-.prod-txt{padding:50px 46px;border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
-.prod.rev .prod-txt{border-left:none;border-right:1px solid var(--line);order:-1}
-.prod-code{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
-.prod-name{font-family:var(--disp);font-size:clamp(40px,4.4vw,60px);line-height:0.9;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
-.prod-tag{font-family:var(--mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
-.prod-d{font-size:15px;line-height:1.65;color:var(--muted);margin-bottom:26px;max-width:54ch}
+  componentDidMount() {
+    this._ensureLoop();
+    clearInterval(this._watchdog);
+    this._watchdog = setInterval(() => this._ensureLoop(), 1000);
+    this._setupReveal();
+    this._runIntro();
+  }
 
-/* ---------- SPEC strip ---------- */
-.spec{border-top:1px solid var(--line)}
-.spec-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--line)}
-.spec-k{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);padding:12px 0}
-.spec-v{font-family:var(--mono);font-size:12.5px;letter-spacing:0.02em;color:var(--ink);padding:12px 0;border-left:1px solid var(--line);padding-left:20px}
+  _runIntro() {
+    const tryStart = () => {
+      const el = this.introRef.current;
+      if (!el) { setTimeout(tryStart, 120); return; }
+      setTimeout(() => {
+        const bg = this.introBgRef.current;
+        const lg = this.introLogoRef.current;
+        if (bg) bg.style.opacity = '0';       // background fades (1.35s)
+        // logo disperses like windblown sand over the same 1.35s
+        if (lg) {
+          lg.style.animation = 'none';
+          const disp = document.getElementById('bone-sand-disp');
+          const noise = document.getElementById('bone-sand-noise');
+          const D = 1350, t0 = performance.now();
+          const step = (now) => {
+            const p = Math.min(1, (now - t0) / D);
+            const e = p * p * (3 - 2 * p); // smoothstep
+            if (disp) disp.setAttribute('scale', String(e * 160));
+            if (noise && p > 0.4) noise.setAttribute('baseFrequency', (0.055 + e * 0.02).toFixed(4) + ' ' + (0.11 + e * 0.04).toFixed(4));
+            lg.style.opacity = String(Math.pow(1 - e, 1.4));
+            lg.style.transform = 'translateX(' + (e * 46) + 'px)';
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        }
+        setTimeout(() => { el.style.display = 'none'; }, 1500);
+      }, 1800);
+    };
+    tryStart();
+  }
 
-/* parts-list lineup */
-.lineup{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.lu{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 24px;display:flex;flex-direction:column;gap:7px;transition:background .2s}
-.lu:hover{background:var(--panel)}
-.lu-code{font-family:var(--mono);font-size:10px;letter-spacing:0.13em;color:var(--steel)}
-.lu-name{font-family:var(--disp);font-size:26px;text-transform:uppercase;color:var(--ink);letter-spacing:0.01em}
-.lu-d{font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted)}
+  _setupReveal() {
+    setTimeout(() => {
+      try {
+        const els = document.querySelectorAll('[data-reveal]');
+        if (!els.length) return;
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) {
+              const el = en.target;
+              const d = parseInt(el.getAttribute('data-reveal'), 10) || 0;
+              setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+                el.querySelectorAll('[data-lineseg]').forEach((l) => { l.style.transform = 'scaleX(1)'; });
+                if (el.dataset.revealSplit) {
+                  const L = el.children[0], R = el.children[2];
+                  if (L) L.style.transform = 'translateX(0)';
+                  if (R) R.style.transform = 'translateX(0)';
+                }
+                setTimeout(() => { el.style.transition = el.dataset.rvPrev || ''; }, 900);
+              }, d);
+              io.unobserve(el);
+            }
+          });
+        }, { threshold: 0.12 });
+        els.forEach((el) => {
+          if (el.dataset.rv) return;
+          el.dataset.rv = '1';
+          el.dataset.rvPrev = el.style.transition || '';
+          const r = el.getBoundingClientRect();
+          const inView = r.top < (window.innerHeight || 800) && r.bottom > 0;
+          el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+          if (!inView) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            if (el.dataset.revealSplit) {
+              const L = el.children[0], R = el.children[2];
+              if (L) { L.style.transition = 'transform .8s cubic-bezier(.2,.7,.2,1)'; L.style.transform = 'translateX(-44px)'; }
+              if (R) { R.style.transition = 'transform .8s cubic-bezier(.2,.7,.2,1)'; R.style.transform = 'translateX(44px)'; }
+            }
+            io.observe(el);
+          } else {
+            el.querySelectorAll('[data-lineseg]').forEach((l) => { l.style.transform = 'scaleX(1)'; });
+          }
+        });
+      } catch (e) { /* reveal is progressive enhancement */ }
+    }, 400);
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this._raf);
+    this._raf = null;
+    clearInterval(this._watchdog);
+  }
 
-/* gallery */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.gal .figure{border-right:1px solid var(--line);border-bottom:1px solid var(--line);height:200px}
-.gal .figure img{width:100%;height:100%;object-fit:cover}
+  _ensureLoop() {
+    // self-healing: restart even if _raf holds a stale (cancelled) id
+    if (this._raf) {
+      if (performance.now() - (this._lastTickAt || 0) < 500) return;
+      cancelAnimationFrame(this._raf);
+    }
+    if (this._t0 === undefined) this._t0 = performance.now();
+    this._lastTickAt = performance.now();
+    this._raf = requestAnimationFrame(this._tick);
+  }
 
-/* faq */
-.faq{border-top:1px solid var(--line)}
-.faq-item{border-bottom:1px solid var(--line)}
-.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;
-align-items:center;gap:20px;font-family:var(--body);font-size:18px;font-weight:600;color:var(--ink)}
-.faq-q .pm{font-family:var(--mono);font-size:20px;color:var(--steel);transition:.3s}
-.faq-item.open .pm{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.faq-a p{padding:0 0 24px;color:var(--muted);font-size:15px;line-height:1.65;max-width:80ch}
+  _tick = (now) => {
+    this._lastTickAt = performance.now();
+    try {
+      this._updateActive();
+      this._heroParallax(now);
+      this._heroArt(now);
+    } catch (e) { /* keep loop alive */ }
+    this._raf = requestAnimationFrame(this._tick);
+  };
 
-/* downloads rows */
-.dl{border-top:1px solid var(--line)}
-.dl-row{display:grid;grid-template-columns:60px 1fr 130px 90px;align-items:center;border-bottom:1px solid var(--line);padding:22px 0}
-.dl-fmt{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--steel)}
-.dl-t{font-weight:600;color:var(--ink);font-size:16px}
-.dl-t span{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:3px;font-family:var(--body)}
-.dl-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim)}
-.dl-go{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);text-align:right}
+  _updateActive() {
+    const el = this.sysRef.current;
+    if (!el || this._pinned) return;
+    const sy = window.scrollY;
+    if (sy === this._lastSy) return;
+    this._lastSy = sy;
+    const r = el.getBoundingClientRect();
+    const vh = window.innerHeight || 800;
+    if (r.bottom < 0 || r.top > vh) return;
+    const total = r.height + vh * 0.6;
+    const p = Math.min(0.999, Math.max(0, (vh * 0.9 - r.top) / total));
+    const idx = Math.min(4, Math.floor(p * 5));
+    this._applySys(idx);
+  }
 
-/* empty state */
-.empty{border:1px solid var(--line);background:var(--panel);padding:54px;text-align:center}
-.empty p{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+  _applySys(idx) {
+    if (idx === this._active) return;
+    this._active = idx;
+    const root = this.sysRef.current;
+    if (!root) return;
+    root.querySelectorAll('[data-sysrow]').forEach((row) => {
+      const i = +row.getAttribute('data-sysrow');
+      const on = i === idx;
+      row.style.background = on ? 'rgba(239,233,219,.6)' : 'transparent';
+      if (row.children[0]) row.children[0].style.color = on ? '#241B15' : '#8A7256';
+      if (row.children[1]) row.children[1].style.color = on ? '#67473A' : '#8A7C69';
+    });
+    root.querySelectorAll('[data-sysimg]').forEach((img) => {
+      const i = +img.getAttribute('data-sysimg');
+      const on = i === idx;
+      img.style.opacity = on ? '1' : '0';
+      img.style.transform = on ? 'translate(-50%,-50%) scale(1)' : 'translate(-50%,-50%) scale(.955)';
+    });
+    if (this.sysDescRef.current) this.sysDescRef.current.textContent = this._layers[idx].desc;
+    if (this.sysStepRef.current) this.sysStepRef.current.textContent = '0' + (idx + 1) + ' / 05';
+  }
 
-/* form */
-.form{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.field{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 24px;display:flex;flex-direction:column;gap:9px}
-.field.full{grid-column:1/-1}
-.field label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim)}
-.field input,.field textarea,.field select{background:transparent;border:none;border-bottom:1px solid var(--line2);
-font-family:var(--body);font-size:15px;color:var(--ink);padding:6px 0;outline:none;resize:vertical}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--steel)}
+  _applyEndure(h) {
+    this._hovE = h;
+    document.querySelectorAll('[data-endrow]').forEach((row) => {
+      const i = +row.getAttribute('data-endrow');
+      const head = row.children[0], desc = row.children[1];
+      const title = head && head.children[0];
+      if (title) title.style.color = h === i ? '#F2EDE2' : (h === -1 ? '#E4DCCA' : '#8A7C69');
+      if (desc) {
+        desc.style.maxHeight = h === i ? '80px' : '0px';
+        desc.style.opacity = h === i ? '1' : '0';
+        desc.style.marginTop = h === i ? '10px' : '0px';
+      }
+    });
+  }
 
-/* CTA */
-.cta{position:relative;background:var(--panel);padding:88px 46px;text-align:center}
-.cta h2{margin-bottom:20px}
-.cta .lead{margin:0 auto 38px}
-.cta .btns{justify-content:center}
+  _drawWaves(now) {
+    const c = this.waveRef.current;
+    if (!c) return;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const w = c.clientWidth, h = c.clientHeight;
+    if (!w || !h) return;
+    if (c.width !== Math.round(w * dpr)) { c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); }
+    const ctx = c.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const g = ctx.createRadialGradient(w * 0.66, h * 0.36, 60, w * 0.6, h * 0.5, w * 0.8);
+    g.addColorStop(0, '#131313');
+    g.addColorStop(1, '#050505');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, w, h);
+    const t = (now - this._t0) / 1000;
+    const lines = 26;
+    for (let i = 0; i < lines; i++) {
+      const f = i / (lines - 1);
+      const yBase = h * 0.26 + f * h * 0.66;
+      const amp = (16 + 40 * Math.sin(f * Math.PI)) * 0.9;
+      const speed = 0.22 + 0.015 * i;
+      ctx.beginPath();
+      for (let x = 0; x <= w; x += 7) {
+        const k = x / w;
+        const y = yBase
+          + Math.sin(k * 5.4 + t * speed * 2.2 + i * 0.55) * amp * 0.5
+          + Math.sin(k * 12.3 - t * speed * 1.5 + i * 1.3) * amp * 0.24
+          + Math.sin(k * 2.2 + t * 0.32 + i * 0.21) * amp * 0.55;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      const op = 0.045 + 0.3 * Math.pow(Math.sin(f * Math.PI), 1.6);
+      ctx.strokeStyle = 'rgba(240,238,232,' + op.toFixed(3) + ')';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    for (let j = 0; j < 7; j++) {
+      const px = ((j * 0.143 + t * 0.012 * (1 + j * 0.3)) % 1) * w;
+      const f = 0.25 + 0.5 * ((j * 0.37) % 1);
+      const py = h * 0.26 + f * h * 0.66 + Math.sin((px / w) * 5.4 + t * 0.5 + j) * 22;
+      const gg = ctx.createRadialGradient(px, py, 0, px, py, 26);
+      gg.addColorStop(0, 'rgba(255,255,255,.5)');
+      gg.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = gg;
+      ctx.beginPath(); ctx.arc(px, py, 26, 0, 7); ctx.fill();
+      ctx.fillStyle = 'rgba(255,255,255,.95)';
+      ctx.beginPath(); ctx.arc(px, py, 1.7, 0, 7); ctx.fill();
+    }
+  }
 
-/* policy */
-.policy{max-width:880px}
-.pol-item{display:grid;grid-template-columns:54px 1fr;border-top:1px solid var(--line);padding:26px 0}
-.pol-n{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.06em}
-.pol-h{font-weight:700;color:var(--ink);font-size:17px;margin-bottom:9px}
-.pol-b{color:var(--muted);font-size:15px;line-height:1.65}
-.pol-b ul{margin:8px 0 0 18px}
+  _heroParallax(now) {
+    const img = this.heroImgRef.current;
+    if (!img) return;
+    const wrap = img.parentElement;
+    if (!wrap) return;
+    const r = wrap.getBoundingClientRect();
+    const vh = window.innerHeight || 800;
+    const badge = this.stickyLogoRef.current;
+    if (badge) {
+      const show = r.bottom < 70;
+      badge.style.opacity = show ? '1' : '0';
+      badge.style.visibility = show ? 'visible' : 'hidden';
+      badge.style.transform = show ? 'translateY(0)' : 'translateY(-6px)';
+      badge.style.pointerEvents = show ? 'auto' : 'none';
+    }
+    this._heroOn = !(r.bottom < -80 || r.top > vh + 80);
+    if (!this._heroOn) return;
+    // scroll-driven parallax kept WITHIN the image's own overflow (scale 1.16 => ~8% margin each side)
+    const t = (now - (this._t0 || 0)) / 1000;
+    const h = r.height || 660;
+    // progress: -1 (hero just below) .. 0 (aligned) .. 1 (scrolled past)
+    const q = Math.max(-1, Math.min(1, -r.top / h));
+    const py = q * 34;                                  // vertical drift, bounded ±34px
+    const sx = Math.sin(t * 0.32) * 7;                  // gentle idle sway, bounded
+    const sy = Math.cos(t * 0.24) * 4;
+    img.style.transform = 'translate(' + sx.toFixed(2) + 'px,' + (py + sy).toFixed(2) + 'px) scale(1.16)';
+  }
 
-/* FOOTER */
-.footer{border-top:1px solid var(--line2);background:var(--panel);max-width:1440px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line)}
-.footer-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 46px;flex-wrap:wrap}
+  _heroArt(now) {
+    if (this._heroOn === false) return;
+    const svg = this.heroArtRef.current;
+    if (!svg) return;
+    if (!this._scenes) {
+      const gs = svg.querySelectorAll('[data-scene]');
+      if (!gs.length) return;
+      this._scenes = [];
+      gs.forEach((g) => {
+        const paths = [];
+        g.querySelectorAll('path').forEach((p) => {
+          const len = p.getTotalLength();
+          p.style.strokeDasharray = len;
+          p.style.strokeDashoffset = len;
+          paths.push({ el: p, len });
+        });
+        this._scenes.push({ g, paths, label: g.querySelector('text') });
+      });
+    }
+    const T = 7.5, n = this._scenes.length;
+    const t = (now - this._t0) / 1000;
+    const ct = t % (T * n);
+    const si = Math.floor(ct / T);
+    const st = ct - si * T;
+    const eraseAt = T - 1.5;
+    for (let i = 0; i < n; i++) {
+      const s = this._scenes[i];
+      if (i !== si) {
+        if (s.g.style.opacity !== '0') {
+          s.g.style.opacity = '0';
+          s.paths.forEach((p) => { p.el.style.strokeDashoffset = p.len; });
+          if (s.label) s.label.style.opacity = '0';
+        }
+        continue;
+      }
+      s.g.style.opacity = '1';
+      s.g.setAttribute('transform', 'translate(0 ' + (Math.sin(t * 0.7 + i * 2) * 5).toFixed(1) + ')');
+      s.paths.forEach((p, k) => {
+        let off;
+        if (st < eraseAt) {
+          const q = Math.max(0, Math.min(1, (st - k * 0.14) / 1.7));
+          off = p.len * Math.pow(1 - q, 3);
+        } else {
+          const q = Math.max(0, Math.min(1, (st - eraseAt - k * 0.05) / 1.1));
+          off = -p.len * (1 - Math.pow(1 - q, 3));
+        }
+        p.el.style.strokeDashoffset = off;
+      });
+      if (s.label) {
+        const lo = st < eraseAt ? Math.max(0, Math.min(1, (st - 1.8) / 0.8)) : Math.max(0, 1 - (st - eraseAt) / 0.5);
+        s.label.style.opacity = lo.toFixed(2);
+      }
+    }
+  }
 
-.f-nav{display:flex;gap:22px;flex-wrap:wrap}
-.f-nav a{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
-.f-nav a:hover{color:var(--ink)}
-.f-copy{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--dim)}
+  _layers = [
+    { name: 'Command & Control OS', tag: 'Decide', img: 'assets/layer1_bp_t_c.png', desc: 'Sensor fusion, AI decision logic, one operational picture — the brain that directs everything below it, and learns from everything it sends back.' },
+    { name: 'Resilient Communications', tag: 'Connect', img: 'assets/layer2_bp_t_c.png', desc: '5G, RF hybrid, and RTK-GPS links built to hold in contested, GPS-denied environments.' },
+    { name: 'Autonomous Field Robotics', tag: 'Act', img: 'assets/layer3_bp_t_c.png', desc: 'Aerial, ground, and maritime platforms that execute under one C2 brain.' },
+    { name: 'Allied Manufacturing', tag: 'Produce', img: 'assets/layer4_bp_t_c.png', desc: 'In-house production — the industrial base to scale without fragile supply chains.' },
+    { name: 'Field Data & Learning', tag: 'Learn', img: 'assets/loop_diagram.svg', desc: 'Every mission feeds data back into the models, the hardware, and the factory — so the whole system gets sharper with each deployment.' }
+  ];
 
-
-/* reveal */
-.rev{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
-.rev.on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}.ticker-in,.readout .dot{animation:none}}
-
-/* responsive */
-@media(max-width:980px){
-.in{padding:54px 26px}.thesis>div,.feat-txt,.prod-txt{padding:40px 26px}
-.hero-grid,.thesis,.feat,.prod,.whyrow{grid-template-columns:1fr}
-.whyvid{min-height:280px;border-right:none;border-bottom:1px solid var(--line2)}.whytxt{padding:40px 26px}
-.hero-main{border-right:none;border-bottom:1px solid var(--line2);padding:48px 26px}
-.hero-fig{aspect-ratio:1/1}.feat-fig,.prod-fig{min-height:330px}
-.feat.rev2{direction:ltr}.feat-txt{border-right:none;border-bottom:1px solid var(--line)}
-.prod.rev .prod-txt{order:0;border-right:none}.prod-txt{border-left:none;border-top:1px solid var(--line)}
-.thesis>div:first-child{border-right:none;border-bottom:1px solid var(--line)}
-.cards,.mods.c3,.stats,.lineup,.gal,.mods.c4,.showcase{grid-template-columns:1fr 1fr}
-.manifest{grid-template-columns:1fr 1fr}.man-cell:nth-child(2n){border-right:none}
-.lrow{grid-template-columns:1fr}.l-idx{border-right:none;border-bottom:1px solid var(--line);padding:18px 24px}
-.l-txt{border-right:none;border-bottom:1px solid var(--line)}.l-media{min-height:220px}
-.nav-links{display:none}.burger{display:flex}
-.nav-links.show{display:flex;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line2)}
-.nav-links.show a{border-left:none;border-bottom:1px solid var(--line);height:50px}
-.form{grid-template-columns:1fr}.field{border-right:none}
+  renderVals() {
+    setTimeout(() => this._ensureLoop(), 0);
+    const a = this._active || 0;
+    const sysLayers = this._layers.map((L, i) => ({
+      name: L.name,
+      tag: L.tag,
+      idx: i,
+      select: () => { this._pinned = true; this._applySys(i); clearTimeout(this._pinT); this._pinT = setTimeout(() => { this._pinned = false; }, 4000); },
+      rowStyle: {
+        display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+        padding: '15px 14px', margin: '0 -14px', borderTop: '1px solid rgba(20,20,18,.16)',
+        cursor: 'pointer', borderRadius: '10px',
+        background: i === a ? 'rgba(239,233,219,.6)' : 'transparent',
+        transition: 'background .45s ease'
+      },
+      nameStyle: { fontFamily: "'Montserrat',sans-serif", fontSize: '19px', color: i === a ? '#241B15' : '#8A7256', transition: 'color .45s ease' },
+      tagStyle: { fontSize: '12px', letterSpacing: '.04em', textTransform: 'uppercase', color: i === a ? '#67473A' : '#8A7C69', transition: 'color .45s ease' }
+    }));
+    const sysImgStack = React.createElement(React.Fragment, null, this._layers.map((L, i) => React.createElement('img', {
+      key: L.img,
+      src: L.img,
+      'data-sysimg': i,
+      style: {
+        position: 'absolute', left: '50%', top: '50%',
+        width: '78%', maxWidth: '430px', maxHeight: '72%', objectFit: 'contain',
+        transform: i === a ? 'translate(-50%,-50%) scale(1)' : 'translate(-50%,-50%) scale(.955)',
+        opacity: i === a ? 1 : 0,
+        transition: 'opacity .55s ease, transform .55s ease'
+      }
+    })));
+    const hovE = this._hovE === undefined ? -1 : this._hovE;
+    const endureRows = this._endure.map((E, i) => ({
+      title: E.title,
+      desc: E.desc,
+      num: '0' + (i + 1),
+      idx: i,
+      enter: () => this._applyEndure(i),
+      leave: () => this._applyEndure(-1),
+      rowStyle: {
+        padding: '22px 0', borderTop: '1px solid rgba(228,220,202,.16)', cursor: 'default',
+        background: 'transparent', transition: 'padding .35s ease'
+      },
+      titleStyle: {
+        fontFamily: "'Montserrat',sans-serif", fontWeight: 400, fontSize: '23px', lineHeight: 1.2,
+        letterSpacing: '-0.01em', color: hovE === i ? '#F2EDE2' : (hovE === -1 ? '#E4DCCA' : '#8A7C69'),
+        transition: 'color .35s ease'
+      },
+      descStyle: {
+        fontSize: '14px', lineHeight: 1.65, color: '#B6A79B', maxWidth: '64ch',
+        overflow: 'hidden',
+        maxHeight: hovE === i ? '80px' : '0px',
+        opacity: hovE === i ? 1 : 0,
+        marginTop: hovE === i ? '10px' : '0px',
+        transition: 'max-height .45s ease, opacity .45s ease, margin-top .45s ease'
+      }
+    }));
+    return {
+      heroImgRef: this.heroImgRef,
+      heroArtRef: this.heroArtRef,
+      stickyLogoRef: this.stickyLogoRef,
+      introRef: this.introRef,
+      introBgRef: this.introBgRef,
+      introLogoRef: this.introLogoRef,
+      endureRows,
+      formVisible: !this.state.sent,
+      formSent: this.state.sent,
+      submitContact: () => this.setState({ sent: true }),
+      sysImgStack,
+      waveRef: this.waveRef,
+      sysRef: this.sysRef,
+      sysDescRef: this.sysDescRef,
+      sysStepRef: this.sysStepRef,
+      sysLayers,
+      sysDesc: this._layers[a].desc,
+      sysStep: '0' + (a + 1) + ' / 05'
+    };
+  }
 }
-@media(max-width:560px){
-.cards,.mods.c3,.stats,.lineup,.gal,.mods.c4,.manifest{grid-template-columns:1fr}
-.man-cell{border-right:none}.stat,.lu{border-right:none}
-.sec-head{flex-direction:column;align-items:flex-start;gap:14px}
-.dl-row{grid-template-columns:50px 1fr;row-gap:6px}.dl-meta,.dl-go{grid-column:2;text-align:left}
-}
-.f-legal{border-top:1px solid var(--line);padding:22px 46px;font-family:var(--mono);font-size:11px;line-height:1.95;letter-spacing:0.04em;color:var(--dim)}.f-legal b{color:var(--muted);font-weight:500;letter-spacing:0.08em}h1,h2,h3,p.big,.mod-t,.stat-n,.card-t,.l-t,.prod-name,.lu-name{font-weight:300}h1{font-size:clamp(40px,5.2vw,78px);line-height:1.0;letter-spacing:-0.01em}h2{font-size:clamp(36px,4.8vw,66px);line-height:1.01;letter-spacing:-0.01em}h3{line-height:1.0;letter-spacing:-0.005em}p.big{font-size:clamp(28px,3.4vw,46px);line-height:1.04;letter-spacing:-0.01em}.prod-name{line-height:0.98;letter-spacing:-0.01em}.stat-n{line-height:0.95;letter-spacing:-0.01em}.card-t{letter-spacing:-0.005em}h1,h2,h3,p.big,.mod-t,.card-t,.l-t,.prod-name,.lu-name{text-transform:none}h1{text-transform:capitalize}.lastwm{background-image:url(assets/wm_index.png);background-position:center center;background-size:380px;background-repeat:no-repeat}</style></head><body><nav class="nav"><div class="nav-in"><div class="nav-logo"><a href="index.html"><img src="assets/logo1_small.png" alt="Bone Robotics"></a></div><div class="nav-links" id="nav"><a href="platform.html">Platform</a><a href="company.html">Company</a><a href="resources.html">Resources</a><div class="lang-tog"><a class="lt-opt on" href="index.html">EN</a><a class="lt-opt" href="kr/index.html">KR</a></div><a href="contact.html" class="nav-cta">Request a Briefing</a></div><button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav><main class="frame"><section class="hero"><div class="hero-grid"><div class="hero-main"><div class="readout"><span class="dot"></span><span id="term" data-msg="BONE-CORE v4.2 // C2 OS  —  SYSTEM READY"></span></div><div class="eyebrow rev nomotif">Civilization Infrastructure Company<span class="ln"></span></div><h1 class="rev">We build the<br><em>backbone.</em></h1><p class="lead rev">Civilization runs on systems no one sees. We build them, own them, and defend them — end to end.</p><div class="btns rev"><a class="btn btn-p" href="platform.html">See how it works</a><a class="btn btn-g" href="contact.html">Request a briefing →</a></div></div><div class="hero-fig"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="assets/hero_network.png" alt=""></div></div><div class="manifest rev"><div class="man-cell"><span class="man-k">System</span><span class="man-v">Physical AI Infra</span></div><div class="man-cell"><span class="man-k">Core</span><span class="man-v">Command &amp; Control OS</span></div><div class="man-cell"><span class="man-k">Domain</span><span class="man-v">Defense · Safety</span></div><div class="man-cell"><span class="man-k">Ownership</span><span class="man-v">End to End</span></div><div class="man-cell"><span class="man-k">Origin</span><span class="man-v">Made in Korea</span></div></div></section><div class="ticker"><div class="ticker-in"><span>Physical AI <b>Infrastructure</b></span><span>Command &amp; Control <b>Operating System</b></span><span>Low-Altitude <b>Air Defense</b></span><span>Disaster-Response <b>Autonomous Agents</b></span><span>Owned <b>End to End</b></span><span>Made in <b>Korea</b></span><span>Physical AI <b>Infrastructure</b></span><span>Command &amp; Control <b>Operating System</b></span><span>Low-Altitude <b>Air Defense</b></span><span>Disaster-Response <b>Autonomous Agents</b></span><span>Owned <b>End to End</b></span><span>Made in <b>Korea</b></span></div></div><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">Why we exist<span class="ln"></span></div><div class="sec-idx">01 / 05</div></div><p class="big rev">A power grid. A contested border. A wildfire front. Each depends on infrastructure that has to work the moment <em>everything else fails.</em></p></div><div class="whyrow"><div class="whyvid rev"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><video src="assets/v2.mp4" autoplay loop muted playsinline></video><div class="fig-cap"><b>FIELD</b> &nbsp;//&nbsp; Systems in operation</div></div><div class="whytxt rev"><p class="big">A nation is only as resilient as the <em>infrastructure</em> beneath it.</p><p class="body" style="margin-top:24px">Most robotics companies build a product. Most AI companies build a model. Most defense primes integrate other people's parts.</p><p class="body"><b>Bone owns and integrates every layer</b> — hardware, autonomy, sensors, comms, manufacturing, and command-and-control — into one capability that behaves as a whole. In the field. Under contract. When conditions turn hostile.</p></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">Already in the field<span class="ln"></span></div><div class="sec-idx">02 / 05</div></div><h2 class="rev">Proof, not <em>promises.</em></h2><p class="lead rev" style="margin-top:22px">A thesis this big means nothing without deployment. Bone's systems already run under government contract — proven in real defense and disaster operations.</p></div><div class="stats rev"><div class="stat"><div class="stat-n">₩2.8B</div><div class="stat-l">First-year revenue</div></div><div class="stat"><div class="stat-n">292</div><div class="stat-l">Autonomous flights</div></div><div class="stat"><div class="stat-n">379<span style="font-size:.5em">km</span></div><div class="stat-l">Validated range</div></div><div class="stat"><div class="stat-n">90%+</div><div class="stat-l">Field autonomy</div></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">The system<span class="ln"></span></div><div class="sec-idx">03 / 05</div></div></div><div class="feat"><div class="feat-txt rev"><h2>One system,<br><em>many layers.</em></h2><p class="body" style="margin-top:24px">From the C2 brain down to the manufacturing floor, every layer is built and owned in-house, then fused under a single command picture. That is what lets the whole thing keep working when one piece is contested.</p><div class="btns"><a class="btn btn-g" href="platform.html">Explore the platform →</a></div></div><div class="feat-fig bp"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><img src="assets/one_system_bp.png" alt="System overview schematic"><div class="fig-cap"><b>SCHEMATIC</b> &nbsp;//&nbsp; System overview</div></div></div></section><section class="sec"><div class="in"><div class="sec-head"><div class="eyebrow">Explore the system<span class="ln"></span></div><div class="sec-idx">04 / 05</div></div></div><div class="cards rev"><a class="card" href="platform.html"><div class="card-fig"><img src="assets/command_center.jpg" alt="Operations center"></div><div class="card-body"><div class="card-idx">01 — System of systems</div><div class="card-t">Platform</div><div class="card-d">The integrated system — C2 OS, resilient comms, field robotics, and manufacturing as one capability.</div><div class="card-go">Enter →</div></div></a><a class="card" href="company.html"><div class="card-fig"><img src="assets/img_004_3dbf86876218.jpg" alt="Bone leadership" style="object-position:center 20%"></div><div class="card-body"><div class="card-idx">02 — Why Bone · Vision</div><div class="card-t">Company</div><div class="card-d">Why Bone exists, and the new industrial category we're building.</div><div class="card-go">Enter →</div></div></a><a class="card" href="resources.html"><div class="card-fig"><img src="assets/drone_sky.jpg" alt="Bone platform in flight"></div><div class="card-body"><div class="card-idx">03 — Specs · Press · Blog</div><div class="card-t">Resources</div><div class="card-d">Specs, downloads, press, and field notes — everything you need to take Bone with you.</div><div class="card-go">Enter →</div></div></a></div></section><section class="sec cta lastwm"><span class="tk tl"></span><span class="tk tr"></span><span class="tk bl"></span><span class="tk br"></span><h2 class="rev">We don't ship and leave.<br>We stay until it <em>works.</em></h2><p class="lead rev">Government procurement, partnership, or investment — let's talk about the infrastructure you need built.</p><div class="btns rev"><a class="btn btn-p" href="contact.html">Request a briefing →</a><a class="btn btn-g" href="platform.html">See the platform</a></div></section></main><footer class="footer"><div class="footer-in"><div class="f-nav"><a href="platform.html">Platform</a><a href="company.html">Company</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div><div class="f-copy">© 2026 Bone Robotics Co., Ltd. All rights reserved.</div></div><div class="f-legal"><b>Bone Robotics Co., Ltd.</b> &middot; CEO: DK Lee &middot; Business Registration No. 727-88-03866<br>13th Floor, 103-ho, 518, Teheran-ro, Gangnam-gu, Seoul, Republic of Korea<br>info@bonerobotics.ai</div></footer><script>
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
-document.querySelectorAll('.rev').forEach(el=>io.observe(el));
-const b=document.getElementById('burger');if(b){b.onclick=()=>document.getElementById('nav').classList.toggle('show')}
-document.querySelectorAll('.faq-q').forEach(q=>{q.onclick=()=>{const it=q.closest('.faq-item');const a=it.querySelector('.faq-a');
-if(it.classList.toggle('open')){a.style.maxHeight=a.scrollHeight+'px'}else{a.style.maxHeight=0}}});
-const t=document.getElementById('term');if(t){const msg=t.dataset.msg;let i=0;(function ty(){if(i<=msg.length){t.textContent=msg.slice(0,i)+(i<msg.length?'▌':'');i++;setTimeout(ty,38)}else{t.textContent=msg}})();}
-</script></body></html>
+</script>
+</body>
+</html>
